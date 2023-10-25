@@ -6,10 +6,12 @@ import CartPage from "./Pages/CartPage";
 import WishlistPage from "./Pages/WishlistPage";
 import AuthPage from "./Pages/AuthPage";
 import ProfilePage from "./Pages/ProfilePage";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
+      <Navbar />
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
