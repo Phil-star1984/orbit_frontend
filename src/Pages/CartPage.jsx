@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function ShoppingCart() {
+export default function CartPage() {
   return <></>;
 }

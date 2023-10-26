@@ -1,5 +1,11 @@
 import React from "react";
+import Navbar from "../components/Navbar.jsx";
 
-export default function Homepage() {
-  return <></>;
+export default function HomePage() {
+  return (
+    <>
+      <Navbar />
+      <h1>HELLO</h1>
+    </>
+  );
 }
