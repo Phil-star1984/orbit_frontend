@@ -10,7 +10,6 @@ import ProfilePage from "./Pages/ProfilePage.jsx";
 function App() {
   return (
     <>
-      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/game" element={<GamePage />} />
