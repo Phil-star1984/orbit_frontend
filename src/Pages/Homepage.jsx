@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import Newsletter from "../components/Newsletter.jsx";
 
+
 export default function HomePage() {
   return (
     <>
