@@ -11,11 +11,11 @@ export default function Newsletter() {
         <div className="flex gap-2 items-center justify-center max-w-xs lg:max-w-md w-full">
           <input
             type="text"
-            className="rounded-lg lg:py-2 flex-1 appearance-none border border-gray-300 w-full py-1 px-4 bg-black text-gray-700 placeholder-gray-400 shadow-sm text-sm md:text-base lg:text-lg focus:outline-none focus:ring-2 focus:ring-[#365CCE] focus:border-transparent"
+            className="rounded-lg lg:py-2 flex-1 appearance-none border border-gray-300 w-full py-1 px-4 bg-black text-gray-700 placeholder-gray-400 shadow-sm text-sm md:text-base lg:text-lg focus:outline-none focus:ring-2 focus:ring-[#6a6b6e] focus:border-transparent"
             placeholder="Email"
           />
           <button
-            className="px-4 py-1 lg:py-2 text-sm md:text-base lg:text-lg font-semibold text-white bg-[#ceba36] rounded-lg shadow-md hover:bg-[#3651BF] focus:outline-none focus:ring-2 focus:ring-[#547FDD] focus:ring-offset-2 focus:ring-offset-[#C7D9F6]"
+            className="px-4 py-1 lg:py-2 text-sm md:text-base lg:text-lg font-semibold text-white bg-[#ceba36] rounded-lg shadow-md hover:bg-[#6a6b6e] focus:outline-none focus:ring-2 focus:ring-[#6a6b6e] focus:ring-offset-2 focus:ring-offset-[#C7D9F6]"
             type="submit"
           >
             Subscribe
