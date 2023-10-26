@@ -6,12 +6,10 @@ import CartPage from "./Pages/CartPage.jsx";
 import WishlistPage from "./Pages/WishlistPage.jsx";
 import AuthPage from "./Pages/AuthPage.jsx";
 import ProfilePage from "./Pages/ProfilePage.jsx";
-import Navbar from "./components/Navbar.jsx";
 
 function App() {
   return (
     <>
-      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/game" element={<GamePage />} />
