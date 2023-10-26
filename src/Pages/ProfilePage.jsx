@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function ProfilPage() {
+export default function ProfilePage() {
   return <></>;
 }
