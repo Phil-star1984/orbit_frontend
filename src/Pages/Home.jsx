@@ -5,6 +5,7 @@ import Newsletter from "../components/Newsletter.jsx";
 import Slideshow from "../components/Slideshow.jsx";
 import CarouselWithContent from "../components/CarouselWithContent.jsx";
 import Images from "../components/Images.jsx";
+import Categories from "../components/Categories.jsx";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
       {/* <h1 className="text-3xl font-bold underline">Hello World</h1>
       <h1>HELLO</h1> */}
       <Newsletter />
+      <Categories />
       <Footer />
     </>
   );
