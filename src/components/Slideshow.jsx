@@ -4,6 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 // npm install react-responsive-carousel
 import React from "react";
+import Images from "./Images";
 
 export default function Slideshow() {
   return (
@@ -53,6 +54,12 @@ export default function Slideshow() {
         alt="image 3"
         className="h-full w-full object-cover"
       />
+      {/* ////// */}
+      <div className="image">
+        <Images />
+      </div>
+
+      {/* ////// */}
     </Carousel>
   );
 }
