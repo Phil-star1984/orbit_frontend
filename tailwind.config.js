@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+// export default {
+  module.exports = withMT({
     
     content: [
       "./index.html",
@@ -9,5 +13,5 @@ export default {
       extend: {},
     },
     plugins: [],
-  }
+  });
 

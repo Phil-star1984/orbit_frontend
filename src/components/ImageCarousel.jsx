@@ -1,6 +1,5 @@
-// import React from "react";
-
-// import { Carousel, Typography, Button } from "@material-tailwind/react";
+import React from "react";
+import { Carousel, Typography, Button } from "@material-tailwind/react";
 
 export default function ImageCarousel() {
   return (
