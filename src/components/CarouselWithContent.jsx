@@ -2,14 +2,14 @@ import { Carousel, Typography, Button } from "@material-tailwind/react";
 
 export default function CarouselWithContent() {
   return (
-    <Carousel className="rounded-xl">
+    <Carousel className="xl h-[45rem]">
       <div className="relative h-full w-full">
         <img
           src="https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
           alt="image 1"
-          className="h-full w-full object-cover"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+        <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/25">
           <div className="w-3/4 text-center md:w-2/4">
             <Typography
               variant="h1"
@@ -45,7 +45,7 @@ export default function CarouselWithContent() {
           alt="image 2"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
+        <div className="absolute inset-0 grid h-full w-full items-center bg-black/25">
           <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
             <Typography
               variant="h1"
