@@ -1,6 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./Pages/HomePage.jsx";
+import HomePage from "./Pages/Home.jsx";
 import GamePage from "./Pages/GamePage.jsx";
 import CartPage from "./Pages/CartPage.jsx";
 import WishlistPage from "./Pages/WishlistPage.jsx";
