@@ -1,13 +1,13 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, BellIcon, ShoppingCartIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import SearchWindow from "./SearchWindow";
 
 const navigation = [
-  { name: "Store", href: "#", current: true },
-  { name: "Wishlist", href: "#", current: false },
-  { name: "Deals", href: "#", current: false },
-  { name: "Events", href: "#", current: false },
+  { name: "Store", href: "/store", current: true },
+  { name: "Wishlist", href: "/wishlist", current: false },
+  { name: "Deals", href: "/deals", current: false },
+  { name: "Events", href: "/events", current: false },
 ];
 
 function classNames(...classes) {
@@ -72,18 +72,29 @@ export default function Navbar() {
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
+                <button
+                  type="button"
+                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 ml-2 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                >
+                  <span className="absolute -inset-1.5" />
+                  <span className="sr-only">View notifications</span>
+                  <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                </button>
+
+                
+
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      {/* <img
+                      <img
                         className="h-8 w-8 rounded-full"
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt=""
-                      /> */}
-                      <p className="text-white">User</p>
+                      />
+                      {/* <p className="text-white">User</p> */}
                     </Menu.Button>
                   </div>
                   <Transition
