@@ -5,7 +5,7 @@ import SearchWindow from "./SearchWindow";
 
 const navigation = [
   { name: "Store", href: "#", current: true },
-  { name: "Best Seller", href: "#", current: false },
+  { name: "Wishlist", href: "#", current: false },
   { name: "Deals", href: "#", current: false },
   { name: "Events", href: "#", current: false },
 ];
@@ -16,7 +16,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-black">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
