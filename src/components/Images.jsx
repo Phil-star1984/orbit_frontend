@@ -6,7 +6,8 @@ function Images() {
 
   useEffect(() => {
     // Replace with the URL of the image API
-    const imageUrl = "https://example.com/api/image";
+    const imageUrl =
+      "https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg";
 
     // Using Axios (if installed)
     // axios.get(imageUrl, { responseType: 'arraybuffer' })
