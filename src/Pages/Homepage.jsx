@@ -11,13 +11,15 @@ export default function HomePage() {
     <>
       <Navbar />
       <Slideshow />
+      <h1 className="text-3xl font-bold underline">Hello World</h1>
       {/* <ImageCarousel /> */}
       {/* <h1 className="text-3xl font-bold underline">Hello World</h1>
       <h1>HELLO</h1> */}
+      <Categories />
       <Newsletter />
       <Footer />
-      <h1 className="text-3xl font-bold underline">Hello World</h1>
-      <Categories />
+     
+      
     </>
   );
 }
