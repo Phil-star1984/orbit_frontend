@@ -6,11 +6,11 @@
 
 
 import axios from "axios";
-import api from '../api/api.jsx'
+import api from '../api/apiRAWG.jsx'
 import { useState, useEffect } from "react";
 
 
-const useFetch = (slug) => {
+const useFetchRAWG = (slug) => {
 
 const key = import.meta.env.VITE_KEY;
 const [data, setData] = useState();
@@ -33,4 +33,4 @@ getData();
   return {data, loading}
 }
 
-export default useFetch;
+export default useFetchRAWG;
