@@ -6,6 +6,7 @@ import CartPage from "./Pages/CartPage.jsx";
 import WishlistPage from "./Pages/WishlistPage.jsx";
 import AuthPage from "./Pages/AuthPage.jsx";
 import ProfilePage from "./Pages/ProfilePage.jsx";
+import AllGamesPage from "./Pages/AllGamesPage.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/login" element={<AuthPage />} />
         <Route path="/user" element={<ProfilePage />} />
+        <Route path="/allgames" element={<AllGamesPage />} />
         <Route />
       </Routes>
     </>
