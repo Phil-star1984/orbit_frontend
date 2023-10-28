@@ -11,8 +11,8 @@ import { useState, useEffect } from "react";
 
 
 const useFetch = (slug) => {
-//FIX .ENV ISSUE!!
-const key = 'a68824e64475471abcd6b96285019ac7';
+
+const key = import.meta.env.VITE_KEY;
 const [data, setData] = useState();
 const [loading, setLoading] = useState(true);
 
