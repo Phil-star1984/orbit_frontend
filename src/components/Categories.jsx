@@ -5,7 +5,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 
 function Categories() {
   
-  const {data, loading} = useFetchRAWG('/genres');
+  const {data, loading} = useFetchRAWG('/genres?');
 
 
 
@@ -36,7 +36,7 @@ function Categories() {
    
     !data?('...Loading'):(data.results.map((category)=>(
     <div key={`${category.id}`}>
-      <Link to={'/categories'}>
+      <Link to={`/categories/${category.id}`}>
       <div  className='flex justify-center '>
         <img  className='peer hover:opacity-20 w-full h-40 md:h-60 object-cover' alt={`${category.name}`} src={ `${category.image_background}` }/>
         <span  className='absolute flex-col place-self-center place-items-center hidden peer-hover:flex peer-hover:transition ease-out delay-200 text-[#D00EDD] font-bold tracking-wider text-lg sm:text-2xl md:text-4xl'>{category.name}</span>

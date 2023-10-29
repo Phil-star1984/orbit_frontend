@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" element={<AuthPage />} />
         <Route path="/user" element={<ProfilePage />} />
         <Route path="/allgames" element={<AllGamesPage />} />
-        <Route path="/categories" element={<CategoriesPage/>} />
+        <Route path="/categories/:id" element={<CategoriesPage/>} />
         <Route />
       </Routes>
     </>

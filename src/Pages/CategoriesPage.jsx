@@ -6,10 +6,14 @@ import useFetch from '../../hooks/useFetchRAWG.jsx';
 import useFindGameSHARK from '../../hooks/useFindGameSHARK.jsx';
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
 
 
 function CategoriesPage() {
-const {data, loading} = useFetch('/games');
+const { id } = useParams();
+
+const {data, loading} = useFetch(`/games?&genres=${id}`);
 
 if(loading) {
     
