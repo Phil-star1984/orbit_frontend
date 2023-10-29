@@ -37,29 +37,29 @@ console.log(data)
     <Navbar />
       <div className='my-48'>Categories Menu</div>
       
-      <div className='my-8 flex flex-col'> List of Games 
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 p-3">
       { //check why it needs it 
-      !data?('...Loading games'):(data.results.map((game)=>(
-        <div key={`${game.id}`} className='flex justify-center'>
-          <div className='w-1/5'>
-          <img className='' src={`${game.background_image}`} alt={`${game.name}`}/>
+      data.results.map((game)=>(
+        <div key={`${game.id}`} className="flex flex-col justify-between rounded-lg text-white shadow-lg p-3 bg-gradient-to-r from-pink to-lila hover:from-pink hover:to-yellow-500"
+        >
+          <div className="flex flex-col justify-between rounded-lg text-white shadow-lg p-3 bg-gradient-to-r from-pink to-lila hover:from-pink hover:to-yellow-500">
+          <div className='mb-4'>
+              <h1>Game Title: {game.name}</h1>
+              <p>Rating: {game.rating}</p>
+              <p>Release date: {game.released}</p>
+            </div>
+            <div
+              class="bg-cover bg-center w-full h-80 rounded-lg"
+              style={{ backgroundImage: `url(${game.background_image})` }}
+            >
+            </div>
           </div>
-          <span>{game.name}</span>
-          <br />
-          <span>Release date: {game.released}</span>
-         <br />
-          <span>Rating: {game.rating}</span>
-          <hr />
-         
-
-
-   
-        </div>))
-       )
+         </div>))
+       
       }
-      <Pagination />
+     
      </div>
-      
+     <Pagination />
     <Footer />
     </>
     
