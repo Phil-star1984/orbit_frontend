@@ -1,6 +1,7 @@
 import React from "react";
 import useAxiosFetch from "../hooks/useAxiosFetch.jsx";
 import { useState, useEffect } from "react";
+import Navbar from "../components/Navbar.jsx";
 
 function AllGamesPage() {
   const { data, fetchError, isLoading } = useAxiosFetch(
@@ -25,15 +26,24 @@ function AllGamesPage() {
 
   return (
     <>
+      <Navbar />
       <div className="grid grid-cols-4 gap-4 p-3">
         {games.map((item, index) => (
           <div
             key={index}
-            className="rounded-lg text-white bg-lila shadow-lg p-3"
+            className="flex flex-col justify-between rounded-lg text-white shadow-lg p-3 bg-gradient-to-r from-pink to-lila hover:from-pink hover:to-yellow-500"
           >
-            <h1>{item.name}</h1>
-            <p>Rating: {item.rating}</p>
-            <p>Updated: {item.updated}</p>
+            <div>
+              <h1>Game Title: {item.name}</h1>
+              <p>Rating: {item.rating}</p>
+              <p>Updated: {item.updated}</p>
+            </div>
+            <div
+              class="bg-cover bg-center w-full h-[100px] rounded-lg"
+              style={{ backgroundImage: `url(${item.background_image})` }}
+            >
+              Customize
+            </div>
           </div>
         ))}
       </div>
