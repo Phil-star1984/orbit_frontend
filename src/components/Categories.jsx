@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useFetchRAWG from "../../hooks/useFetchRAWG";
 import PacmanLoader from "react-spinners/PacmanLoader";
-//npm i react-loaders
+
 
 function Categories() {
   const { data, loading } = useFetchRAWG("/genres?");
