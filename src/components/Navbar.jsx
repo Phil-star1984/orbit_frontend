@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from 'react-router-dom';
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -7,7 +8,6 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import SearchWindow from "./SearchWindow";
-import { Link } from "react-router-dom";
 
 const navigation = [
   { name: "Store", href: "/store", current: true },
@@ -41,12 +41,12 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <Link to={'/'}>
-                  <img
-                    className="h-11 w-auto"
-                    src="../src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
-                    alt="Orbit - Next Level Gaming"
-                  />
+                  <Link to="/">
+                    <img
+                      className="h-11 w-auto"
+                      src="src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
+                      alt="Orbit Gaming Logo"
+                    />
                   </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
