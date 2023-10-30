@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import useFetch from '../../hooks/useFetch';
+import useFetch from '../../hooks/useFetch.jsx';
 import Loader from 'react-loaders';
 
 

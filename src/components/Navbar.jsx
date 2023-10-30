@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from 'react-router-dom';
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -40,11 +41,13 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="h-11 w-auto"
-                    src="src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
-                    alt="Your Company"
-                  />
+                  <Link to="/">
+                    <img
+                      className="h-11 w-auto"
+                      src="src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
+                      alt="Orbit Gaming Logo"
+                    />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
