@@ -1,7 +1,13 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, ShoppingCartIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  BellIcon,
+  ShoppingCartIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import SearchWindow from "./SearchWindow";
+import { Link } from "react-router-dom";
 
 const navigation = [
   { name: "Store", href: "/store", current: true },
@@ -16,7 +22,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-black">
+    <Disclosure as="nav" className="bg-black h-18">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -35,11 +41,13 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
+                  <Link to={'/'}>
                   <img
                     className="h-11 w-auto"
-                    src="src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
-                    alt="Your Company"
+                    src="../src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
+                    alt="Orbit - Next Level Gaming"
                   />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -74,14 +82,12 @@ export default function Navbar() {
 
                 <button
                   type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 ml-2 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full bg-lila p-1 text-gray-400 ml-2 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
-                  <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
+                  <ShoppingCartIcon className="h-6 w-6 " aria-hidden="true" />
                 </button>
-
-                
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">

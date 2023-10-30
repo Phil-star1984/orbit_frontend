@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
-import Loader from "react-loaders";
-//npm i react-loaders
+import useFetchRAWG from "../../hooks/useFetchRAWG";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 function Categories() {
-  const { data, loading } = useFetch("/genres");
+  const { data, loading } = useFetchRAWG("/genres?");
 
   if (loading) {
-    return <Loader type="pacman" />;
+    return (
+      <div className="w-full flex justify-center my-36">
+        <PacmanLoader
+          color="#D00EDD"
+          loading={loading}
+          size={80}
+          aria-label="Loading Spinner"
+        />
+      </div>
+    );
   }
 
   return (
@@ -17,11 +25,12 @@ function Categories() {
       <div className="grid grid-cols-2 m-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
         {
           //check why it needs it
+
           !data
             ? "...Loading"
             : data.results.map((category) => (
                 <div key={`${category.id}`}>
-                  <Link to={"/"}>
+                  <Link to={`/categories/${category.id}`}>
                     <div className="flex justify-center ">
                       <img
                         className="peer hover:opacity-20 w-full h-40 md:h-60 object-cover"
