@@ -8,6 +8,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import SearchWindow from "./SearchWindow";
+import { Link } from "react-router-dom";
 
 const navigation = [
   { name: "Store", href: "/store", current: true },
