@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 
 const useCart = () => {
   const addToCart = (gameId) => {
-    setCart([...cart, gameId]);
+    const storedCart = JSON.parse(localStorage.getItem("cart"));
+
+    localStorage.setItem("cart", JSON.stringify([...storedCart, gameId]));
   };
 
   const removeFromCart = (gameId) => {

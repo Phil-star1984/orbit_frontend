@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { PlusCircleIcon } from "@heroicons/react/24/outline";
+import AddToCartBtn from "./buttons/AddToCartBtn";
 
-const TopListItem = ({ id, title, imageSrc, price, handleAddToCart }) => {
+const TopListItem = ({ id, title, imageSrc, price }) => {
   return (
     <div className="bg-gray-800 h-28 overflow-hidden shadow-lg flex w-full hover:bg-gray-700 cursor-pointer active:bg-gray-800 group">
       {/* Image */}
@@ -22,13 +22,7 @@ const TopListItem = ({ id, title, imageSrc, price, handleAddToCart }) => {
         <div className="h-2/3 w-full flex justify-end">
           <p className="text-white text-lg self-center">{price}</p>
           {/* Add to Cart Button (conditionally shown on hover) */}
-          <button
-            className="hidden group-hover:inline-flex items-center ml-2 text-white hover:text-gray-300"
-            onClick={handleAddToCart}
-          >
-            <PlusCircleIcon className="h-6 w-6" />
-            {/* <span className="ml-2">Add to Cart</span> */}
-          </button>
+          <AddToCartBtn gameId={id} />
         </div>
       </div>
     </div>
