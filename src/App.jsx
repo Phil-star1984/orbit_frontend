@@ -11,7 +11,7 @@ import CategoriesPage from "./Pages/CategoriesPage.jsx";
 
 function App() {
   return (
-    <>
+    <div className="bg-gray-900">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/game" element={<GamePage />} />
@@ -23,7 +23,7 @@ function App() {
         <Route path="/categories/:id" element={<CategoriesPage/>} />
         <Route />
       </Routes>
-    </>
+    </div>
   );
 }
 
