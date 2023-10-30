@@ -7,7 +7,6 @@ import ImageCarousel from "../components/ImageCarousel.jsx";
 import TopList from "../components/TopList.jsx";
 
 export default function HomePage() {
-  const handleAddToCart = (gameId) => {};
   return (
     <>
       <Navbar />
