@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -22,7 +22,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="bg-black h-18">
+    <Disclosure as="nav" className="sticky top-0 z-50 bg-black h-20">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -66,10 +66,11 @@ export default function Navbar() {
                         {item.name}
                       </a>
                     ))}
+                    <SearchWindow />
                   </div>
                 </div>
               </div>
-              <SearchWindow />
+
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
