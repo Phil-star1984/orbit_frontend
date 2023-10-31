@@ -44,7 +44,7 @@ export default function Navbar() {
                   <Link to="/">
                     <img
                       className="h-11 w-auto"
-                      src="src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
+                      src="../src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
                       alt="Orbit Gaming Logo"
                     />
                   </Link>
