@@ -17,8 +17,8 @@ export default function HomePage() {
       <h1>HELLO</h1> */}
       <Newsletter />
       <section className="max-w-screen-xl bg-gray-900 text-white  container mx-auto flex gap-16 py-8">
-        <TopList listTitle={"Top Seller"} />
-        <TopList listTitle={"Most played"} />
+        <TopList listTitle={"Top Seller"} page={1} />
+        <TopList listTitle={"Most played"} page={2} />
       </section>
       <Categories/>
       <Footer />
