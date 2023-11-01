@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -21,6 +22,10 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  /*   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const checkLogin = async axios.get('https://orbitback.onrender.com/auth/me') */
+
   return (
     <Disclosure as="nav" className="sticky top-0 z-50 bg-black h-20">
       {({ open }) => (
@@ -44,7 +49,7 @@ export default function Navbar() {
                   <Link to="/">
                     <img
                       className="h-11 w-auto"
-                      src="src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
+                      src="../src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
                       alt="Orbit Gaming Logo"
                     />
                   </Link>

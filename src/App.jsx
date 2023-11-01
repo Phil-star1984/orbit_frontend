@@ -1,4 +1,7 @@
 import "./App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import GamePage from "./Pages/GamePage.jsx";
@@ -12,6 +15,7 @@ import CategoriesPage from "./Pages/CategoriesPage.jsx";
 function App() {
   return (
     <div className="bg-gray-900">
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/game" element={<GamePage />} />

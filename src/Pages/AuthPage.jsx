@@ -1,6 +1,7 @@
 import React from "react";
 import Login from "../components/Login.jsx";
 import Navbar from "../components/Navbar.jsx";
+import SignUp from "../components/SignUp.jsx"
 
 /* signIn -> log in
 
@@ -11,6 +12,7 @@ export default function AuthPage() {
     <>
       <Navbar />
       <Login />
+      <SignUp />
     </>
   );
 }
