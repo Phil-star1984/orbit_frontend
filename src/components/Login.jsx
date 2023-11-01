@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../Context/AuthProvider";
 import axios from "axios";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const { setIsLoggedIn, userData, setUserData } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -24,15 +25,13 @@ export default function Login() {
       );
 
       if (response.status === 200) {
-        console.log(response.status);
-        alert("Welcome!");
-        // navigate('/');
+        navigate("/");
         // window.location.reload();
-        // setIsLoggedIn(true);
+        setIsLoggedIn(true);
+        setUserData(response.data);
       }
     } catch (error) {
-      setError(error.response.data.error);
-      console.error(error.response.data.error || "Invalid credentials");
+      console.error(error);
     }
   };
 
@@ -40,9 +39,9 @@ export default function Login() {
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-black rounded-md shadow-xl lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-lila uppercase">
-          Login
+          Sign in
         </h1>
-        {error && <p className="text-red-500 mb-4">{error}</p>}
+
         <form className="mt-6" onSubmit={handleSubmit}>
           <div className="mb-2">
             <label

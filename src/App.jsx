@@ -11,6 +11,7 @@ import AuthPage from "./Pages/AuthPage.jsx";
 import ProfilePage from "./Pages/ProfilePage.jsx";
 import AllGamesPage from "./Pages/AllGamesPage.jsx";
 import CategoriesPage from "./Pages/CategoriesPage.jsx";
+import SignUp from "./components/SignUp.jsx";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/user" element={<ProfilePage />} />
         <Route path="/allgames" element={<AllGamesPage />} />
         <Route path="/categories/:id" element={<CategoriesPage />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route />
       </Routes>
     </div>

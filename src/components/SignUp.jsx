@@ -1,15 +1,37 @@
 import { React, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 export default function SignUp() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
+
+    try {
+      const response = await axios.post(
+        "https://orbitback.onrender.com/auth/signup",
+        {
+          firstName,
+          lastName,
+          email,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+
+      if (response.status === 201) {
+        alert("Welcome");
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error(error || "Registration failed");
+    }
   };
 
   return (
@@ -21,7 +43,7 @@ export default function SignUp() {
         <form onSubmit={handleSubmit} className="mt-6">
           <div className="mb-2">
             <label
-              for="firstName"
+              htmlFor="firstName"
               className="block text-sm font-semibold text-gray-800"
             >
               First Name
@@ -35,7 +57,7 @@ export default function SignUp() {
           </div>
           <div className="mb-2">
             <label
-              for="lastName"
+              htmlFor="lastName"
               className="block text-sm font-semibold text-gray-800"
             >
               Last Name
@@ -50,7 +72,7 @@ export default function SignUp() {
 
           <div className="mb-2">
             <label
-              for="email"
+              htmlFor="email"
               className="block text-sm font-semibold text-gray-800"
             >
               Email
@@ -64,7 +86,7 @@ export default function SignUp() {
           </div>
           <div className="mb-2">
             <label
-              for="password"
+              htmlFor="password"
               className="block text-sm font-semibold text-gray-800"
             >
               Password
@@ -80,7 +102,10 @@ export default function SignUp() {
             Forget Password?
           </a>
           <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gradient-to-r from-pink to-lila rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+            <button
+              type="submit"
+              className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gradient-to-r from-pink to-lila rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+            >
               Sign Up
             </button>
           </div>
