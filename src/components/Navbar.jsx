@@ -9,6 +9,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import SearchWindow from "./SearchWindow";
+import { useCart } from "../Context/CartProvider";
 
 const navigation = [
   { name: "Store", href: "/store", current: true },
@@ -22,9 +23,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  /*   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const checkLogin = async axios.get('https://orbitback.onrender.com/auth/me') */
+  const { cart } = useCart();
 
   return (
     <Disclosure as="nav" className="sticky top-0 z-50 bg-black h-20">
@@ -93,6 +92,11 @@ export default function Navbar() {
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
                   <ShoppingCartIcon className="h-6 w-6 " aria-hidden="true" />
+                  {cart.length > 0 && (
+                    <div className="absolute top-0 right-0 flex justify-center items-center bg-red-400 text-white rounded-full text-xs h-5 w-5 translate-x-2 -translate-y-2 ">
+                      {cart.length}
+                    </div>
+                  )}
                 </button>
 
                 {/* Profile dropdown */}
