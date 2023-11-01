@@ -12,11 +12,14 @@ import ProfilePage from "./Pages/ProfilePage.jsx";
 import AllGamesPage from "./Pages/AllGamesPage.jsx";
 import CategoriesPage from "./Pages/CategoriesPage.jsx";
 import SignUp from "./components/SignUp.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
     <div className="bg-gray-900">
       <ToastContainer />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/game" element={<GamePage />} />
@@ -29,6 +32,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route />
       </Routes>
+      <Footer />
     </div>
   );
 }

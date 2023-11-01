@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/Footer.jsx";
 import Newsletter from "../components/Newsletter.jsx";
 
 import TopList from "../components/TopList.jsx";
@@ -10,7 +8,6 @@ import CarouselWithContent from "../components/CarouselWithContent.jsx";
 export default function HomePage() {
   return (
     <>
-      <Navbar />
       <CarouselWithContent />
       {/* <ImageCarousel /> */}
       {/* <h1 className="text-3xl font-bold underline">Hello World</h1>
@@ -21,7 +18,6 @@ export default function HomePage() {
         <TopList listTitle={"Most played"} />
       </section>
       <Categories />
-      <Footer />
     </>
   );
 }
