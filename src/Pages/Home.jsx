@@ -14,12 +14,13 @@ export default function HomePage() {
   return (
     <>
       <Navbar setResults={setResults} />
+      {results && <ShowResults results={results} />}
       <CarouselWithContent />
       {/* <ImageCarousel /> */}
       {/* <h1 className="text-3xl font-bold underline">Hello World</h1>
       <h1>HELLO</h1> */}
       <Newsletter />
-      {results && <ShowResults results={results} />}
+
       <section className="max-w-screen-xl bg-gray-900 text-white  container mx-auto flex gap-16 py-8">
         <TopList listTitle={"Top Seller"} />
         <TopList listTitle={"Most played"} />
