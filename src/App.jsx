@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="bg-gray-900">
       <ToastContainer />
-      <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/game" element={<GamePage />} />
@@ -30,8 +30,8 @@ function App() {
         <Route path="/login" element={<AuthPage />} />
         <Route path="/user" element={<ProfilePage />} />
         <Route path="/allgames" element={<AllGamesPage />} />
-        <Route path="/categories/:id" element={<CategoriesPage/>} />
-        <Route path="/deals/:rawTitle" element={<DealPage/>} />
+        <Route path="/categories/:id" element={<CategoriesPage />} />
+        <Route path="/deals/:rawTitle" element={<DealPage />} />
         <Route />
       </Routes>
       <Footer />

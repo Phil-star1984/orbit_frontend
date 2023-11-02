@@ -1,4 +1,5 @@
 import { Carousel, Typography, Button } from "@material-tailwind/react";
+import ExploreBtn from "../components/buttons/ExploreBtn.jsx";
 
 export default function CarouselWithContent() {
   return (
@@ -29,9 +30,7 @@ export default function CarouselWithContent() {
               and renews a weary spirit.
             </Typography>
             <div className="flex justify-center gap-2">
-              <Button size="lg" color="white">
-                Explore
-              </Button>
+              <ExploreBtn />
               {/* <Button size="lg" color="white" variant="text">
                 Gallery
               </Button> */}
