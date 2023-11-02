@@ -10,6 +10,9 @@ import {
 
 import { useCart } from "../Context/CartProvider";
 import SearchBtn from "./buttons/SearchBtn.jsx";
+import { Button } from "@material-tailwind/react";
+import { useAuth } from "../Context/AuthProvider";
+import axios from "axios";
 
 const navigation = [
   { name: "Store", href: "/store", current: true },
@@ -24,6 +27,24 @@ function classNames(...classes) {
 
 export default function Navbar({ setResults }) {
   const { cart } = useCart();
+  const { isLoggedIn, setIsLoggedIn } = useAuth();
+  const { userData, setUserData } = useAuth();
+
+  // console.log(userData);
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(
+        "https://orbitback.onrender.com/auth/logout",
+        {},
+        { withCredentials: true }
+      );
+      setIsLoggedIn(false);
+    } catch (error) {
+      console.error(error);
+      setIsLoggedIn(false);
+    }
+  };
 
   //console.log(results);
 
@@ -50,7 +71,7 @@ export default function Navbar({ setResults }) {
                   <Link to="/">
                     <img
                       className="h-11 w-auto"
-                      src="src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
+                      src="../src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
                       alt="Orbit Gaming Logo"
                     />
                   </Link>
@@ -76,7 +97,6 @@ export default function Navbar({ setResults }) {
                   </div>
                 </div>
               </div>
-
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
@@ -107,14 +127,27 @@ export default function Navbar({ setResults }) {
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
-                      {/* <p className="text-white">User</p> */}
+                      {/* <img
+                        className='h-8 w-8 rounded-full'
+                        src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+                        alt=''
+                      /> */}
                     </Menu.Button>
                   </div>
+                  {isLoggedIn ? (
+                    <div className="text-white">
+                      <button
+                        onClick={handleLogout}
+                        className="cursor-pointer hover:opacity-80"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  ) : (
+                    <Link to="/login" className="text-white">
+                      Login
+                    </Link>
+                  )}
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"

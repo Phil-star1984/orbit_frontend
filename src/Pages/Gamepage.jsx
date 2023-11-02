@@ -1,34 +1,21 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import useFetchRAWG from "../../hooks/useFetchRAWG.jsx";
+import calcArbitraryPrice from "../../utility/calcArbetraryPrice.jsx";
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
+import { useParams } from "react-router-dom";
 
 export default function GamePage() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://api.rawg.io/api/");
-        if (response.ok) {
-          const data = await response.json();
-          setGameData(data.game);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return (
     <>
       <Navbar />
-      {/* <Bild></Bild>
-      <TitelWithPrice></>
-      <Carousel></>
-      <Description></>
-      <UserReviews></> */}
+      <div>HERO SECTION - slider</div>
+      <div>Price Box</div>
+      <div>Tag Cloud</div>
+      <div>Videos & Trailers </div>
+      <div>Ratings & Metacritic</div>
+      <div>Genres</div>
+      <div>Description</div>
       <Footer />
     </>
   );

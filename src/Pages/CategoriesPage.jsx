@@ -7,6 +7,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Categories from "../components/Categories.jsx";
+import AddToCartBtn from "../components/buttons/AddToCartBtn.jsx";
 
 function CategoriesPage() {
   const { id } = useParams();
@@ -31,8 +32,8 @@ function CategoriesPage() {
 
   return (
     <>
-      <Navbar />
       <Categories />
+
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 p-3">
         {
           //check why it needs it
@@ -61,8 +62,7 @@ function CategoriesPage() {
           ))
         }
       </div>
-      <Pagination items={data} itemsPerPage={20} />
-      <Footer />
+      <Pagination />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -17,9 +18,11 @@ function Footer() {
               We would like to know if you are happy with our store.
             </p>
             <div className="w-44 pt-6 md:pt-0">
-              <a className="bg-orange-800 justify-center text-center rounded-lg shadow px-10 py-3 flex items-center">
-                Contact US
-              </a>
+              <Link to="/contact">
+                <button className="flex items-center justify-center text-center text-white rounded-lg shadow px-10 py-3 transition-colors duration-200 transform bg-gradient-to-r from-pink to-lila hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+                  Contact US
+                </button>
+              </Link>
             </div>
           </div>
           <div className="flex flex-col">
