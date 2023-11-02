@@ -3,18 +3,18 @@ import axios from "axios";
 import TopListItem from "./TopListItem";
 import calcArbitraryPrice from "../../utility/calcArbetraryPrice.jsx";
 
-const TopList = ({ listTitle, handleAddToCart }) => {
+const TopList = ({ listTitle, handleAddToCart, page }) => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
     const getGames = async () => {
       try {
         const response = await axios.get(
-          "https://api.rawg.io/api/games?key=a68824e64475471abcd6b96285019ac7&page_size=10"
+          `https://api.rawg.io/api/games?key=a68824e64475471abcd6b96285019ac7&page_size=10&page=${page}`
         );
 
         const fetchedGames = response.data.results;
-
+        console.log(fetchedGames);
         setGames(fetchedGames);
       } catch (error) {
         console.error("Error fetching games:", error.message);
@@ -26,7 +26,9 @@ const TopList = ({ listTitle, handleAddToCart }) => {
 
   return (
     <div className="w-1/2 flex flex-col">
-      <h2 className="text-4xl font-semibold mb-8 text-rose-500">{listTitle}</h2>
+      <h2 className="text-4xl font-semibold mb-8 text-purple-400">
+        {listTitle}
+      </h2>
       <div className="flex flex-col gap-1">
         {games.map((game) => {
           const arbitraryPrice = calcArbitraryPrice(game.id);
@@ -35,6 +37,7 @@ const TopList = ({ listTitle, handleAddToCart }) => {
               key={game.id}
               id={game.id}
               title={game.name}
+              genres={game.genres}
               imageSrc={game.background_image}
               price={arbitraryPrice}
               handleAddToCart={handleAddToCart}
