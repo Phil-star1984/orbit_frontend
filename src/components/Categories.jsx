@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useFetchRAWG from "../../hooks/useFetchRAWG";
 import PacmanLoader from "react-spinners/PacmanLoader";
-
+import AddToCartBtn from "./buttons/AddToCartBtn.jsx";
 
 function Categories() {
   const { data, loading } = useFetchRAWG("/genres?");
@@ -41,6 +41,7 @@ function Categories() {
                       <span className="absolute flex-col place-self-center place-items-center hidden peer-hover:flex peer-hover:transition ease-out delay-200 text-[#D00EDD] font-bold tracking-wider text-lg sm:text-2xl md:text-4xl">
                         {category.name}
                       </span>
+                    
                     </div>
                   </Link>
                 </div>

@@ -11,6 +11,8 @@ import AuthPage from "./Pages/AuthPage.jsx";
 import ProfilePage from "./Pages/ProfilePage.jsx";
 import AllGamesPage from "./Pages/AllGamesPage.jsx";
 import CategoriesPage from "./Pages/CategoriesPage.jsx";
+import DealPage from "./Pages/DealPage.jsx";
+
 import SignUp from "./components/SignUp.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
@@ -28,8 +30,8 @@ function App() {
         <Route path="/login" element={<AuthPage />} />
         <Route path="/user" element={<ProfilePage />} />
         <Route path="/allgames" element={<AllGamesPage />} />
-        <Route path="/categories/:id" element={<CategoriesPage />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/categories/:id" element={<CategoriesPage/>} />
+        <Route path="/deals/:rawTitle" element={<DealPage/>} />
         <Route />
       </Routes>
       <Footer />

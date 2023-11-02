@@ -7,6 +7,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Categories from '../components/Categories.jsx';
+import AddToCartBtn from '../components/buttons/AddToCartBtn.jsx';
 
 
 
@@ -44,6 +45,7 @@ if(loading) {
       data.results.map((game)=>(
         <div key={`${game.id}`} className="flex flex-col justify-between rounded-lg text-white shadow-lg p-3 bg-gradient-to-r from-pink to-lila hover:from-pink hover:to-yellow-500"
         >
+          
           <div className="flex flex-col justify-between rounded-lg text-white shadow-lg p-3 bg-gradient-to-r from-pink to-lila hover:from-pink hover:to-yellow-500">
           <div className='mb-4'>
               <h1>Title: {game.name}</h1>
@@ -61,6 +63,7 @@ if(loading) {
             >
             </div>
           </div>
+          
          </div>))
        
       }
