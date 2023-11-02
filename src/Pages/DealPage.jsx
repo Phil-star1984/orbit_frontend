@@ -47,7 +47,7 @@ if(loading) {
             url6={heroPics[5].image}
         />
         </div>
-        <div className="w-1/5 h-32 sm:h-36 md:h-48 bg-white z-10 absolute my-96 mx-[24rem] sm:mx-[28rem] md:my-96 md:mx-[34rem] lg:w-1/3 lg:my-96 lg:mx-[44rem] xl:w-2/5 xl:mx-[52rem] 2xl:mx-[70rem]">
+        <div className="w-1/5 h-32 sm:h-36 md:h-48 bg-white z-10 absolute my-96 mx-[24rem] sm:mx-[28rem] md:my-96 md:mx-[34rem] lg:w-1/3 lg:my-96 lg:mx-[44rem] xl:w-1/3 xl:mx-[52rem] 2xl:mx-[70rem]">
             Price Box
         </div>
       </div>

@@ -23,10 +23,10 @@ export const AuthProvider = ({ children }) => {
 
         if (response.data && response.data._id) {
           setIsLoggedIn(true);
-          setuserData(response.data);
+          setUserData(response.data);
         } else {
           setIsLoggedIn(false);
-          setuserData({});
+          setUserData({});
         }
       } catch (error) {
         setIsLoggedIn(false);

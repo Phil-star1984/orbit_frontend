@@ -14,11 +14,14 @@ import CategoriesPage from "./Pages/CategoriesPage.jsx";
 import DealPage from "./Pages/DealPage.jsx";
 
 import SignUp from "./components/SignUp.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
     <div className="bg-gray-900">
       <ToastContainer />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/game" element={<GamePage />} />
@@ -31,6 +34,7 @@ function App() {
         <Route path="/deals/:rawTitle" element={<DealPage/>} />
         <Route />
       </Routes>
+      <Footer />
     </div>
   );
 }

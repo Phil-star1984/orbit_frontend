@@ -10,9 +10,7 @@ import SignUp from "../components/SignUp.jsx"
 export default function AuthPage() {
   return (
     <>
-      <Navbar />
       <Login />
-      <SignUp />
     </>
   );
 }
