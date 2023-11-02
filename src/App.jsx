@@ -28,6 +28,7 @@ function App() {
         <Route path="/user" element={<ProfilePage />} />
         <Route path="/allgames" element={<AllGamesPage />} />
         <Route path="/categories/:id" element={<CategoriesPage/>} />
+        <Route path="/deals/:rawTitle" element={<DealPage/>} />
         <Route />
       </Routes>
     </div>

@@ -5,7 +5,7 @@ import Footer from "../components/Footer.jsx";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
-import useFetchGAME from "../../hooks/useFetchGAME.jsx";
+
 
 function DealPage() {
 const {rawTitle} = useParams();
@@ -31,7 +31,7 @@ if(loading) {
   }
   const gameData = data.results[0];
   const heroPics = gameData.short_screenshots;
-  const {gameDetails} = useFetchGAME(`${gameData.id}`)
+  
 
   return (
     <div className='text-white'>
