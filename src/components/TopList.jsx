@@ -14,7 +14,7 @@ const TopList = ({ listTitle, handleAddToCart, page }) => {
         );
 
         const fetchedGames = response.data.results;
-
+        console.log(fetchedGames);
         setGames(fetchedGames);
       } catch (error) {
         console.error("Error fetching games:", error.message);
@@ -26,7 +26,9 @@ const TopList = ({ listTitle, handleAddToCart, page }) => {
 
   return (
     <div className="w-1/2 flex flex-col">
-      <h2 className="text-4xl font-semibold mb-8 text-rose-500">{listTitle}</h2>
+      <h2 className="text-4xl font-semibold mb-8 text-purple-400">
+        {listTitle}
+      </h2>
       <div className="flex flex-col gap-1">
         {games.map((game) => {
           const arbitraryPrice = calcArbitraryPrice(game.id);
@@ -35,6 +37,7 @@ const TopList = ({ listTitle, handleAddToCart, page }) => {
               key={game.id}
               id={game.id}
               title={game.name}
+              genres={game.genres}
               imageSrc={game.background_image}
               price={arbitraryPrice}
               handleAddToCart={handleAddToCart}
