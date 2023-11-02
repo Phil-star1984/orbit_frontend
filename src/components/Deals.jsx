@@ -25,7 +25,7 @@ function Deals() {
     getDeals();
     }, []);
     
-console.log(deals)
+
   if (loading) {
     return (
       <div className="w-full flex justify-center my-36">
@@ -47,7 +47,7 @@ console.log(deals)
         {  
           deals.map((deal) => (
                 <div key={`${deal.dealID}`} className="text-white w-full">
-                  <Link to={`/deals/${deal.title}`}>
+                  <Link to={`/deals/${deal.title}`} dealdata={deals}>
                    
                     <div className="flex justify-center flex-col">
                         <h3>{deal.title}</h3>

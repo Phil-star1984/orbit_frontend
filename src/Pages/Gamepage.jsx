@@ -8,16 +8,18 @@ import { useParams } from "react-router-dom";
 
 export default function GamePage() {
 
-  return 
-  <>
-  <Navbar />
-    <div>HERO SECTION - slider</div>
-    <div>Price Box</div>
-    <div>Tag Cloud</div>
-    <div>Videos & Trailers </div>
-    <div>Ratings & Metacritic</div>
-    <div>Genres</div>
-    <div>Description</div>
-  <Footer />
-  </>;
+  return (
+    <>
+    <Navbar />
+      <div>HERO SECTION - slider</div>
+      <div>Price Box</div>
+      <div>Tag Cloud</div>
+      <div>Videos & Trailers </div>
+      <div>Ratings & Metacritic</div>
+      <div>Genres</div>
+      <div>Description</div>
+    <Footer />
+    </>
+  )
+
 }

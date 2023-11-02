@@ -9,6 +9,7 @@ import ProfilePage from "./Pages/ProfilePage.jsx";
 import AllGamesPage from "./Pages/AllGamesPage.jsx";
 import CategoriesPage from "./Pages/CategoriesPage.jsx";
 import DealPage from "./Pages/DealPage.jsx";
+import DealsItem from "./components/DealsItem";
 
 function App() {
   return (
@@ -21,8 +22,9 @@ function App() {
         <Route path="/login" element={<AuthPage />} />
         <Route path="/user" element={<ProfilePage />} />
         <Route path="/allgames" element={<AllGamesPage />} />
-        <Route path="/deals/:title" element={<DealPage />} />
+        <Route path="/deals/:rawTitle" element={<DealPage />} />
         <Route path="/categories/:id" element={<CategoriesPage/>} />
+      
         <Route />
       </Routes>
     </div>
