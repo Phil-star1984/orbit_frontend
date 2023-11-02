@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
+import { appConfig } from "../../appConfig";
 
 const CartContext = createContext();
 
@@ -8,7 +9,8 @@ export const useCart = () => useContext(CartContext);
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const loggedIn = true;
+  const loggedIn = false;
+  const userId = "653683a38f6ba7aa384a66ba"; // John Doe
 
   useEffect(() => {
     const getInitialCart = async () => {
@@ -17,12 +19,9 @@ export const CartProvider = ({ children }) => {
         const localCart = JSON.parse(localCartString) || [];
 
         if (loggedIn && localCart) {
-          await axios.put(
-            "http://localhost:8000/user/653683a38f6ba7aa384a66ba/cart",
-            {
-              games: localCart,
-            }
-          );
+          await axios.put(`${appConfig.baseUrl}/user/${userId}/cart`, {
+            games: localCart,
+          });
           // Clear local storage after syncing with the backend
           localStorage.removeItem("cart");
         }
@@ -35,7 +34,7 @@ export const CartProvider = ({ children }) => {
       if (loggedIn) {
         // Fetch cart data from the backend
         const response = await axios.get(
-          "http://localhost:8000/user/653683a38f6ba7aa384a66ba/cart"
+          `${appConfig.baseUrl}/user/${userId}/cart`
         );
         cartData = response.data.games || [];
       } else {
@@ -69,7 +68,7 @@ export const CartProvider = ({ children }) => {
 
       if (loggedIn) {
         axios
-          .post("http://localhost:8000/user/653683a38f6ba7aa384a66ba/cart", {
+          .post(`${appConfig.baseUrl}/user/${userId}/cart`, {
             gameId,
           })
           .then((response) => {
