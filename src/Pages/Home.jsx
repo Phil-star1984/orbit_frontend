@@ -18,7 +18,7 @@ export default function HomePage() {
         <TopList listTitle={"Top Seller"} />
         <TopList listTitle={"Most played"} />
       </section>
-      <Categories/>
+      <Categories />
       <Footer />
     </>
   );
