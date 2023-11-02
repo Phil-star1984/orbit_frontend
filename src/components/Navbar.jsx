@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
@@ -7,8 +7,9 @@ import {
   ShoppingCartIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import SearchWindow from "./SearchWindow";
+
 import { useCart } from "../Context/CartProvider";
+import SearchBtn from "./buttons/SearchBtn.jsx";
 
 const navigation = [
   { name: "Store", href: "/store", current: true },
@@ -21,8 +22,10 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+export default function Navbar({ setResults }) {
   const { cart } = useCart();
+
+  //console.log(results);
 
   return (
     <Disclosure as="nav" className="sticky top-0 z-50 bg-black h-20">
@@ -69,7 +72,7 @@ export default function Navbar() {
                         {item.name}
                       </a>
                     ))}
-                    <SearchWindow />
+                    <SearchBtn setResults={setResults} />
                   </div>
                 </div>
               </div>
