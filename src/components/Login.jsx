@@ -36,7 +36,7 @@ export default function Login() {
   };
 
   return (
-    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-[url('../src/assets/orbit_login.jpg')] bg-hero bg-no-repeat bg-cover bg-center bg-fixed">
       <div className="w-full p-6 m-auto bg-black rounded-md shadow-xl lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-lila uppercase">
           Sign in
