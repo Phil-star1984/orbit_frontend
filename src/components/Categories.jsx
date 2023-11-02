@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import useFetchRAWG from "../../hooks/useFetchRAWG";
 import PacmanLoader from "react-spinners/PacmanLoader";
 
-
 function Categories() {
   const { data, loading } = useFetchRAWG("/genres?");
 
@@ -20,10 +19,12 @@ function Categories() {
   }
 
   return (
-    <div className="categories">
-      <h3 className="text-[#D00EDD] font-bold sm:text-4xl m-7">Categories</h3>
+    <div className="categories bg-black">
+      <h3 className="text-white font-bold sm:text-4xl text-center py-12">
+        Categories
+      </h3>
       {/* main div - Grid Container */}
-      <div className="grid grid-cols-2 m-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 m-2 mb-0 sm:grid-cols-3 md:grid-cols-4 gap-2">
         {
           //check why it needs it
 
