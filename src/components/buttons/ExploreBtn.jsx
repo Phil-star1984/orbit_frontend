@@ -6,16 +6,9 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 export default function ExploreBtn() {
   <>
     <div>
-      <Link to="/game">
-        <button size="lg" color="white">
-          Explore
-        </button>
+      <Link to={"/game"}>
+        <button className="bg-white w-1/5 h-auto z-20">Explore</button>
       </Link>
-
-      {/* <Link to="/beispielseite">Beispielseite</Link>
-      <Button size="lg" color="white">
-        Explore
-      </Button> */}
     </div>
   </>;
 }

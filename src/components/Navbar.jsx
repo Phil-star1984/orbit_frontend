@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -6,7 +7,6 @@ import {
   Bars3Icon,
   BellIcon,
   ShoppingCartIcon,
-  UserCircleIcon,
   UserIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -14,8 +14,8 @@ import {
 import { useCart } from "../Context/CartProvider";
 import SearchBtn from "./buttons/SearchBtn.jsx";
 import { Button } from "@material-tailwind/react";
-import { useAuth } from "../Context/AuthProvider";
 import axios from "axios";
+import { useAuth } from "../Context/AuthProvider";
 
 const navigation = [
   { name: "Store", href: "/store", current: true },
@@ -31,7 +31,7 @@ function classNames(...classes) {
 export default function Navbar({ setResults }) {
   const { cart } = useCart();
   const { isLoggedIn, setIsLoggedIn, loading } = useAuth();
-  const { checkUser, userData } = useAuth();
+  const { userData } = useAuth();
 
   const handleLogout = async () => {
     try {
@@ -83,7 +83,7 @@ export default function Navbar({ setResults }) {
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <NavLink
-                        key={item.nNavLinkme}
+                        key={item.name}
                         to={item.href}
                         className={classNames(
                           item.current
@@ -127,14 +127,18 @@ export default function Navbar({ setResults }) {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
+                    <span className="absolute -inset-1.5" />
                     <Menu.Button className="relative flex items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <div className="border-lila border-2 rounded-full flex">
-                        <UserIcon
-                          className="h-8 text-gray-400 p-1"
-                          aria-hidden="true"
-                        />
+                        {!isLoggedIn && (
+                          <Link to="/login">
+                            <UserIcon
+                              className="h-8 text-gray-400 p-1 hover:text-white"
+                              aria-hidden="true"
+                            />
+                          </Link>
+                        )}
                         {isLoggedIn && (
                           <span className="m-2 text-gray-300 text-sm">
                             Welcome, {userData.firstName}!
@@ -153,7 +157,7 @@ export default function Navbar({ setResults }) {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      {isLoggedIn && ( // <-- Wrap the two options with this condition
+                      {isLoggedIn && (
                         <>
                           <Menu.Item>
                             {({ active }) => (
@@ -164,7 +168,20 @@ export default function Navbar({ setResults }) {
                                   "block px-4 py-2 text-sm text-gray-700"
                                 )}
                               >
-                                Your Profile
+                                Profile
+                              </NavLink>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <NavLink
+                                to="#"
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm text-gray-700"
+                                )}
+                              >
+                                Wishlist
                               </NavLink>
                             )}
                           </Menu.Item>
@@ -200,19 +217,7 @@ export default function Navbar({ setResults }) {
                           )}
                         </Menu.Item>
                       ) : (
-                        <Menu.Item>
-                          {({ active }) => (
-                            <NavLink
-                              to="/login"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
-                              )}
-                            >
-                              Login
-                            </NavLink>
-                          )}
-                        </Menu.Item>
+                        <Menu.Item>{({ active }) => <></>}</Menu.Item>
                       )}
                     </Menu.Items>
                   </Transition>

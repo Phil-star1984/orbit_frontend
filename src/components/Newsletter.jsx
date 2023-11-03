@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react/no-unescaped-entities */
+import { useState } from "react";
 
 export default function Newsletter() {
   //state variables for email and a message to display to the user
@@ -62,7 +63,7 @@ export default function Newsletter() {
               Subscribe
             </button>
           </form>
-          <p className="text-white weight-light">{message}</p>
+          <p>{message}</p>
         </div>
       </div>
     </div>

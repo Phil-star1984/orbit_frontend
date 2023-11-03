@@ -1,5 +1,6 @@
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import ExploreBtn from "../components/buttons/ExploreBtn.jsx";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default function CarouselWithContent() {
   return (
@@ -30,7 +31,13 @@ export default function CarouselWithContent() {
               and renews a weary spirit.
             </Typography>
             <div className="flex justify-center gap-2">
-              <ExploreBtn />
+              {/* <ExploreBtn className="bg-white" /> */}
+              <Link to={"/game"}>
+                <Button size="lg" color="white">
+                  Explore
+                </Button>
+              </Link>
+
               {/* <Button size="lg" color="white" variant="text">
                 Gallery
               </Button> */}
@@ -65,9 +72,11 @@ export default function CarouselWithContent() {
             </Typography>
 
             <div className="flex gap-2">
-              <Button size="lg" color="white">
-                Explore
-              </Button>
+              <Link to={"/game"}>
+                <Button size="lg" color="white">
+                  Explore
+                </Button>
+              </Link>
               {/* <Button size="lg" color="white" variant="text">
                 Gallery
               </Button> */}
