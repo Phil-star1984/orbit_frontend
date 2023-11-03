@@ -110,8 +110,8 @@ export default function Navbar({ setResults }) {
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
 
-                <button
-                  type="button"
+                <Link
+                  to="/cart"
                   className="relative rounded-full bg-lila p-1 text-gray-400 ml-2 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="absolute -inset-1.5" />
@@ -122,7 +122,7 @@ export default function Navbar({ setResults }) {
                       {cart.length}
                     </div>
                   )}
-                </button>
+                </Link>
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">

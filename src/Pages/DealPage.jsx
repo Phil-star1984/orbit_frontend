@@ -76,6 +76,7 @@ function DealPage() {
             url4={foundGameData.results[0].short_screenshots[3].image}
             url5={foundGameData.results[0].short_screenshots[4].image}
             url6={foundGameData.results[0].short_screenshots[5].image}
+<<<<<<< HEAD
           />
         </div>
         <div>
@@ -83,6 +84,16 @@ function DealPage() {
           <PriceBox />
         </div>
         <div>ESRB Rating: {detailsGameData.esrb_rating.name}</div>
+=======
+        />
+        </div>
+        <div >
+            Price Box
+        </div>ESRB Rating:
+        {detailsGameData.esrb_rating===null?' n/a':( 
+             detailsGameData.esrb_rating.name )}
+       
+>>>>>>> 327c2c546a0746ebc92aace7406762a55491e273
       </div>
 
       <div className="m-0">
