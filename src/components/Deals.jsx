@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import useFetchRAWG from "../../hooks/useFetchRAWG";
 import PacmanLoader from "react-spinners/PacmanLoader";
-import AddToCartBtn from "./buttons/AddToCartBtn.jsx";
 import axios from "axios";
-import TopListItem from "./TopListItem.jsx";
 import { useState, useEffect } from "react";
+
 
 function Deals() {
   const [deals, setDeals] = useState([]);
   const { data, loading } = useFetchRAWG("/games?");
+
+
 
   useEffect(() => {
     const getDeals = async () => {
@@ -47,7 +48,7 @@ function Deals() {
       <div className="grid grid-cols-2 m-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mb-16">
         {deals.map((deal) => (
           <div key={`${deal.dealID}`} className="text-white w-full">
-            <Link to={`/deals/${deal.title}`} dealdata={deals}>
+            <Link to={`/deals/${deal.title}`} state={{deal: deal}}>
               <div className="flex justify-center flex-col">
                 <h3>{deal.title}</h3>
                 <img
@@ -57,10 +58,10 @@ function Deals() {
                 />
                 <div>
                   <p className="text-pink text-base md:text-xl lg:text-2xl ">
-                    {deal.salePrice}
+                    {deal.salePrice} €
                   </p>
                   <p className="text-gray-500 line-through text-sm md:text-lg lg:text-lg">
-                    {deal.normalPrice}
+                    {deal.normalPrice} €
                   </p>
                 </div>
                 <div>
