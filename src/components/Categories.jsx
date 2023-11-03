@@ -40,10 +40,13 @@ function Categories() {
                         alt={`${category.name}`}
                         src={`${category.image_background}`}
                       />
-                      <span className="absolute flex-col place-self-center place-items-center hidden peer-hover:flex peer-hover:transition ease-out delay-200 text-[#D00EDD] font-bold tracking-wider text-lg sm:text-2xl md:text-4xl">
+                      <div className="absolute flex-col place-self-center place-items-center hidden peer-hover:flex peer-hover:transition ease-out delay-500 text-[#D00EDD] font-bold tracking-wider text-lg sm:text-2xl md:text-4xl break-all">
+                      <p className="text-sm text-gray-300 font-light">Explore</p>
+                      <span>
                         {category.name}
                       </span>
-                    
+                      <p className="text-sm text-gray-300 font-light">Games</p>
+                      </div>
                     </div>
                   </Link>
                 </div>
