@@ -36,7 +36,7 @@ if(loading) {
 
   return (
     <>
-    <Navbar />
+  
      
       <Categories />
      
@@ -70,7 +70,7 @@ if(loading) {
      
      </div>
      <Pagination />
-    <Footer />
+  
     </>
     
   )
