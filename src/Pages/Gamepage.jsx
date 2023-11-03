@@ -22,19 +22,23 @@ function GamePage() {
     const getData = async () => {
       try {
         let urls = [
-          `/games/${id}?&key=${key}`,
-          `/games/${id}/game-series?&key=${key}`,
-          `/games/${id}/movies?&key=${key}`,
-        ];
+
+            `/games/${id}/screenshots?&key=${key}`,
+            `/games/${id}?&key=${key}`,
+            `/games/${id}/game-series?&key=${key}`,
+            `/games/${id}/movies?&key=${key}`
+           ];
 
         setFoundGameData(response.data);
 
         await Promise.all(urls.map((url) => api.get(url))).then(
           ([
+            { data: gamePics },
             { data: detailsGameData },
             { data: relatedGames },
             { data: gameVideos },
           ]) => {
+            setGamePics(gamePics)
             setDetailsGameData(detailsGameData);
             setRelatedGames(relatedGames);
             setGameVideos(gameVideos);
@@ -48,7 +52,7 @@ function GamePage() {
     getData();
   }, [rawTitle]);
 
-  console.log(foundGameData);
+  console.log(gamePics);
   console.log(detailsGameData);
   console.log(relatedGames);
   console.log(gameVideos);
@@ -71,12 +75,12 @@ function GamePage() {
       <div>
         <div>
           <CarouselForDeals
-            url1={foundGameData.results[0].short_screenshots[0].image}
-            url2={foundGameData.results[0].short_screenshots[1].image}
-            url3={foundGameData.results[0].short_screenshots[2].image}
-            url4={foundGameData.results[0].short_screenshots[3].image}
-            url5={foundGameData.results[0].short_screenshots[4].image}
-            url6={foundGameData.results[0].short_screenshots[5].image}
+            url1={gamePics.results[0].short_screenshots[0].image}
+            url2={gamePics.results[0].short_screenshots[1].image}
+            url3={gamePics.results[0].short_screenshots[2].image}
+            url4={gamePics.results[0].short_screenshots[3].image}
+            url5={gamePics.results[0].short_screenshots[4].image}
+            url6={gamePics.results[0].short_screenshots[5].image}
           />
         </div>
         <div>Price Box</div>

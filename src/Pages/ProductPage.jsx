@@ -1,47 +1,43 @@
-import React from "react";
 
-import axios from "axios";
 import api from "../../api/apiRAWG.jsx";
-=======
-import { useLocation } from "react-router-dom";
-
-
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
+import calcArbitraryPrice from '../../utility/calcArbetraryPrice.jsx';
 
-function DealPage() {
-
-const {rawTitle} = useParams();
+function ProductPage() {
+const {gameID} = useParams();
 const key = import.meta.env.VITE_KEY;
-const [foundGameData, setFoundGameData] = useState();
+
+const [gamePics, setGamePics] = useState();
 const [detailsGameData, setDetailsGameData] = useState();
 const [relatedGames, setRelatedGames] = useState();
 const [gameVideos, setGameVideos] = useState();
 const [loading, setLoading] = useState(true);
-const location = useLocation();
-const deal = location.state.deal;
 
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await api.get(`/games?&search=${rawTitle}&key=${key}`);
-
+    
         let urls = [
-          `/games/${response.data.results[0].id}?&key=${key}`,
-          `/games/${response.data.results[0].id}/game-series?&key=${key}`,
-          `/games/${response.data.results[0].id}/movies?&key=${key}`,
-        ];
+            `/games/${id}/screenshots?&key=${key}`,
+            `/games/${id}?&key=${key}`,
+            `/games/${id}/game-series?&key=${key}`,
+            `/games/${id}/movies?&key=${key}`
+           ];
+
         setFoundGameData(response.data);
 
         await Promise.all(urls.map((url) => api.get(url))).then(
           ([
+            { data: gamePics },
             { data: detailsGameData },
             { data: relatedGames },
             { data: gameVideos },
           ]) => {
+            setGamePics(gamePics)
             setDetailsGameData(detailsGameData);
             setRelatedGames(relatedGames);
             setGameVideos(gameVideos);
@@ -53,16 +49,16 @@ const deal = location.state.deal;
       }
     };
     getData();
-  }, [rawTitle]);
+  }, []);
 
-  console.log(foundGameData);
+  console.log(gamePics);
   console.log(detailsGameData);
   console.log(relatedGames);
   console.log(gameVideos);
 
   if (loading) {
     return (
-      <div className="w-full flex justify-center sm:my-16 md:my-28 lg:my-36">
+      <div className="w-full flex justify-center my-36">
         <PacmanLoader
           color="#D00EDD"
           loading={loading}
@@ -78,35 +74,16 @@ const deal = location.state.deal;
       <div>
         <div>
           <CarouselForDeals
-            url1={foundGameData.results[0].short_screenshots[0].image}
-            url2={foundGameData.results[0].short_screenshots[1].image}
-            url3={foundGameData.results[0].short_screenshots[2].image}
-            url4={foundGameData.results[0].short_screenshots[3].image}
-            url5={foundGameData.results[0].short_screenshots[4].image}
-            url6={foundGameData.results[0].short_screenshots[5].image}
+            url1={gamePics.results[0].short_screenshots[0].image}
+            url2={gamePics.results[0].short_screenshots[1].image}
+            url3={gamePics.results[0].short_screenshots[2].image}
+            url4={gamePics.results[0].short_screenshots[3].image}
+            url5={gamePics.results[0].short_screenshots[4].image}
+            url6={gamePics.results[0].short_screenshots[5].image}
           />
         </div>
-
-        <div>Price Box</div>ESRB Rating:
-        {detailsGameData.esrb_rating === null
-          ? " n/a"
-          : detailsGameData.esrb_rating.name}
-
-        <div >
-            Price Box
-            <p>{deal.salePrice}</p>
-            <p>{deal.normalPrice}</p>
-            <p> {-((1 - deal.salePrice / deal.normalPrice) * 100).toFixed() +
-                    "% OFF"}</p>
-
-        </div>
-        <div>
-        ESRB Rating:
-        {detailsGameData.esrb_rating===null?' n/a':( 
-             detailsGameData.esrb_rating.name )}
-        </div>
-       
-
+        <div>Price Box</div>
+        <div>ESRB Rating: {detailsGameData.esrb_rating.name}</div>
       </div>
 
       <div className="m-0">
@@ -167,4 +144,4 @@ const deal = location.state.deal;
     </div>
   );
 }
-export default DealPage;
+export default ProductPage;

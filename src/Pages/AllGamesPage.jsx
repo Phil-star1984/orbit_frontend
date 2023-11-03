@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar.jsx";
 import Chat from "../components/Chat.jsx";
 
+
 function AllGamesPage() {
   const { data, fetchError, isLoading } = useAxiosFetch(
     `https://api.rawg.io/api/games?key=${import.meta.env.VITE_KEY}`
