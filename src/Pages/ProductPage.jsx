@@ -1,6 +1,4 @@
 
-import React from "react";
-import axios from "axios";
 import api from "../../api/apiRAWG.jsx";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -8,8 +6,8 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
 import calcArbitraryPrice from '../../utility/calcArbetraryPrice.jsx';
 
-function GamePage() {
-const {id} = useParams();
+function ProductPage() {
+const {gameID} = useParams();
 const key = import.meta.env.VITE_KEY;
 
 const [gamePics, setGamePics] = useState();
@@ -51,7 +49,7 @@ const [loading, setLoading] = useState(true);
       }
     };
     getData();
-  }, [rawTitle]);
+  }, []);
 
   console.log(gamePics);
   console.log(detailsGameData);
@@ -146,4 +144,4 @@ const [loading, setLoading] = useState(true);
     </div>
   );
 }
-export default GamePage;
+export default ProductPage;

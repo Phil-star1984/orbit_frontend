@@ -15,6 +15,7 @@ import ShowResults from './components/ShowResults.jsx';
 import SignUp from './components/SignUp.jsx';
 import GamePage from './Pages/Gamepage.jsx';
 import 'react-toastify/dist/ReactToastify.css';
+import ProductPage from './Pages/ProductPage.jsx';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path='/user' element={<ProfilePage />} />
         <Route path='/allgames' element={<AllGamesPage />} />
         <Route path='/categories/:id' element={<CategoriesPage />} />
+        <Route path='/categories/:id/:gameID' element={<ProductPage />} />
         <Route path='/deals/:rawTitle' element={<DealPage />} />
 
         <Route />
