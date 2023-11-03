@@ -4,7 +4,6 @@ import CartGameList from "../components/cart/CartGameList.jsx";
 import CartPaymentBox from "../components/cart/CartPaymentBox.jsx";
 import { useCart } from "../Context/CartProvider.jsx";
 import calcArbitraryPrice from "../../utility/calcArbetraryPrice.jsx";
-import Navbar from "../components/Navbar.jsx";
 
 const CartPage = () => {
   useEffect(() => {
@@ -60,7 +59,6 @@ const CartPage = () => {
 
   return (
     <>
-      <Navbar />
       <div class="min-h-screen max-w-screen-xl mx-auto p-8">
         <div className="flex flex-col">
           <h1 className="text-4xl text-white pb-4">My Cart</h1>
