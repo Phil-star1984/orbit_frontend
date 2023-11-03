@@ -13,8 +13,10 @@ export default function HomePage() {
 
   return (
     <>
-      <Navbar setResults={setResults} />
-      {results && <ShowResults results={results} />}
+      <section className="max-w-screen-xl bg-gray-900 text-white  container mx-auto flex gap-16 py-8">
+        <Navbar setResults={setResults} />
+        {results && <ShowResults results={results} />}
+      </section>
       <CarouselWithContent />
       <OrbitProfile />
       <Categories />
@@ -25,7 +27,6 @@ export default function HomePage() {
         <TopList listTitle={"Top Seller"} page={1} />
         <TopList listTitle={"Most played"} page={2} />
       </section>
-      
     </>
   );
 }
