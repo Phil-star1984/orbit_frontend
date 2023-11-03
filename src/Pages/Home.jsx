@@ -7,6 +7,7 @@ import Categories from "../components/Categories.jsx";
 import CarouselWithContent from "../components/CarouselWithContent.jsx";
 import ShowResults from "../components/ShowResults.jsx";
 import Navbar from "../components/Navbar.jsx";
+import Chat from "../components/Chat.jsx"
 
 export default function HomePage() {
   const [results, setResults] = useState(null);
@@ -25,6 +26,7 @@ export default function HomePage() {
         <TopList listTitle={"Top Seller"} page={1} />
         <TopList listTitle={"Most played"} page={2} />
       </section>
+      <Chat />
       
     </>
   );

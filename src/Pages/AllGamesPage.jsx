@@ -1,7 +1,6 @@
 import React from "react";
 import useAxiosFetch from "../hooks/useAxiosFetch.jsx";
 import { useState, useEffect } from "react";
-import Navbar from "../components/Navbar.jsx";
 import Chat from "../components/Chat.jsx"
 
 function AllGamesPage() {
