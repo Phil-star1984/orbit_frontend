@@ -12,7 +12,7 @@ function calcArbitraryPrice(id) {
   // Calculate the cents dynamically based on the numeric value
   const calculatedCents = (numericValue % 100).toString().padStart(2, "0");
 
-  return `${calculatedDollars}.${calculatedCents} €`;
+  return `${calculatedDollars}.${calculatedCents}`;
 }
 
 export default calcArbitraryPrice;
