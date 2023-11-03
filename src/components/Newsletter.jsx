@@ -45,7 +45,7 @@ export default function Newsletter() {
           Don't miss any ORBIT Gaming News.<br></br>
           <span className="text-lila">Subscribe to our Newsletter</span>
         </div>
-        <div className="flex gap-2 items-center justify-center max-w-xs lg:max-w-md w-full">
+        <div className="flex flex-col gap-2 items-center justify-center max-w-xs lg:max-w-md w-full">
           <form onSubmit={handleFormSubmit} class="flex">
             <input
               // type="text"
@@ -62,7 +62,7 @@ export default function Newsletter() {
               Subscribe
             </button>
           </form>
-          <p>{message}</p>
+          <p className="text-white weight-light">{message}</p>
         </div>
       </div>
     </div>
