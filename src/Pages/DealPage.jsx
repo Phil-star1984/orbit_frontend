@@ -83,10 +83,10 @@ if (loading) {
         </div>
         <div >
             Price Box
-        </div>
-        <div >
-            ESRB Rating: {detailsGameData.esrb_rating.name}
-        </div>
+        </div>ESRB Rating:
+        {detailsGameData.esrb_rating===null?' n/a':( 
+             detailsGameData.esrb_rating.name )}
+       
       </div>
 
       <div className="m-0">
