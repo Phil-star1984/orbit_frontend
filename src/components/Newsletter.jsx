@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable react/no-unescaped-entities */
+import { useState } from "react";
 
 export default function Newsletter() {
   //state variables for email and a message to display to the user
@@ -45,8 +46,8 @@ export default function Newsletter() {
           Don't miss any ORBIT Gaming News.<br></br>
           <span className="text-lila">Subscribe to our Newsletter</span>
         </div>
-        <div className="flex gap-2 items-center justify-center max-w-xs lg:max-w-md w-full">
-          <form onSubmit={handleFormSubmit} class="flex">
+        <div className="flex flex-col gap-2 items-center justify-center max-w-xs lg:max-w-md w-full">
+          <form onSubmit={handleFormSubmit} className="flex">
             <input
               // type="text"
               type="email"

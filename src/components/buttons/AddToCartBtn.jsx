@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { PlusCircleIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 import { useCart } from "../../Context/CartProvider";
 

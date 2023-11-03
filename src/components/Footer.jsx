@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -77,7 +76,7 @@ function Footer() {
                     />
                   </svg>
                 </a>
-                <a href="https://www.youtube.com/channel/UCjtCbnkIaiCJgj13sEZ9iqw">
+                <a>
                   <svg
                     width="13"
                     height="9"

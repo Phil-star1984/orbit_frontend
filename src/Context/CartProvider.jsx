@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { appConfig } from "../../appConfig";
@@ -53,7 +55,7 @@ export const CartProvider = ({ children }) => {
   }, [loggedIn]);
 
   useEffect(() => {
-    console.log(cart);
+    // console.log(cart);
   }, [cart]);
 
   const addToCart = (gameId) => {

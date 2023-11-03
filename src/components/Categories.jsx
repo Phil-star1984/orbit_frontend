@@ -4,9 +4,9 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import AddToCartBtn from "./buttons/AddToCartBtn.jsx";
 
 function Categories() {
-  const { data, loading } = useFetchRAWG("/genres?");
+  const { data, loading } = useFetchRAWG("/genres?&page_size=16");
 
-  if (loading) {
+ if (loading) {
     return (
       <div className="w-full flex justify-center my-36">
         <PacmanLoader
@@ -20,10 +20,12 @@ function Categories() {
   }
 
   return (
-    <div className="categories">
-      <h3 className="text-[#D00EDD] font-bold sm:text-4xl m-7">Categories</h3>
+    <div className="categories bg-black">
+      {/* <h3 className="text-white font-bold sm:text-4xl text-center py-12">
+        Categories
+      </h3> */}
       {/* main div - Grid Container */}
-      <div className="grid grid-cols-2 m-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 m-2 mb-0 mt-0 sm:grid-cols-3 md:grid-cols-4 gap-2">
         {
           //check why it needs it
 
