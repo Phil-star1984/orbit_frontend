@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
 
-
 function DealPage() {
 const {rawTitle} = useParams();
 const key = import.meta.env.VITE_KEY;
@@ -53,7 +52,7 @@ console.log(gameVideos)
 
 if (loading) {
     return (
-      <div className="w-full flex justify-center my-36">
+      <div className="w-full flex justify-center sm:my-16 md:my-28 lg:my-36">
         <PacmanLoader
           color="#D00EDD"
           loading={loading}
@@ -62,6 +61,7 @@ if (loading) {
         />
       </div>
     );
+
   }
 
   
@@ -148,7 +148,6 @@ if (loading) {
       
 }
     </div>
-  )
-
+  );
 }
 export default DealPage;
