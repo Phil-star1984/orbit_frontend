@@ -1,4 +1,8 @@
+import { useCart } from "../../Context/CartProvider";
+
 const CartGame = ({ id, title, imageSrc, price }) => {
+  const { removeFromCart } = useCart();
+
   return (
     <div className="h-[10rem] w-full bg-gray-800 p-4 flex rounded-lg">
       <div className="w-96 h-full overflow-hidden ">
@@ -19,7 +23,13 @@ const CartGame = ({ id, title, imageSrc, price }) => {
             <button className="p-2 hover:text-gray-300 active:text-gray-400">
               Move to Wishlist
             </button>
-            <button className="p-2 hover:text-gray-300 active:text-gray-400">
+            <button
+              className="p-2 hover:text-gray-300 active:text-gray-400"
+              onClick={() => {
+                console.log(id);
+                removeFromCart(id);
+              }}
+            >
               Remove
             </button>
           </div>

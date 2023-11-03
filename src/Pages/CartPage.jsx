@@ -4,6 +4,7 @@ import CartGameList from "../components/cart/CartGameList.jsx";
 import CartPaymentBox from "../components/cart/CartPaymentBox.jsx";
 import { useCart } from "../Context/CartProvider.jsx";
 import calcArbitraryPrice from "../../utility/calcArbetraryPrice.jsx";
+import Navbar from "../components/Navbar.jsx";
 
 const CartPage = () => {
   useEffect(() => {
@@ -31,6 +32,7 @@ const CartPage = () => {
     const getGames = async () => {
       try {
         if (cart.length === 0) {
+          setGames([]);
           return;
         }
 
@@ -47,7 +49,7 @@ const CartPage = () => {
           data.find((game) => game.id === id)
         );
 
-        setGames(sortedGames);
+        setGames([...sortedGames]);
       } catch (error) {
         console.error("Error fetching game data:", error);
       }
@@ -57,15 +59,18 @@ const CartPage = () => {
   }, [cart]);
 
   return (
-    <div class="min-h-screen max-w-screen-xl mx-auto p-8">
-      <div className="flex flex-col">
-        <h1 className="text-4xl text-white pb-4">My Cart</h1>
-        <div className="flex gap-8">
-          <CartGameList games={games} />
-          <CartPaymentBox totalPrice={totalPrice} />
+    <>
+      <Navbar />
+      <div class="min-h-screen max-w-screen-xl mx-auto p-8">
+        <div className="flex flex-col">
+          <h1 className="text-4xl text-white pb-4">My Cart</h1>
+          <div className="flex gap-8">
+            <CartGameList games={games} />
+            {cart.length ? <CartPaymentBox totalPrice={totalPrice} /> : ""}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
