@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
+import PriceBox from "../components/PriceBox.jsx";
 
 function DealPage() {
   const { rawTitle } = useParams();
@@ -77,7 +78,10 @@ function DealPage() {
             url6={foundGameData.results[0].short_screenshots[5].image}
           />
         </div>
-        <div>Price Box</div>ESRB Rating:
+        <div>
+          <PriceBox />
+        </div>
+        ESRB Rating:
         {detailsGameData.esrb_rating === null
           ? " n/a"
           : detailsGameData.esrb_rating.name}
@@ -131,8 +135,12 @@ function DealPage() {
         <div>
           Other games from the family:
           {relatedGames.results.map((game) => (
-            <div key={game.id}>
-              <img src={`${game.background_image}`} alt={`${game.name}`} />
+            <div className="flex justify-center " key={game.id}>
+              <img
+                className="peer hover:opacity-20 w-60 h-20 md:h-60 object-cover"
+                src={`${game.background_image}`}
+                alt={`${game.name}`}
+              />
               <p>{game.name}</p>
             </div>
           ))}
