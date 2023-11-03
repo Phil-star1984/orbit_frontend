@@ -29,7 +29,7 @@ const TopListItem = ({ id, title, imageSrc, price, genres }) => {
             <p className="text-base text-slate-600">{genreNames}</p>
           </div>
           <div className="w-full flex justify-end">
-            <p className="text-white text-lg self-center">{price}</p>
+            <p className="text-white text-lg self-center">{price} €</p>
             {/* Add to Cart Button (conditionally shown on hover) */}
             <AddToCartBtn gameId={id} />
           </div>
