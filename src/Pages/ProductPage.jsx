@@ -1,28 +1,27 @@
-import React from "react";
-import axios from "axios";
+
 import api from "../../api/apiRAWG.jsx";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
-import calcArbitraryPrice from "../../utility/calcArbetraryPrice.jsx";
-import VideosTrailers from "../components/VideosTrailers.jsx";
+import calcArbitraryPrice from '../../utility/calcArbetraryPrice.jsx';
 
-function GamePage() {
-  const { id } = useParams();
-  const key = import.meta.env.VITE_KEY;
+function ProductPage() {
+const {gameID} = useParams();
+const key = import.meta.env.VITE_KEY;
 
-  const [gamePics, setGamePics] = useState();
-  const [detailsGameData, setDetailsGameData] = useState();
-  const [relatedGames, setRelatedGames] = useState();
-  const [gameVideos, setGameVideos] = useState();
-  const [loading, setLoading] = useState(true);
+const [gamePics, setGamePics] = useState();
+const [detailsGameData, setDetailsGameData] = useState();
+const [relatedGames, setRelatedGames] = useState();
+const [gameVideos, setGameVideos] = useState();
+const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const getData = async () => {
       try {
+    
         let urls = [
-
             `/games/${id}/screenshots?&key=${key}`,
             `/games/${id}?&key=${key}`,
             `/games/${id}/game-series?&key=${key}`,
@@ -50,7 +49,7 @@ function GamePage() {
       }
     };
     getData();
-  }, [rawTitle]);
+  }, []);
 
   console.log(gamePics);
   console.log(detailsGameData);
@@ -101,14 +100,7 @@ function GamePage() {
       </div>
       <div>
         Videos & Trailers
-        {gameVideos.results.length === 0 ? (
-          ""
-        ) : (
-          <div>
-            <h2>videos here</h2>
-            <VideosTrailers />
-          </div>
-        )}
+        {gameVideos.results.length === 0 ? "" : <div>videos come here</div>}
       </div>
 
       <div>
@@ -152,4 +144,4 @@ function GamePage() {
     </div>
   );
 }
-export default GamePage;
+export default ProductPage;
