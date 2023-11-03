@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -77,7 +76,7 @@ function Footer() {
                     />
                   </svg>
                 </a>
-                <a href="https://www.youtube.com/channel/UCjtCbnkIaiCJgj13sEZ9iqw">
+                <a>
                   <svg
                     width="13"
                     height="9"
@@ -95,7 +94,7 @@ function Footer() {
             </div>
             <hr className="border-gray-600" />
             <p className="w-full text-center my-12 text-gray-600">
-              Copyright © 2023 ORBIT Gaming
+              Copyright © 2023 WDG#012
             </p>
           </div>
         </div>
