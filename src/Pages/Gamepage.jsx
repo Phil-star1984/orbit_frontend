@@ -1,16 +1,15 @@
-import React from "react";
-import axios from "axios";
 import api from '../../api/apiRAWG.jsx'
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
-
+import calcArbitraryPrice from '../../utility/calcArbetraryPrice.jsx';
 
 function GamePage() {
-const {rawTitle} = useParams();
+const {id} = useParams();
 const key = import.meta.env.VITE_KEY;
-const [foundGameData, setFoundGameData] = useState();
+
+const [gamePics, setGamePics] = useState();
 const [detailsGameData, setDetailsGameData] = useState();
 const [relatedGames, setRelatedGames] = useState();
 const [gameVideos, setGameVideos] = useState();
@@ -21,12 +20,11 @@ useEffect(()=> {
     const getData = async () => {
       try {
         
-        const response = await api.get(`/games?&search=${rawTitle}&key=${key}`);
-
         let urls = [
-            `/games/${response.data.results[0].id}?&key=${key}`,
-            `/games/${response.data.results[0].id}/game-series?&key=${key}`,
-            `/games/${response.data.results[0].id}/movies?&key=${key}`
+
+            `/games/${id}?&key=${key}`,
+            `/games/${id}/game-series?&key=${key}`,
+            `/games/${id}/movies?&key=${key}`
            ];
         setFoundGameData(response.data);
  
