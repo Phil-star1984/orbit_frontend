@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
+import VideosTrailers from "../components/VideosTrailers.jsx";
 
 function GamePage() {
   const { rawTitle } = useParams();
@@ -95,7 +96,14 @@ function GamePage() {
       </div>
       <div>
         Videos & Trailers
-        {gameVideos.results.length === 0 ? "" : <div>videos come here</div>}
+        {gameVideos.results.length === 0 ? (
+          ""
+        ) : (
+          <div>
+            <h2>videos here</h2>
+            <VideosTrailers />
+          </div>
+        )}
       </div>
 
       <div>
