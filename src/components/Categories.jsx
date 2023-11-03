@@ -21,11 +21,11 @@ function Categories() {
 
   return (
     <div className="categories bg-black">
-      <h3 className="text-white font-bold sm:text-4xl text-center py-12">
+      {/* <h3 className="text-white font-bold sm:text-4xl text-center py-12">
         Categories
-      </h3>
+      </h3> */}
       {/* main div - Grid Container */}
-      <div className="grid grid-cols-2 m-2 mb-0 sm:grid-cols-3 md:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 m-2 mb-0 mt-0 sm:grid-cols-3 md:grid-cols-4 gap-2">
         {
           //check why it needs it
 

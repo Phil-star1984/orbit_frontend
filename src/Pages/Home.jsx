@@ -17,6 +17,7 @@ export default function HomePage() {
       {results && <ShowResults results={results} />}
       <CarouselWithContent />
       <OrbitProfile />
+      <Categories />
       <Deals />
       <Newsletter />
 
@@ -24,7 +25,7 @@ export default function HomePage() {
         <TopList listTitle={"Top Seller"} page={1} />
         <TopList listTitle={"Most played"} page={2} />
       </section>
-      <Categories />
+      
     </>
   );
 }
