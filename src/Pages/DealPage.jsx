@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
-import PriceBox from "../components/PriceBox.jsx";
 
 function DealPage() {
   const { rawTitle } = useParams();
@@ -76,29 +75,16 @@ function DealPage() {
             url4={foundGameData.results[0].short_screenshots[3].image}
             url5={foundGameData.results[0].short_screenshots[4].image}
             url6={foundGameData.results[0].short_screenshots[5].image}
-<<<<<<< HEAD
           />
         </div>
-        <div>
-          Price Box
-          <PriceBox />
-        </div>
-        <div>ESRB Rating: {detailsGameData.esrb_rating.name}</div>
-=======
-        />
-        </div>
-        <div >
-            Price Box
-        </div>ESRB Rating:
-        {detailsGameData.esrb_rating===null?' n/a':( 
-             detailsGameData.esrb_rating.name )}
-       
->>>>>>> 327c2c546a0746ebc92aace7406762a55491e273
+        <div>Price Box</div>ESRB Rating:
+        {detailsGameData.esrb_rating === null
+          ? " n/a"
+          : detailsGameData.esrb_rating.name}
       </div>
 
       <div className="m-0">
         <ul>Genres</ul>
-
         {detailsGameData.genres.map((genre) => (
           <li key={genre.id}>{genre.name}</li>
         ))}
