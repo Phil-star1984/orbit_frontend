@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import axios from "axios";
 import TopListItem from "./TopListItem";
@@ -14,7 +16,7 @@ const TopList = ({ listTitle, handleAddToCart, page }) => {
         );
 
         const fetchedGames = response.data.results;
-        console.log(fetchedGames);
+        // console.log(fetchedGames);
         setGames(fetchedGames);
       } catch (error) {
         console.error("Error fetching games:", error.message);
