@@ -1,12 +1,13 @@
-import { React, useState, useEffect } from 'react';
-import Newsletter from '../components/Newsletter.jsx';
-import Deals from '../components/Deals.jsx';
-import OrbitProfile from '../components/OrbitProfile.jsx';
-import TopList from '../components/TopList.jsx';
-import Categories from '../components/Categories.jsx';
-import CarouselWithContent from '../components/CarouselWithContent.jsx';
-import ShowResults from '../components/ShowResults.jsx';
-import Navbar from '../components/Navbar.jsx';
+import { React, useState, useEffect } from "react";
+import Newsletter from "../components/Newsletter.jsx";
+import Deals from "../components/Deals.jsx";
+import OrbitProfile from "../components/OrbitProfile.jsx";
+import TopList from "../components/TopList.jsx";
+import Categories from "../components/Categories.jsx";
+import CarouselWithContent from "../components/CarouselWithContent.jsx";
+import ShowResults from "../components/ShowResults.jsx";
+import Navbar from "../components/Navbar.jsx";
+import Chat from "../components/Chat.jsx"
 
 export default function HomePage() {
   const [results, setResults] = useState(null);
@@ -24,6 +25,8 @@ export default function HomePage() {
         <TopList listTitle={'Top Seller'} page={1} />
         <TopList listTitle={'Most played'} page={2} />
       </section>
+      <Chat />
+      
     </>
   );
 }
