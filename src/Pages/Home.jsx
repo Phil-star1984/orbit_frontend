@@ -13,6 +13,7 @@ export default function HomePage() {
 
   return (
     <>
+
       <CarouselWithContent />
       <OrbitProfile />
       <Categories />

@@ -2,6 +2,7 @@ import React from "react";
 import useAxiosFetch from "../hooks/useAxiosFetch.jsx";
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar.jsx";
+import Chat from "../components/Chat.jsx";
 
 function AllGamesPage() {
   const { data, fetchError, isLoading } = useAxiosFetch(
@@ -26,6 +27,7 @@ function AllGamesPage() {
 
   return (
     <>
+      <Chat />
       <div className="grid grid-cols-2 gap-4 p-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {games.map((item, index) => (
           <div

@@ -16,6 +16,7 @@ import SignUp from './components/SignUp.jsx';
 import GamePage from './Pages/Gamepage.jsx';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function App() {
   const [results, setResults] = useState(null);
 
@@ -25,6 +26,7 @@ function App() {
       <Navbar setResults={setResults} />
       {results && <ShowResults results={results} />}
       <Routes>
+
         <Route path='/' element={<Home />} />
         <Route path='/game' element={<GamePage />} />
         <Route path='/wishlist' element={<WishlistPage />} />
@@ -35,6 +37,7 @@ function App() {
         <Route path='/allgames' element={<AllGamesPage />} />
         <Route path='/categories/:id' element={<CategoriesPage />} />
         <Route path='/deals/:rawTitle' element={<DealPage />} />
+
         <Route />
       </Routes>
       <Footer />
