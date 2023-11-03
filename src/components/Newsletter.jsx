@@ -46,7 +46,7 @@ export default function Newsletter() {
           <span className="text-lila">Subscribe to our Newsletter</span>
         </div>
         <div className="flex flex-col gap-2 items-center justify-center max-w-xs lg:max-w-md w-full">
-          <form onSubmit={handleFormSubmit} class="flex">
+          <form onSubmit={handleFormSubmit} className="flex">
             <input
               // type="text"
               type="email"

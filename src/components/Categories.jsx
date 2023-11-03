@@ -4,9 +4,9 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import AddToCartBtn from "./buttons/AddToCartBtn.jsx";
 
 function Categories() {
-  const { data, loading } = useFetchRAWG("/genres?");
+  const { data, loading } = useFetchRAWG("/genres?&page_size=16");
 
-  if (loading) {
+ if (loading) {
     return (
       <div className="w-full flex justify-center my-36">
         <PacmanLoader
