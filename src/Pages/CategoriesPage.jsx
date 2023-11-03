@@ -13,9 +13,9 @@ function CategoriesPage() {
   const { id } = useParams();
   const { data, loading } = useFetchRAWG(`/games?&genres=${id}`);
 
-  //const items = Array.from({ length: { items } }, (_, i) => `Item ${i + 1}`);
 
-  console.log(data);
+
+ 
 
   if (loading) {
     return (
@@ -36,7 +36,7 @@ function CategoriesPage() {
 
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:grid-cols-4 md:gap-4 p-3">
         {
-          //check why it needs it
+          
           data.results.map((game) => (
             <div
               key={`${game.id}`}
@@ -56,13 +56,20 @@ function CategoriesPage() {
                 <div
                   className="bg-cover bg-center w-full h-80 rounded-lg"
                   style={{ backgroundImage: `url(${game.background_image})` }}
-                ></div>
+                >
+
+                </div>
               </div>
             </div>
-          ))
-        }
-      </div>
-      <Pagination />
+          
+          
+         ))
+       
+      }
+     
+     </div>
+     <Pagination />
+  
     </>
   );
 }
