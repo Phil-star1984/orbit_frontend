@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import { useLocation } from "react-router-dom";
 import api from '../../api/apiRAWG.jsx'
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -14,6 +14,8 @@ const [detailsGameData, setDetailsGameData] = useState();
 const [relatedGames, setRelatedGames] = useState();
 const [gameVideos, setGameVideos] = useState();
 const [loading, setLoading] = useState(true);
+const location = useLocation();
+const deal = location.state.deal;
 
 
 useEffect(()=> {
@@ -83,9 +85,18 @@ if (loading) {
         </div>
         <div >
             Price Box
-        </div>ESRB Rating:
+            <p>{deal.salePrice}</p>
+            <p>{deal.normalPrice}</p>
+            <p> {-((1 - deal.salePrice / deal.normalPrice) * 100).toFixed() +
+                    "% OFF"}</p>
+
+        </div>
+        <div>
+        ESRB Rating:
         {detailsGameData.esrb_rating===null?' n/a':( 
              detailsGameData.esrb_rating.name )}
+        </div>
+       
        
       </div>
 
