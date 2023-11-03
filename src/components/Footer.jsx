@@ -95,7 +95,7 @@ function Footer() {
             </div>
             <hr className="border-gray-600" />
             <p className="w-full text-center my-12 text-gray-600">
-              Copyright © 2023 WDG#012
+              Copyright © 2023 ORBIT Gaming
             </p>
           </div>
         </div>
