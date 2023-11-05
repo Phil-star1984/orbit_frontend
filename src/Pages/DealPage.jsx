@@ -1,6 +1,5 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 import React from "react";
-
 import axios from "axios";
 import api from "../../api/apiRAWG.jsx";
 import { useLocation } from "react-router-dom";
