@@ -1,10 +1,7 @@
 import React from "react";
-
 import axios from "axios";
 import api from "../../api/apiRAWG.jsx";
-=======
 import { useLocation } from "react-router-dom";
-
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -12,17 +9,15 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
 
 function DealPage() {
-
-const {rawTitle} = useParams();
-const key = import.meta.env.VITE_KEY;
-const [foundGameData, setFoundGameData] = useState();
-const [detailsGameData, setDetailsGameData] = useState();
-const [relatedGames, setRelatedGames] = useState();
-const [gameVideos, setGameVideos] = useState();
-const [loading, setLoading] = useState(true);
-const location = useLocation();
-const deal = location.state.deal;
-
+  const { rawTitle } = useParams();
+  const key = import.meta.env.VITE_KEY;
+  const [foundGameData, setFoundGameData] = useState();
+  const [detailsGameData, setDetailsGameData] = useState();
+  const [relatedGames, setRelatedGames] = useState();
+  const [gameVideos, setGameVideos] = useState();
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  const deal = location.state.deal;
 
   useEffect(() => {
     const getData = async () => {
@@ -86,27 +81,26 @@ const deal = location.state.deal;
             url6={foundGameData.results[0].short_screenshots[5].image}
           />
         </div>
-
         <div>Price Box</div>ESRB Rating:
         {detailsGameData.esrb_rating === null
           ? " n/a"
           : detailsGameData.esrb_rating.name}
-
-        <div >
-            Price Box
-            <p>{deal.salePrice}</p>
-            <p>{deal.normalPrice}</p>
-            <p> {-((1 - deal.salePrice / deal.normalPrice) * 100).toFixed() +
-                    "% OFF"}</p>
-
+        <div>
+          Price Box
+          <p>{deal.salePrice}</p>
+          <p>{deal.normalPrice}</p>
+          <p>
+            {" "}
+            {-((1 - deal.salePrice / deal.normalPrice) * 100).toFixed() +
+              "% OFF"}
+          </p>
         </div>
         <div>
-        ESRB Rating:
-        {detailsGameData.esrb_rating===null?' n/a':( 
-             detailsGameData.esrb_rating.name )}
+          ESRB Rating:
+          {detailsGameData.esrb_rating === null
+            ? " n/a"
+            : detailsGameData.esrb_rating.name}
         </div>
-       
-
       </div>
 
       <div className="m-0">
