@@ -10,23 +10,27 @@ const CartContext = createContext();
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  /* const { isLoggedIn, userData } = useAuth();
-  const userId = userData._id; */
+  const { isLoggedIn, userData } = useAuth();
+  const userId = userData._id;
 
   const [cart, setCart] = useState([]);
 
-  const isLoggedIn = true;
-  const userId = "653683a38f6ba7aa384a66ba"; // John Doe
+  /* const isLoggedIn = true;
+  const userId = "653683a38f6ba7aa384a66ba"; */ // John Doe
 
   useEffect(() => {
     const getInitialCart = async () => {
       let cartData;
 
+      console.log("isLoggedIn: " + isLoggedIn);
       try {
         const localCartString = localStorage.getItem("cart");
         const localCart = JSON.parse(localCartString) || [];
 
-        if (isLoggedIn && localCart) {
+        console.log("Local cart string: " + localCartString);
+        console.log(localCart);
+        console.log(userData);
+        if (isLoggedIn && localCart.length) {
           await axios.put(`${appConfig.baseUrl}/user/${userId}/cart`, {
             games: localCart,
           });
@@ -51,8 +55,6 @@ export const CartProvider = ({ children }) => {
       }
 
       setCart([...cartData]);
-
-      // If user logs in and there are local cart items, save them in the backend
     };
 
     getInitialCart();
