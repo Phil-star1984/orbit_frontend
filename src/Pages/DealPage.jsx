@@ -19,15 +19,7 @@ function DealPage() {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
   const deal = location.state.deal;
-  const { rawTitle } = useParams();
-  const key = import.meta.env.VITE_KEY;
-  const [foundGameData, setFoundGameData] = useState();
-  const [detailsGameData, setDetailsGameData] = useState();
-  const [relatedGames, setRelatedGames] = useState();
-  const [gameVideos, setGameVideos] = useState();
-  const [loading, setLoading] = useState(true);
-  const location = useLocation();
-  const deal = location.state.deal;
+
 
   useEffect(() => {
     const getData = async () => {
