@@ -1,5 +1,4 @@
 import React from "react";
-
 import axios from "axios";
 import api from "../../api/apiRAWG.jsx";
 import { useLocation } from "react-router-dom";
@@ -20,6 +19,7 @@ function DealPage() {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
   const deal = location.state.deal;
+
 
   useEffect(() => {
     const getData = async () => {
@@ -83,10 +83,8 @@ function DealPage() {
             url6={foundGameData.results[0].short_screenshots[5].image}
           />
         </div>
-        <div>
-          <PriceBox />
-        </div>
-        ESRB Rating:
+
+        <div>Price Box</div>ESRB Rating:
         {detailsGameData.esrb_rating === null
           ? " n/a"
           : detailsGameData.esrb_rating.name}

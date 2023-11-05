@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { Button } from "@material-tailwind/react";
 
 function Chat() {
   const [message, setMessage] = useState(null);
@@ -7,10 +8,11 @@ function Chat() {
   const [currentTitle, setCurrentTitle] = useState(null);
 
   const getMessages = async () => {
+    const userInput = `Answer in a maximum of two sentences. ${value}`;
     const options = {
       method: "POST",
       body: JSON.stringify({
-        message: value,
+        message: userInput,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -18,19 +20,23 @@ function Chat() {
     };
     try {
       const response = await fetch(
-        "http://localhost:5005/completions",
+        "https://orbitback.onrender.com/completions",
         options
       );
       const data = await response.json();
-      console.log(data);
+      /* console.log(data); */
       setMessage(data.choices[0].message);
     } catch (error) {
       console.error(error);
     }
+    console.log(userInput);
+    setTimeout(() => {
+      setValue("");
+    }, 100);
   };
 
   useEffect(() => {
-    console.log(currentTitle, value, message);
+    /* console.log(currentTitle, value, message); */
     if (!currentTitle && value && message) {
       setCurrentTitle(value);
     }
@@ -39,12 +45,12 @@ function Chat() {
         ...prevChats,
         {
           title: currentTitle,
-          role: "user",
+          role: "USER",
           content: value,
         },
         {
           title: currentTitle,
-          role: message.role,
+          role: message.role.toUpperCase(),
           content: message.content,
         },
       ]);
@@ -66,15 +72,17 @@ function Chat() {
       <h1 className="text-7xl mt-20 font-semibold text-center max-w-screen-xl text-transparent bg-clip-text bg-gradient-to-r from-pink to-lila duration-1000 animate-pulse">
         OrbitGPT
       </h1>
-      <p className="text-white text-center mb-20">
-        Ask anything you like related to gaming
+      <p className="text-white text-center mb-4">
+        Ask anything related to gaming
       </p>
       <div className="w-5/6 max-w-screen-xl overflow-y-auto">
         {!currentTitle && <h1 className="text-center"></h1>}
         <ul className="grid grid-rows-2 gap-2 feed">
           {currentChat?.map((chatMessage, index) => (
             <li key={index} className="border rounded-lg p-3">
-              <p className="text-pink role font-light">{chatMessage.role}</p>
+              <p className="text-pink text-sm role font-light">
+                {chatMessage.role}
+              </p>
               <p className="text-white text-xl font-light">
                 {chatMessage.content}
               </p>
@@ -90,12 +98,12 @@ function Chat() {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button
-          className="ml-3 w-28 ml-2p-2 bg-gradient-to-r from-pink to-lila text-white rounded-md"
+        <Button
+          className="ml-3 w-32 text-white bg-gradient-to-r from-pink to-lila hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-md text-sm px-5 py-2.5 text-center"
           onClick={getMessages}
         >
           Send
-        </button>
+        </Button>
       </div>
     </div>
   );
