@@ -36,7 +36,7 @@ function App() {
         <Route path="/user" element={<ProfilePage />} />
         <Route path="/allgames" element={<AllGamesPage />} />
         <Route path="/categories/:id" element={<CategoriesPage />} />
-        <Route path="/categories/:id/:gameID" element={<ProductPage />} />
+        <Route path="/categories/:id/:gameID" element={<GamePage />} />
         <Route path="/deals/:rawTitle" element={<DealPage />} />
         <Route path="*" element={<NotFound />} />
 

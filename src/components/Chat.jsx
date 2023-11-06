@@ -3,8 +3,8 @@ import { Button } from "@material-tailwind/react";
 import { useAuth } from "../Context/AuthProvider";
 
 function Chat() {
-  const [message, setMessage] = useState(null);
-  const [value, setValue] = useState(null);
+  const [message, setMessage] = useState("");
+  const [value, setValue] = useState("");
   const [previousChats, setPreviousChats] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(null);
   const { userData } = useAuth();
