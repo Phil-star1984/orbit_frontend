@@ -7,7 +7,7 @@ export default function CarouselWithContent() {
     <Carousel className="xl h-[45rem]">
       <div className="relative h-full w-full">
         <img
-          src="https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
+          src="https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"
           alt="image 1"
           className="w-full h-full object-cover"
         />
@@ -58,7 +58,7 @@ export default function CarouselWithContent() {
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              Der absolute Wahnsinn
+              METAL GEAR SOLID 6
             </Typography>
             <Typography
               variant="lead"
@@ -86,7 +86,7 @@ export default function CarouselWithContent() {
       </div>
       <div className="relative h-full w-full">
         <img
-          src="https://media.rawg.io/media/games/20a/20aa03a10cda45239fe22d035c0ebe64.jpg"
+          src=" https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
           alt="image 3"
           className="h-full w-full object-cover"
         />
@@ -160,18 +160,18 @@ export default function CarouselWithContent() {
       {/* //next */}
       <div className="relative h-full w-full">
         <img
-          src="https://media.rawg.io/media/games/8e4/8e4de3f54ac659e08a7ba6a2b731682a.jpg"
+          src="https://media.rawg.io/media/games/c24/c24ec439abf4a2e92f3429dfa83f7f94.jpg"
           alt="image 5"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
-          <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
+          <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32 text-right">
             <Typography
               variant="h1"
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              Der absolute Wahnsinn
+              Deus Ex: Mankind Divided
             </Typography>
             <Typography
               variant="lead"
@@ -198,7 +198,7 @@ export default function CarouselWithContent() {
       {/* //next */}
       <div className="relative h-full w-full">
         <img
-          src="https://media.rawg.io/media/screenshots/a7c/a7c43871a54bed6573a6a429451564ef.jpg"
+          src="https://media.rawg.io/media/games/662/66261db966238da20c306c4b78ae4603.jpg"
           alt="image 6"
           className="h-full w-full object-cover"
         />
