@@ -10,7 +10,7 @@ import {
   UserIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-
+import orbitLogo from "/src/assets/orbitLogo.svg";
 import { useCart } from "../Context/CartProvider";
 import SearchBtn from "./buttons/SearchBtn.jsx";
 import { Button } from "@material-tailwind/react";
@@ -74,7 +74,7 @@ export default function Navbar({ setResults }) {
                   <NavLink to="/">
                     <img
                       className="h-11 w-auto"
-                      src="../src/assets/Orbit_Logo_Zeichenfläche 1 Kopie 2.svg"
+                      src={orbitLogo}
                       alt="Orbit Gaming Logo"
                     />
                   </NavLink>

@@ -6,6 +6,7 @@ import axios from "axios";
 
 export default function Login() {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
   const [password, setPassword] = useState("");
   const { setIsLoggedIn, checkUser, setUserData } = useAuth();
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ export default function Login() {
         checkUser();
       }
     } catch (error) {
-      console.error(error);
+      setError(error.response.data.message);
     }
   };
 
@@ -43,7 +44,9 @@ export default function Login() {
         <h1 className="text-3xl font-semibold text-center text-lila uppercase">
           Sign in
         </h1>
-
+        {error && (
+          <p className="text-red-800 text-center font-semibold mb-4">{error}</p>
+        )}
         <form className="mt-6" onSubmit={handleSubmit}>
           <div className="mb-2">
             <label
