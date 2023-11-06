@@ -18,10 +18,10 @@ import axios from "axios";
 import { useAuth } from "../Context/AuthProvider";
 
 const navigation = [
-  { name: "Store", href: "/store", current: true },
-  { name: "Wishlist", href: "/wishlist", current: false },
-  { name: "Deals", href: "/deals", current: false },
-  { name: "Events", href: "/events", current: false },
+  { name: "Store", href: "/store" },
+  { name: "Wishlist", href: "/wishlist" },
+  { name: "Deals", href: "/deals" },
+  { name: "Events", href: "/events" },
 ];
 
 function classNames(...classes) {
@@ -73,25 +73,32 @@ export default function Navbar({ setResults }) {
                 <div className="flex flex-shrink-0 items-center">
                   <NavLink to="/">
                     <img
-                      className="h-11 w-auto"
+                      className="h-14 w-auto"
                       src={orbitLogo}
                       alt="Orbit Gaming Logo"
                     />
                   </NavLink>
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
+                <div className="hidden sm:ml-6 sm:flex items-center">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <NavLink
                         key={item.name}
                         to={item.href}
-                        className={classNames(
+                        /* className={classNames(
                           item.current
                             ? "bg-gray-900 text-white"
                             : "text-gray-300 hover:bg-gray-700 hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
+                        )} */
+                        className={({ isActive }) => {
+                          return (
+                            "flex items-center h-8 rounded-md px-4 py-1 text-sm font-medium " +
+                            (!isActive
+                              ? "text-white hover:bg-gray-900 hover:text-white"
+                              : "text-white bg-gray-700")
+                          );
+                        }}
                       >
                         {item.name}
                       </NavLink>

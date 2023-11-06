@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-// import orbitLogo from "/src/assets/orbitLogo.svg";
+import orbitLogo from "/src/assets/orbitLogo.svg";
 import ExploreBtn from "./buttons/ExploreBtn";
 
 function NotFound() {
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center bg-gray-900">
-        <div className="text-center">
+      <div className="min-h-screen flex items-center justify-center bg-[url('../src/assets/404_page.jpg')] bg-hero bg-no-repeat bg-cover bg-center bg-fixed">
+        <div className="text-center bg-white p-16 rounded-mb rounded-lg shadow-xl backdrop-filter backdrop-blur-md bg-opacity-10 border-[1px] border-white">
           <img
-            className="h-32 w-auto mb-12"
+            className="h-28 w-auto mb-12"
             src={orbitLogo}
             alt="Orbit Gaming Logo"
           />
