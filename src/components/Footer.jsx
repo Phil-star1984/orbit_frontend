@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div className="w-full min-h-fit py-28 flex items-center justify-center bg-black">
       <div className="md:w-2/3 w-full px-4 text-white flex flex-col">
-        <div className="w-full text-7xl font-bold">
+        <div className="w-full text-5xl lg:text-7xl font-bold">
           <h1 className="w-full text-center">
             Can we help you? <br></br>Get in touch.
           </h1>
