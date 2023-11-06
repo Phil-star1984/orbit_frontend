@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import ShowResults from "./components/ShowResults.jsx";
 import SignUp from "./components/SignUp.jsx";
-import GamePage from "./Pages/GamePage.jsx";
+// import GamePage from "./Pages/GamePage.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import ProductPage from "./Pages/ProductPage.jsx";
 import NotFound from "./components/NotFound.jsx";
@@ -28,7 +28,7 @@ function App() {
       {results && <ShowResults results={results} />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/game" element={<GamePage />} />
+        {/* <Route path="/game" element={<GamePage />} /> */}
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/login" element={<AuthPage />} />
@@ -36,7 +36,7 @@ function App() {
         <Route path="/user" element={<ProfilePage />} />
         <Route path="/allgames" element={<AllGamesPage />} />
         <Route path="/categories/:id" element={<CategoriesPage />} />
-        <Route path="/categories/:id/:gameID" element={<ProductPage />} />
+        {/* <Route path="/categories/:id/:gameID" element={<GamePage />} /> */}
         <Route path="/deals/:rawTitle" element={<DealPage />} />
         <Route path="*" element={<NotFound />} />
 
