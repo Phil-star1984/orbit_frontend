@@ -7,8 +7,9 @@ module.exports = withMT({
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
-      pink: "#ff00ff",
-      lila: "#660099",
+      pink: "#dd0cdd",
+      lila: "#7907b3",
+      darkPink: "#c216c2",
     },
     extend: {},
   },

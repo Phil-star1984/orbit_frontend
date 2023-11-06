@@ -1,11 +1,13 @@
 import { React, useState, useEffect } from "react";
 import { Button } from "@material-tailwind/react";
+import { useAuth } from "../Context/AuthProvider";
 
 function Chat() {
   const [message, setMessage] = useState(null);
   const [value, setValue] = useState(null);
   const [previousChats, setPreviousChats] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(null);
+  const { userData } = useAuth();
 
   const getMessages = async () => {
     const userInput = `Answer in a maximum of two sentences. ${value}`;
@@ -33,6 +35,8 @@ function Chat() {
     setTimeout(() => {
       setValue("");
     }, 100);
+
+    console.log(userData);
   };
 
   useEffect(() => {
@@ -45,12 +49,13 @@ function Chat() {
         ...prevChats,
         {
           title: currentTitle,
-          role: "USER",
+          role: userData.firstName || "User",
           content: value,
         },
         {
           title: currentTitle,
-          role: message.role.toUpperCase(),
+          /* role: message.role.toUpperCase(), */
+          role: "OrbitGPT",
           content: message.content,
         },
       ]);
@@ -68,8 +73,8 @@ function Chat() {
   /* console.log(uniqueTitles); */
 
   return (
-    <div className="pb-20 flex flex-col items-center bg-gradient-to-r from-black to-lila">
-      <h1 className="text-7xl mt-20 font-semibold text-center max-w-screen-xl text-transparent bg-clip-text bg-gradient-to-r from-pink to-lila duration-1000 animate-pulse">
+    <div className="py-28 flex flex-col items-center bg-gradient-to-r from-black to-lila">
+      <h1 className="text-7xl font-semibold text-center max-w-screen-xl text-transparent bg-clip-text bg-gradient-to-r from-pink to-lila duration-1000 animate-pulse">
         OrbitGPT
       </h1>
       <p className="text-white text-center mb-4">

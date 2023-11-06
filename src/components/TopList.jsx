@@ -28,9 +28,7 @@ const TopList = ({ listTitle, handleAddToCart, page }) => {
 
   return (
     <div className="w-1/2 flex flex-col">
-      <h2 className="text-4xl font-semibold mb-8 text-purple-400">
-        {listTitle}
-      </h2>
+      <h2 className="text-4xl font-semibold mb-8 text-pink">{listTitle}</h2>
       <div className="flex flex-col gap-1">
         {games.map((game) => {
           const arbitraryPrice = calcArbitraryPrice(game.id);

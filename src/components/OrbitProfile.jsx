@@ -1,7 +1,7 @@
 export default function OrbitProfile() {
   return (
     <>
-      <div className="bg-black text-white text-center h-96 flex flex-col items-center justify-center">
+      <div className="bg-black text-white text-center py-28 flex flex-col items-center justify-center">
         <h2 className="text-4xl lg:text-5xl font-semibold mb-4 w-5/6 max-w-screen-xl text-transparent bg-clip-text bg-gradient-to-r from-pink via-lila to-gray-900 duration-5000 animate-pulse">
           Orbit. Next Level Gaming.
         </h2>

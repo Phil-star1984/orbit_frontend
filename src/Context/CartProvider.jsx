@@ -27,9 +27,6 @@ export const CartProvider = ({ children }) => {
         const localCartString = localStorage.getItem("cart");
         const localCart = JSON.parse(localCartString) || [];
 
-        console.log("Local cart string: " + localCartString);
-        console.log(localCart);
-        console.log(userData);
         if (isLoggedIn && localCart.length) {
           await axios.put(`${appConfig.baseUrl}/user/${userId}/cart`, {
             games: localCart,

@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import DealsItem from "./DealsItem.jsx";
+import AddToCartBtn from "./buttons/AddToCartBtn";import DealsItem from "./DealsItem.jsx";
 
 function Deals() {
   const [deals, setDeals] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { data, loading } = useFetchRAWG("/games?");
 
 
 
@@ -46,18 +46,40 @@ function Deals() {
         Top deals{" "}
       </h3>
       {/* main div - Grid Container */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 m-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16">
         {deals.map((deal) => (
-          <div key={`${deal.dealID}`} className="text-white w-full">
-            <Link to={`/deals/${deal.title}`} state={{deal: deal}}>
-              <DealsItem 
-                  imageSrc={deal.thumb}
-                  title={deal.title} 
-                  salePrice={deal.salePrice} 
-                  regularPrice={deal.normalPrice} 
+          <Link
+            key={deal.dealID}
+            to={`/deals/${deal.title}`}
+            state={{ deal: deal }}
+          >
+            <div className="text-white w-full bg-gray-800 p-4 rounded-xl hover:bg-gray-700  cursor-pointer flex flex-col group">
+              <h3 className=" text-lg font-semibold pb-4 truncate">
+                {deal.title}
+              </h3>
+              <img
+                className="w-full h-full md:h-auto rounded-lg"
+                alt={`${deal.title}`}
+                src={`${deal.thumb}`}
               />
-            </Link>
-          </div>
+              <div className="w-full flex gap-2  justify-end items-center mt-4">
+                <p className="text-xl text-white font-semibold  bg-pink px-4 py-2 rounded-lg text-center">
+                  {"- " +
+                    ((1 - deal.salePrice / deal.normalPrice) * 100).toFixed() +
+                    "%"}
+                </p>
+                <div className="flex flex-col items-end justify-center">
+                  <p className="text-gray-500 line-through text-base">
+                    {deal.normalPrice} €
+                  </p>
+                  <p className="text-white text-lg">{deal.salePrice} €</p>
+                </div>
+                <div>
+                  <AddToCartBtn />
+                </div>
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>

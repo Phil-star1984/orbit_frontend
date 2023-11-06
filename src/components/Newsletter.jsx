@@ -40,7 +40,7 @@ export default function Newsletter() {
   // }
 
   return (
-    <div className="flex justify-center h-[33rem] items-center py-3 px-2 bg-[url('../src/assets/orbit_newsletter.jpg')] bg-hero bg-no-repeat bg-cover bg-center bg-fixed">
+    <div className="flex justify-center items-center py-28 bg-[url('../src/assets/orbit_newsletter.jpg')] bg-hero bg-no-repeat bg-cover bg-center bg-fixed">
       <div className="bg-black flex flex-col items-center gap-4 sm:flex-row justify-around p-8 lg:p-16 drop-shadow-lg rounded-xl max-w-5xl w-full">
         <div className="text-xl text-white md:text-2xl font-bold whitespace-nowrap">
           Don't miss any ORBIT Gaming News.<br></br>
