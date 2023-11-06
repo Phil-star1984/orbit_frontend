@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import useFetchRAWG from "../../hooks/useFetchRAWG";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import DealsItem from "./DealsItem.jsx";
 
 function Deals() {
   const [deals, setDeals] = useState([]);
-  const { data, loading } = useFetchRAWG("/games?");
+  const [loading, setLoading] = useState(true);
 
 
 
@@ -19,6 +18,7 @@ function Deals() {
         );
 
         setDeals(response.data);
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -38,6 +38,7 @@ function Deals() {
       </div>
     );
   }
+//console.log(deals);
 
   return (
     <div className="deals mx-48 ">
@@ -45,35 +46,16 @@ function Deals() {
         Top deals{" "}
       </h3>
       {/* main div - Grid Container */}
-      <div className="grid grid-cols-2 m-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mb-16">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-2 lg:grid-cols-4">
         {deals.map((deal) => (
           <div key={`${deal.dealID}`} className="text-white w-full">
             <Link to={`/deals/${deal.title}`} state={{deal: deal}}>
-              <div className="flex justify-center flex-col">
-                <h3>{deal.title}</h3>
-                <img
-                  className="w-3/5 h-auto md:h-auto "
-                  alt={`${deal.title}`}
-                  src={`${deal.thumb}`}
-                />
-                <div>
-                  <p className="text-pink text-base md:text-xl lg:text-2xl ">
-                    {deal.salePrice} €
-                  </p>
-                  <p className="text-gray-500 line-through text-sm md:text-lg lg:text-lg">
-                    {deal.normalPrice} €
-                  </p>
-                </div>
-                <div>
-                  {-((1 - deal.salePrice / deal.normalPrice) * 100).toFixed() +
-                    "% OFF"}
-                </div>
-                <div>
-                  <button className=""> Buy now</button>
-                  <button> Add to cart</button>
-                  <button> Add to wishlist</button>
-                </div>
-              </div>
+              <DealsItem 
+                  imageSrc={deal.thumb}
+                  title={deal.title} 
+                  salePrice={deal.salePrice} 
+                  regularPrice={deal.normalPrice} 
+              />
             </Link>
           </div>
         ))}
