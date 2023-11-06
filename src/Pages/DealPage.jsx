@@ -147,7 +147,7 @@ function DealPage() {
       </div>
       {/* /////genres & tags */}
       <div className="overflow-hidden  w-1/4 bg-gray-500 rounded shadow-md text-slate-500 shadow-slate-200">
-        <div className="p-6">
+        <div className="p-9">
           <div className="mb-4">
             <h3 className="text-xl font-medium text-slate-700">
               <ul>Tags</ul>
@@ -160,7 +160,7 @@ function DealPage() {
           </div>
         </div>
 
-        <div className="p-6">
+        <div className="p-9">
           <div className="mb-4">
             <h3 className="text-xl font-medium text-slate-700">
               <ul>Genres</ul>
@@ -172,52 +172,20 @@ function DealPage() {
             </p>
           </div>
         </div>
+
+        <div className="rating p-9">
+          <h3 className="text-xl font-medium text-slate-700">
+            Rating
+            {/* : {detailsGameData.rating} */}
+          </h3>
+          <Rating value={Math.round(detailsGameData.rating)} readonly />
+        </div>
       </div>
       {/* /// */}
 
-      <div>
-        Videos & Trailers
-        {gameVideos.results.length === 0 ? (
-          ""
-        ) : (
-          <Carousel className="rounded-xl">
-            <video className="h-full w-full rounded-lg" controls autoPlay>
-              <source
-                src={gameVideos.results[0].data.map((key) => {
-                  id;
-                })}
-                type="video/mp4"
-              />
-            </video>
-            <video className="h-full w-full rounded-lg" controls autoPlay>
-              <source
-                src="https://www.youtube.com/watch?v=NeQM1c-XCDc"
-                type="video/mp4"
-              />
-            </video>
-          </Carousel>
+      {/* ////////rating: */}
 
-          // <div>
-          //   <video className="h-full w-full rounded-lg" controls autoPlay>
-          //     <source src="/demo.mp4" type="video/mp4" />
-          //     Your browser does not support the video tag.
-          //   </video>
-          // </div>
-        )}
-      </div>
-
-      <div classsName="rating">
-        <Rating value={Math.round(detailsGameData.rating)} readonly />
-        {/* <Rating
-          value={detailsGameData}
-          onChange={(detailsGameData) => setRated(detailsGameData)}
-        /> */}
-        {/* <Rating value={detailsGameData} /> */}
-      </div>
-
-      {/* //////// */}
-
-      <div>
+      {/* <div>
         Ratings & Metacritic Metcritic score: {detailsGameData.metacritic} ,
         Overall rating: {detailsGameData.rating} , Detailed ratings:
         {detailsGameData.ratings.map((rating) => (
@@ -226,10 +194,10 @@ function DealPage() {
             <p>{rating.percent} %</p>
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* ///// */}
-      <div className="overflow-hidden w-2/3 bg-gray-400 rounded shadow-md text-slate-500 shadow-slate-200">
+      <div className="overflow-hidden w-3/4 bg-gray-500 rounded shadow-md text-slate-500 shadow-slate-200">
         <div className="p-6">
           <header className="mb-4">
             <h3 className="text-xl font-medium text-slate-700">Description</h3>
@@ -250,6 +218,41 @@ function DealPage() {
           </header>
           <p>{detailsGameData.description_raw}</p>
         </div>
+      </div>
+
+      {/* //////videos */}
+      <div className="w-120 h-60 justify-center rounded-lg">
+        Videos & Trailers
+        {gameVideos.results.length === 0 ? (
+          ""
+        ) : (
+          <Carousel className="rounded-xl ">
+            <video className="w-120 h-60 rounded-lg" controls autoPlay>
+              <source
+                src="https://www.youtube.com/watch?v=NeQM1c-XCDc"
+                type="video/mp4"
+                // src={gameVideos.results[0].data.map((key) => {
+                //   id;
+                // })}
+              />
+            </video>
+            {/* <video className="h-full w-full rounded-lg" controls autoPlay> */}
+            <video className="w-120 h-60 rounded-lg" controls autoPlay>
+              <source
+                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+                type="video/mp4"
+                width="30%"
+              />
+            </video>
+          </Carousel>
+
+          // <div>
+          //   <video className="h-full w-full rounded-lg" controls autoPlay>
+          //     <source src="/demo.mp4" type="video/mp4" />
+          //     Your browser does not support the video tag.
+          //   </video>
+          // </div>
+        )}
       </div>
 
       {/* ////////// */}
