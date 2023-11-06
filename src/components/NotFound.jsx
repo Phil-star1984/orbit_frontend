@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-// import orbitLogo from "/src/assets/orbitLogo.svg";
+import orbitLogo from "/src/assets/orbitLogo.svg";
 import ExploreBtn from "./buttons/ExploreBtn";
 
 function NotFound() {
