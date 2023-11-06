@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import ShowResults from "./components/ShowResults.jsx";
 import SignUp from "./components/SignUp.jsx";
-import GamePage from "./Pages/Gamepage.jsx";
+import GamePage from "./Pages/GamePage.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import ProductPage from "./Pages/ProductPage.jsx";
 import NotFound from "./components/NotFound.jsx";
