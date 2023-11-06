@@ -8,7 +8,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
+import { Carousel } from "@material-tailwind/react";
 import PriceBox from "../components/PriceBox.jsx";
+import { Rating } from "@material-tailwind/react";
 
 function DealPage() {
   const { rawTitle } = useParams();
@@ -174,13 +176,44 @@ function DealPage() {
 
       <div>
         Videos & Trailers
-        {gameVideos.results.length === 0 ? "" : <div>videos come here</div>}
+        {gameVideos.results.length === 0 ? (
+          ""
+        ) : (
+          <Carousel className="rounded-xl">
+            <video className="h-full w-full rounded-lg" controls autoPlay>
+              <source
+                src={gameVideos.results[0].data.map((key) => {
+                  id;
+                })}
+                type="video/mp4"
+              />
+            </video>
+            <video className="h-full w-full rounded-lg" controls autoPlay>
+              <source
+                src="https://www.youtube.com/watch?v=NeQM1c-XCDc"
+                type="video/mp4"
+              />
+            </video>
+          </Carousel>
+
+          // <div>
+          //   <video className="h-full w-full rounded-lg" controls autoPlay>
+          //     <source src="/demo.mp4" type="video/mp4" />
+          //     Your browser does not support the video tag.
+          //   </video>
+          // </div>
+        )}
       </div>
 
+      {/* <div classsName="rating">
+        <Rating value={detailsGameData.rating} />
+      </div> */}
+
+      {/* //////// */}
+
       <div>
-        Ratings & Metacritic Metcritic score: {detailsGameData.metacritic}
-        Overall rating: {detailsGameData.rating}
-        Detailed ratings:
+        Ratings & Metacritic Metcritic score: {detailsGameData.metacritic} ,
+        Overall rating: {detailsGameData.rating} , Detailed ratings:
         {detailsGameData.ratings.map((rating) => (
           <div>
             <p>{rating.title}</p>
