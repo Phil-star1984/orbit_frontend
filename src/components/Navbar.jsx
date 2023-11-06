@@ -19,7 +19,7 @@ import { useAuth } from "../Context/AuthProvider";
 
 const navigation = [
   { name: "Store", href: "/store", current: true },
-  { name: "Wishlist", href: "/wishlist", current: false },
+  { name: "Categories", href: "/categories/4", current: false },
   { name: "Deals", href: "/deals", current: false },
   { name: "Events", href: "/events", current: false },
 ];
@@ -190,13 +190,13 @@ export default function Navbar({ setResults }) {
                           <Menu.Item>
                             {({ active }) => (
                               <NavLink
-                                to="#"
+                                to="/categories/4"
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
                                   "block px-4 py-2 text-sm text-gray-700"
                                 )}
                               >
-                                Wishlist
+                                Categories
                               </NavLink>
                             )}
                           </Menu.Item>
