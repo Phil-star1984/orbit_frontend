@@ -182,9 +182,7 @@ function DealPage() {
         </div>
       </div>
       {/* /// */}
-
       {/* ////////rating: */}
-
       {/* <div>
         Ratings & Metacritic Metcritic score: {detailsGameData.metacritic} ,
         Overall rating: {detailsGameData.rating} , Detailed ratings:
@@ -195,7 +193,6 @@ function DealPage() {
           </div>
         ))}
       </div> */}
-
       {/* ///// */}
       <div className="overflow-hidden w-3/4 bg-gray-500 rounded shadow-md text-slate-500 shadow-slate-200">
         <div className="p-6">
@@ -219,9 +216,10 @@ function DealPage() {
           <p>{detailsGameData.description_raw}</p>
         </div>
       </div>
-
       {/* //////videos */}
-      <div className="w-120 h-60 justify-center rounded-lg">
+
+      {/* //////// */}
+      <div className="w-120 h-60 justify-center  rounded-lg">
         Videos & Trailers
         {gameVideos.results.length === 0 ? (
           ""
@@ -241,7 +239,6 @@ function DealPage() {
               <source
                 src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
                 type="video/mp4"
-                width="30%"
               />
             </video>
           </Carousel>
@@ -254,17 +251,43 @@ function DealPage() {
           // </div>
         )}
       </div>
-
       {/* ////////// */}
+      {/* <div class="flex flex-wrap justify-center gap-4 p-4">
+        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
+          1
+        </div>
+
+        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
+          2
+        </div>
+
+        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
+          3
+        </div>
+
+        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
+          4
+        </div>
+
+        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
+          5
+        </div>
+
+        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
+          6
+        </div>
+      </div> */}
+      {/* /////// */}
       {relatedGames.results.length === 0 ? (
         ""
       ) : (
         <div>
           Other games from the family:
           {relatedGames.results.map((game) => (
-            <div className="flex justify-center " key={game.id}>
+            <div key={game.id}>
               <img
-                className="peer hover:opacity-20 w-60 h-20 md:h-60 object-cover"
+                className="flex justify-center items-center border h-32 w-48 bg-blue-100"
+                // className="peer hover:opacity-20 w-60 h-20 md:h-60 object-cover"
                 src={`${game.background_image}`}
                 alt={`${game.name}`}
               />
