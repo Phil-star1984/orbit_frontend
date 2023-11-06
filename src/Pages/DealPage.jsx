@@ -12,13 +12,6 @@ import { Carousel } from "@material-tailwind/react";
 import PriceBox from "../components/PriceBox.jsx";
 import { Rating } from "@material-tailwind/react";
 
-const includedFeatures = [
-  "Private forum access",
-  "Member resources",
-  "Entry to annual conference",
-  "Official member t-shirt",
-];
-
 function DealPage() {
   const { rawTitle } = useParams();
   const key = import.meta.env.VITE_KEY;
@@ -194,9 +187,9 @@ function DealPage() {
               </p>
               {/* description */}
               <div className="mt-10 flex items-center gap-x-4">
-                <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">
+                <h5 className="flex-none text-sm font-semibold leading-6 text-indigo-600">
                   Description
-                </h4>
+                </h5>
                 <div className="h-px flex-auto bg-gray-100" />
               </div>
               <ul
@@ -331,9 +324,9 @@ function DealPage() {
         </div> */}
       </div>
       <div className="mx-auto max-w-2xl sm:text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-white-900 sm:text-4xl">
+        <h3 className="text-3xl font-bold tracking-tight text-white-900 sm:text-4xl">
           Description
-        </h2>
+        </h3>
         <p className="mt-6 text-lg leading-8 text-gray-600">
           {detailsGameData.description_raw}
         </p>

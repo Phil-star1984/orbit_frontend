@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import useFetchRAWG from "../../hooks/useFetchRAWG";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import AddToCartBtn from "./buttons/AddToCartBtn";
+import DealsItem from "./DealsItem.jsx";
 
 function Deals() {
   const [deals, setDeals] = useState([]);
   const { data, loading } = useFetchRAWG("/games?");
-  const [gameImages, setGameImages] = useState([]);
 
   useEffect(() => {
     const getDeals = async () => {
@@ -18,6 +17,7 @@ function Deals() {
         );
 
         setDeals(response.data);
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -37,6 +37,7 @@ function Deals() {
       </div>
     );
   }
+  //console.log(deals);
 
   return (
     <div className="deals mx-48 ">
