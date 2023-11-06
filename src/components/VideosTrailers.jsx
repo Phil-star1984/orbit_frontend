@@ -7,8 +7,12 @@ export default function VideosTrailers() {
   return (
     <>
       <Carousel className="rounded-xl">
+        {/* `/games/${response.data.results[0].id}/movies?&key=${key}`, */}
+        {/* url1={foundGameData.results[0].short_screenshots[0].image}
+            url2={foundGameData.results[0].short_screenshots[1].image}
+            url3={foundGameData.results[0].short_screenshots[2].image} */}
         <img
-          src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+          src={foundGameData.gameVideos.results[0].data[0].max}
           alt="image 1"
           className="h-full w-full object-cover"
         />

@@ -1,6 +1,6 @@
 import react from "react";
 import { Button } from "@material-tailwind/react";
-import GamePage from "../../Pages/Gamepage";
+// import GamePage from "../Pages/GamePage";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default function ExploreBtn() {
