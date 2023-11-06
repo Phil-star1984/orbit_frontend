@@ -2,14 +2,13 @@ import { Link } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import AddToCartBtn from "./buttons/AddToCartBtn";import DealsItem from "./DealsItem.jsx";
+import AddToCartBtn from "./buttons/AddToCartBtn";
+import DealsItem from "./DealsItem.jsx";
 import useFetchRAWG from "../../hooks/useFetchRAWG";
 
 function Deals() {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(true);
-
-
 
   useEffect(() => {
     const getDeals = async () => {
@@ -39,7 +38,7 @@ function Deals() {
       </div>
     );
   }
-//console.log(deals);
+  //console.log(deals);
 
   return (
     <div className="deals mx-48 ">
