@@ -20,9 +20,6 @@ const CartGame = ({ id, title, imageSrc, price }) => {
         {/* Bottom Container */}
         <div className="flex items-center h-full">
           <div className="flex gap-4 w-full h-full justify-start items-end text-base text-gray-400 underline">
-            <button className="p-2 hover:text-gray-300 active:text-gray-400">
-              Move to Wishlist
-            </button>
             <button
               className="p-2 hover:text-gray-300 active:text-gray-400"
               onClick={() => {
