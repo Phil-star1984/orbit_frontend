@@ -89,17 +89,7 @@ function DealPage() {
         </div>
       </div>
       {/* /////genres & tags */}
-      <div className="overflow-hidden  w-1/4 bg-gray-500 rounded shadow-md text-slate-500 shadow-slate-200">
-        <div className="rating p-9">
-          <h3 className="text-xl font-medium text-slate-700">
-            Rating
-            {/* : {detailsGameData.rating} */}
-          </h3>
-          <Rating value={Math.round(detailsGameData.rating)} readonly />
-        </div>
-      </div>
-      {/* /// */}
-      {/* ////////rating: */}
+
       {/* <div>
         Ratings & Metacritic Metcritic score: {detailsGameData.metacritic} ,
         Overall rating: {detailsGameData.rating} , Detailed ratings:
@@ -146,6 +136,7 @@ function DealPage() {
           // </div>
         )}
       </div>
+
       {/* ////////// */}
       {/* <div class="flex flex-wrap justify-center gap-4 p-4">
         <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
