@@ -31,12 +31,12 @@ const CartPaymentBox = ({ totalPrice }) => {
       </div>
 
       {isLoggedIn ? (
-        <button className="mt-4 w-full h-12 bg-deep-purple-400 rounded-lg hover:bg-deep-purple-300 active:bg-deep-purple-400 font-semibold">
+        <button className="mt-4 w-full h-12 bg-pink rounded-lg hover:bg-darkPink active:bg-pink font-semibold">
           CHECK OUT
         </button>
       ) : (
         <Link to="/login">
-          <button className="mt-4 w-full h-12 bg-deep-purple-400 rounded-lg hover:bg-deep-purple-300 active:bg-deep-purple-400 font-semibold">
+          <button className="mt-4 w-full h-12 bg-pink rounded-lg hover:bg-darkPink active:bg-pink font-semibold">
             LOGIN
           </button>
         </Link>

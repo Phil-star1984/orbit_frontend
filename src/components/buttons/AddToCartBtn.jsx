@@ -8,12 +8,12 @@ const AddToCartBtn = ({ gameId }) => {
 
   return isGameInCart ? (
     <button className="inline-flex items-center ml-2 text-white ">
-      <CheckCircleIcon className="h-6 w-6 stroke-purple-300" />
+      <CheckCircleIcon className="h-6 w-6 stroke-pink" />
       {/* <span className="ml-2">Add to Cart</span> */}
     </button>
   ) : (
     <button
-      className="hidden group-hover:inline-flex items-center ml-2 text-white hover:text-gray-300 hover:stroke-purple-300 stroke-white"
+      className="hidden group-hover:inline-flex items-center ml-2 text-white hover:text-gray-300 hover:stroke-pink stroke-white"
       onClick={() => {
         addToCart(gameId);
       }}

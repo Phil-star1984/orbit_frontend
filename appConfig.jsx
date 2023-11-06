@@ -1,4 +1,4 @@
-const devMode = true;
+const devMode = false;
 
 export const appConfig = {
   baseUrl: devMode
