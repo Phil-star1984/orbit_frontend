@@ -37,7 +37,7 @@ const CartPage = () => {
 
         const response = await axios.get(`https://api.rawg.io/api/games`, {
           params: {
-            key: "a68824e64475471abcd6b96285019ac7",
+            key: import.meta.env.VITE_KEY,
             ids: gameIds.join(","),
           },
         });

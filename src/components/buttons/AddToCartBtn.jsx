@@ -8,7 +8,7 @@ const AddToCartBtn = ({ gameId }) => {
 
   return isGameInCart ? (
     <button className="inline-flex items-center ml-2 text-white ">
-      <CheckCircleIcon className="h-6 w-6 stroke-pink" />
+      <CheckCircleIcon className="h-8 w-8 stroke-pink" />
       {/* <span className="ml-2">Add to Cart</span> */}
     </button>
   ) : (
@@ -18,7 +18,7 @@ const AddToCartBtn = ({ gameId }) => {
         addToCart(gameId);
       }}
     >
-      <PlusCircleIcon className="h-6 w-6 stroke-inherit" />
+      <PlusCircleIcon className="h-8 w-8 stroke-inherit" />
       {/* <span className="ml-2">Add to Cart</span> */}
     </button>
   );
