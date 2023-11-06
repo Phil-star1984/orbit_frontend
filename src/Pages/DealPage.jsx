@@ -22,6 +22,7 @@ function DealPage() {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
   const deal = location.state.deal;
+  // const [rated, setRated] = React.useState(detailsGameData);
 
   useEffect(() => {
     const getData = async () => {
@@ -205,9 +206,14 @@ function DealPage() {
         )}
       </div>
 
-      {/* <div classsName="rating">
-        <Rating value={detailsGameData.rating} />
-      </div> */}
+      <div classsName="rating">
+        <Rating value={Math.round(detailsGameData.rating)} readonly />
+        {/* <Rating
+          value={detailsGameData}
+          onChange={(detailsGameData) => setRated(detailsGameData)}
+        /> */}
+        {/* <Rating value={detailsGameData} /> */}
+      </div>
 
       {/* //////// */}
 

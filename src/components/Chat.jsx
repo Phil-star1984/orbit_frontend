@@ -68,8 +68,8 @@ function Chat() {
   /* console.log(uniqueTitles); */
 
   return (
-    <div className="pb-20 flex flex-col items-center bg-gradient-to-r from-black to-lila">
-      <h1 className="text-7xl mt-20 font-semibold text-center max-w-screen-xl text-transparent bg-clip-text bg-gradient-to-r from-pink to-lila duration-1000 animate-pulse">
+    <div className="py-28 flex flex-col items-center bg-gradient-to-r from-black to-lila">
+      <h1 className="text-7xl font-semibold text-center max-w-screen-xl text-transparent bg-clip-text bg-gradient-to-r from-pink to-lila duration-1000 animate-pulse">
         OrbitGPT
       </h1>
       <p className="text-white text-center mb-4">
