@@ -87,7 +87,7 @@ const handleNext = () =>{
               className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
             >
                
-            <Link to={"/:gameID"}>
+            <Link to={`/${game.id}`}>
               <img
                 className="rounded-t-lg w-full h-40 md:h-60 object-cover"
                 src={`${game.background_image}`}
@@ -95,7 +95,7 @@ const handleNext = () =>{
               />
             </Link>
             <div className="p-5">
-              <Link to={'/:gameID'}>
+              <Link to={`/${game.id}`}>
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                  {game.name}
                 </h5>
@@ -104,12 +104,12 @@ const handleNext = () =>{
               <p className="mb-3 text-2xl font-bold tracking-tight text-gray-900">
                 {calcArbitraryPrice(game.id)} €
               </p>
-              <AddToCartBtn gameId={game.gameID} />
+              <AddToCartBtn gameId={game.id} />
             
 
         
               <Link
-                to={'/:gameID'}
+                to={`/${game.id}`}
                 className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-lila rounded-lg hover:bg-pink focus:ring-4 focus:outline-none focus:ring-blue-300 "
               >
                 See more
