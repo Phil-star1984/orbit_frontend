@@ -88,7 +88,6 @@ function DealPage() {
           />
         </div>
       </div>
-      {/* /////genres & tags */}
 
       {/* <div>
         Ratings & Metacritic Metcritic score: {detailsGameData.metacritic} ,
@@ -101,71 +100,8 @@ function DealPage() {
         ))}
       </div> */}
 
-      {/* //////videos */}
-
-      {/* //////// */}
-      <div className="w-120 h-60 justify-center  rounded-lg">
-        Videos & Trailers
-        {gameVideos.results.length === 0 ? (
-          ""
-        ) : (
-          <Carousel className="rounded-xl ">
-            <video className="w-120 h-60 rounded-lg" controls autoPlay>
-              <source
-                src="https://www.youtube.com/watch?v=NeQM1c-XCDc"
-                type="video/mp4"
-                // src={gameVideos.results[0].data.map((key) => {
-                //   id;
-                // })}
-              />
-            </video>
-            {/* <video className="h-full w-full rounded-lg" controls autoPlay> */}
-            <video className="w-120 h-60 rounded-lg" controls autoPlay>
-              <source
-                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
-                type="video/mp4"
-              />
-            </video>
-          </Carousel>
-
-          // <div>
-          //   <video className="h-full w-full rounded-lg" controls autoPlay>
-          //     <source src="/demo.mp4" type="video/mp4" />
-          //     Your browser does not support the video tag.
-          //   </video>
-          // </div>
-        )}
-      </div>
-
-      {/* ////////// */}
-      {/* <div class="flex flex-wrap justify-center gap-4 p-4">
-        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
-          1
-        </div>
-
-        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
-          2
-        </div>
-
-        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
-          3
-        </div>
-
-        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
-          4
-        </div>
-
-        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
-          5
-        </div>
-
-        <div class="flex justify-center items-center border h-32 w-48 bg-blue-100">
-          6
-        </div>
-      </div> */}
-
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="bg-white py-24 sm:py-2">
+        <div className="mx-auto max-w-6xl  px-6 lg:px-8">
           {/* description */}
 
           <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
@@ -264,7 +200,7 @@ function DealPage() {
                   </p>
 
                   <p className="mt-6 flex items-baseline justify-center gap-x-2">
-                    <span className="text-5xl font-bold tracking-tight text-gray-900">
+                    <span className="text-5xl  font-bold tracking-tight text-gray-900">
                       {deal.salePrice}€
                     </span>
 
@@ -315,10 +251,10 @@ function DealPage() {
         </div> */}
       </div>
       <div className="mx-auto max-w-2xl sm:text-center">
-        <h3 className="text-3xl font-bold tracking-tight text-white-900 sm:text-4xl">
+        <h3 className="text-3xl font-bold tracking-tight text-white-900 sm:text-4xl mt-20">
           Description
         </h3>
-        <p className="mt-6 text-lg leading-8 text-gray-600">
+        <p className="mt-6 mb-24 text-lg leading-8 text-gray-600">
           {detailsGameData.description_raw}
         </p>
       </div>
@@ -326,21 +262,101 @@ function DealPage() {
       {relatedGames.results.length === 0 ? (
         ""
       ) : (
-        <div>
-          Other games from the family:
-          {relatedGames.results.map((game) => (
-            <div key={game.id}>
-              <img
-                className="flex justify-center items-center border h-32 w-48 bg-blue-100"
-                // className="peer hover:opacity-20 w-60 h-20 md:h-60 object-cover"
-                src={`${game.background_image}`}
-                alt={`${game.name}`}
-              />
-              <p>{game.name}</p>
+        <div className="bg-white">
+          <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            <div className="mt-1 mb-20 block w-full rounded-md   text-center text-3xl font-semibold text-black ">
+              <h2> Other games from the family:</h2>
             </div>
-          ))}
+            {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+              Other games from the family:
+            </h2> */}
+
+            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+              {/* {products.map((product) => ( */}
+              {relatedGames.results.map((game) => (
+                <div key={game.id} className="group relative">
+                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                    <img
+                      src={`${game.background_image}`}
+                      alt={`${game.name}`}
+                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                    />
+                  </div>
+                  <div className="mt-4 flex justify-between">
+                    <div>
+                      <h3 className="text-sm text-gray-700">
+                        {/* <a href={product.href}> */}
+                        <a>
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-0"
+                          />
+                          {game.name}
+                        </a>
+                      </h3>
+                      <p className="mt-1 text-sm text-gray-500">
+                        {/* {product.color} */}
+                      </p>
+                    </div>
+                    <p className="text-sm font-medium text-gray-900">
+                      {/* {product.price} */}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+
+        // <div>
+        //   <h2>Other games from the family:</h2>
+        //   {relatedGames.results.map((game) => (
+        //     <div key={game.id}>
+        //       <img
+        //         className="flex justify-center items-center border h-32 w-48 bg-blue-100"
+        //         // className="peer hover:opacity-20 w-60 h-20 md:h-60 object-cover"
+        //         src={`${game.background_image}`}
+        //         alt={`${game.name}`}
+        //       />
+        //       <p>{game.name}</p>
+        //     </div>
+        //   ))}
+        // </div>
       )}
+
+      {/* /////videos */}
+      <div className="w-120 h-60 justify-center  rounded-lg">
+        <h2>Videos & Trailers</h2>
+        {gameVideos.results.length === 0 ? (
+          ""
+        ) : (
+          <Carousel className="rounded-xl ">
+            <video className="w-120 h-60 rounded-lg" controls autoPlay>
+              <source
+                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+                type="video/mp4"
+                // src={gameVideos.results[0].data.map((key) => {
+                //   id;
+                // })}
+              />
+            </video>
+            {/* <video className="h-full w-full rounded-lg" controls autoPlay> */}
+            <video className="w-120 h-60 rounded-lg" controls autoPlay>
+              <source
+                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+                type="video/mp4"
+              />
+            </video>
+          </Carousel>
+
+          // <div>
+          //   <video className="h-full w-full rounded-lg" controls autoPlay>
+          //     <source src="/demo.mp4" type="video/mp4" />
+          //     Your browser does not support the video tag.
+          //   </video>
+          // </div>
+        )}
+      </div>
     </div>
   );
 }
