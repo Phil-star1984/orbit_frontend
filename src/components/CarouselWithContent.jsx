@@ -216,10 +216,10 @@ export default function CarouselWithContent() {
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              Rage 2 is a first-person shooter. Players assume control of a
+              ranger named Walker, who is free to explore the game's apocalyptic
+              open world. Players are given control over some of Walker's
+              attributes, such as their gender, skills, or attire.
             </Typography>
             <div className="flex gap-2">
               <Button size="lg" color="white">
