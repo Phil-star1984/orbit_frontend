@@ -6,7 +6,7 @@ import AddToCartBtn from "./buttons/AddToCartBtn.jsx";
 function Categories() {
   const { data, loading } = useFetchRAWG("/genres?&page_size=16");
 
- if (loading) {
+  if (loading) {
     return (
       <div className="w-full flex justify-center my-36">
         <PacmanLoader
@@ -34,18 +34,20 @@ function Categories() {
             : data.results.map((category) => (
                 <div key={`${category.id}`}>
                   <Link to={`/categories/${category.id}`}>
-                    <div className="flex justify-center ">
+                    <div className="flex justify-center group">
                       <img
-                        className="peer hover:opacity-20 w-full h-40 md:h-60 object-cover"
+                        className="group-hover:opacity-20 w-full h-40 md:h-60 object-cover"
                         alt={`${category.name}`}
                         src={`${category.image_background}`}
                       />
-                      <div className="absolute flex-col place-self-center place-items-center hidden peer-hover:flex peer-hover:transition ease-out delay-500 text-[#D00EDD] font-bold tracking-wider text-lg sm:text-2xl md:text-4xl break-all">
-                      <p className="text-sm text-gray-300 font-light">Explore</p>
-                      <span>
-                        {category.name}
-                      </span>
-                      <p className="text-sm text-gray-300 font-light">Games</p>
+                      <div className="absolute flex-col place-self-center place-items-center hidden group-hover:flex group-hover:transition ease-out delay-500 text-[#D00EDD] font-bold tracking-wider text-lg sm:text-2xl md:text-4xl break-all">
+                        <p className="text-sm text-gray-300 font-light">
+                          Explore
+                        </p>
+                        <span>{category.name}</span>
+                        <p className="text-sm text-gray-300 font-light">
+                          Games
+                        </p>
                       </div>
                     </div>
                   </Link>
