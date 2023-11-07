@@ -11,21 +11,22 @@ import CategoriesPage from "./Pages/CategoriesPage.jsx";
 import DealPage from "./Pages/DealPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
-import ShowResults from "./components/ShowResults.jsx";
+/* import ShowResults from "./components/ShowResults.jsx"; */
 import SignUp from "./components/SignUp.jsx";
 // import GamePage from "./Pages/GamePage.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./components/NotFound.jsx";
 import Success from "../src/components/Success.jsx";
+import Chat from "./components/Chat.jsx";
 
 function App() {
-  const [results, setResults] = useState(null);
+  /* const [results, setResults] = useState(null); */
 
   return (
     <div className="bg-gray-900">
       <ToastContainer />
-      <Navbar setResults={setResults} />
-      {results && <ShowResults results={results} />}
+      <Navbar />
+      {/* {results && <ShowResults results={results} />} */}
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/game" element={<GamePage />} /> */}
@@ -38,7 +39,8 @@ function App() {
         <Route path="/categories/:id" element={<CategoriesPage />} />
         {/* <Route path="/categories/:id/:gameID" element={<GamePage />} /> */}
         <Route path="/deals/:rawTitle" element={<DealPage />} />
-        <Route path='/paymentid512873128' element={<Success />} />
+        <Route path="/paymentid512873128" element={<Success />} />
+        <Route path="/orbitgpt" element={<Chat />} />
         <Route path="*" element={<NotFound />} />
 
         <Route />
