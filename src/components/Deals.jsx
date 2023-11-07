@@ -3,8 +3,8 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import axios from "axios";
 import api from "../../api/apiRAWG.jsx";
 import { useState, useEffect } from "react";
-import AddToCartBtn from "./buttons/AddToCartBtn";import DealsItem from "./DealsItem.jsx";
-
+import AddToCartBtn from "./buttons/AddToCartBtn";
+import DealsItem from "./DealsItem.jsx";
 
 function Deals() {
   const key = import.meta.env.VITE_KEY;
@@ -67,12 +67,12 @@ function Deals() {
 
 
   return (
-    <div className="deals mx-48 ">
-      <h3 className="text-center text-[#D00EDD] font-bold sm:text-4xl m-14">
+    <div className="deals w-full  flex flex-col items-center">
+      <h3 className="text-center text-[#D00EDD] font-bold m-14 text-4xl">
         Top deals{" "}
       </h3>
       {/* main div - Grid Container */}
-      <div className="grid grid-cols-2 m-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16">
+      <div className="grid grid-cols-1 w-full m-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16 px-4 max-w-screen-xl">
         {deals.map((deal, index) => (
           <Link
             key={deal.dealID}
@@ -80,7 +80,7 @@ function Deals() {
             state={{ deal: deal }}
           >
             <div className="text-white w-full bg-gray-800 p-4 rounded-xl hover:bg-gray-700  cursor-pointer flex flex-col group">
-              <h3 className=" text-lg font-semibold pb-4 truncate">
+              <h3 className="text-lg font-semibold pb-4 truncate">
                 {deal.title}
               </h3>
               <img
@@ -89,7 +89,7 @@ function Deals() {
                 src={`${data[index].data.results[0].background_image}`}
               />
               <div className="w-full flex gap-2  justify-end items-center mt-4">
-                <p className="text-xl text-white font-semibold  bg-pink px-4 py-2 rounded-lg text-center">
+                <p className=" text-white font-semibold  bg-pink px-4 py-2 rounded-lg text-center text-lg">
                   {"- " +
                     ((1 - deal.salePrice / deal.normalPrice) * 100).toFixed() +
                     "%"}

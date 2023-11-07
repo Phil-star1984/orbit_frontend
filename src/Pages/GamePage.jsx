@@ -22,12 +22,11 @@ function GamePage() {
     const getData = async () => {
       try {
         let urls = [
-
-            `/games/${id}/screenshots?&key=${key}`,
-            `/games/${id}?&key=${key}`,
-            `/games/${id}/game-series?&key=${key}`,
-            `/games/${id}/movies?&key=${key}`
-           ];
+          `/games/${id}/screenshots?&key=${key}`,
+          `/games/${id}?&key=${key}`,
+          `/games/${id}/game-series?&key=${key}`,
+          `/games/${id}/movies?&key=${key}`,
+        ];
 
         setFoundGameData(response.data);
 
@@ -38,7 +37,7 @@ function GamePage() {
             { data: relatedGames },
             { data: gameVideos },
           ]) => {
-            setGamePics(gamePics)
+            setGamePics(gamePics);
             setDetailsGameData(detailsGameData);
             setRelatedGames(relatedGames);
             setGameVideos(gameVideos);
