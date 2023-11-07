@@ -12,7 +12,7 @@ const TopList = ({ listTitle, handleAddToCart, page }) => {
     const getGames = async () => {
       try {
         const response = await axios.get(
-          `https://api.rawg.io/api/games?key=a68824e64475471abcd6b96285019ac7&page_size=10&page=${page}`
+          `https://api.rawg.io/api/games?key=755aba9822904ac58feb741a9e826aab&page_size=10&page=${page}`
         );
 
         const fetchedGames = response.data.results;
