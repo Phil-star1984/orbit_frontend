@@ -84,10 +84,7 @@ function DealPage() {
           />
         </div>
         <div>
-          <PriceBox 
-          <p>{deal.salePrice}</p>
-          <p>{deal.normalPrice}</p>
-          />
+          <PriceBox />
         </div>
         ESRB Rating:
         {detailsGameData.esrb_rating === null

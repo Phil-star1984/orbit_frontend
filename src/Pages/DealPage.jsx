@@ -88,7 +88,6 @@ function DealPage() {
           />
         </div>
       </div>
-
       {/* <div>
         Ratings & Metacritic Metcritic score: {detailsGameData.metacritic} ,
         Overall rating: {detailsGameData.rating} , Detailed ratings:
@@ -112,6 +111,16 @@ function DealPage() {
               <p className="mt-6 text-base leading-7 text-gray-600">
                 <Rating value={Math.round(detailsGameData.rating)} readonly />
               </p>
+              {/* /// ESRB rating*/}
+
+              {detailsGameData.esrb_rating === null ? (
+                " n/a"
+              ) : (
+                <a className="mt-10 block w-32 rounded-md bg-yellow-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">
+                  ESRB Rating: {detailsGameData.esrb_rating.name}
+                </a>
+              )}
+              {/* // */}
               {/* description */}
               <div className="mt-10 flex items-center gap-x-4">
                 <h5 className="flex-none text-sm font-semibold leading-6 text-indigo-600">
@@ -119,6 +128,7 @@ function DealPage() {
                 </h5>
                 <div className="h-px flex-auto bg-gray-100" />
               </div>
+
               <ul
                 role="list"
                 className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
@@ -149,6 +159,7 @@ function DealPage() {
                   ))}
                 </li>
               </ul>
+
               {/* genres */}
               <div className="mt-10 flex items-center gap-x-4">
                 <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">
@@ -323,7 +334,6 @@ function DealPage() {
         //   ))}
         // </div>
       )}
-
       {/* /////videos */}
       <div className="w-120 h-60 justify-center  rounded-lg">
         <h2>Videos & Trailers</h2>
