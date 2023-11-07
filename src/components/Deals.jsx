@@ -9,8 +9,6 @@ function Deals() {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
-
   useEffect(() => {
     const getDeals = async () => {
       try {
@@ -39,7 +37,7 @@ function Deals() {
       </div>
     );
   }
-//console.log(deals);
+  //console.log(deals);
 
   return (
     <div className="deals mx-48 ">
