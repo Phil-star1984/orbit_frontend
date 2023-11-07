@@ -20,7 +20,7 @@ export default function HomePage() {
       <Chat />
       <Deals />
       <Newsletter />
-      <section className="max-w-screen-xl bg-gray-900 text-white  container mx-auto flex gap-16 py-8">
+      <section className="px-4 max-w-screen-xl bg-gray-900 text-white container mx-auto gap-16 py-8 flex flex-col items-center md:flex-row sm:flex-col md:gap-8 lg:gap-16">
         <TopList listTitle={"Top Seller"} page={1} />
         <TopList listTitle={"Most played"} page={2} />
       </section>
