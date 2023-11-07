@@ -41,7 +41,7 @@ const handleNext = () =>{
       </div>
     );
   }
-console.log(data)
+
   return (
     <>
     
@@ -97,7 +97,7 @@ console.log(data)
             <div className="p-5">
               <Link to={'/:gameID'}>
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                Title: {game.name}
+                 {game.name}
                 </h5>
               </Link>
               <Rating value={Math.round(game.rating)} readonly />
@@ -112,7 +112,7 @@ console.log(data)
                 to={'/:gameID'}
                 className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-lila rounded-lg hover:bg-pink focus:ring-4 focus:outline-none focus:ring-blue-300 "
               >
-                Buy now
+                See more
                 <svg
                   className="w-3.5 h-3.5 ml-2"
                   aria-hidden="true"
