@@ -1,9 +1,6 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState, useEffect } from "react";
-import axios from "axios";
-import { appConfig } from "../../appConfig";
-import { useAuth } from "./AuthProvider";
+import { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
+import { useAuth } from './AuthProvider';
 
 const CartContext = createContext();
 
@@ -11,61 +8,50 @@ export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
   const { isLoggedIn, userData } = useAuth();
-  const userId = userData._id;
-
+  const userId = userData && userData._id;
   const [cart, setCart] = useState([]);
-
-  /* const isLoggedIn = true;
-  const userId = "653683a38f6ba7aa384a66ba"; */ // John Doe
 
   useEffect(() => {
     const getInitialCart = async () => {
       let cartData;
 
-      console.log("isLoggedIn: " + isLoggedIn);
       try {
-        const localCartString = localStorage.getItem("cart");
-        const localCart = JSON.parse(localCartString) || [];
-
+        const localCart = JSON.parse(localStorage.getItem('cart')) || [];
         if (isLoggedIn && localCart.length) {
-          await axios.put(`${appConfig.baseUrl}/user/${userId}/cart`, {
-            games: localCart,
-          });
-          // Clear local storage after syncing with the backend
-          localStorage.removeItem("cart");
+          await axios.put(
+            `https://orbitback.onrender.com/user/${userId}/cart`,
+            {
+              games: localCart,
+            }
+          );
+          localStorage.removeItem('cart');
         }
 
         if (isLoggedIn) {
-          // Fetch cart data from the backend
           const response = await axios.get(
-            `${appConfig.baseUrl}/user/${userId}/cart`
+            `https://orbitback.onrender.com/user/${userId}/cart`
           );
           cartData = response.data.games || [];
         } else {
-          // Get local cart data
-          const localCartString = localStorage.getItem("cart");
-          const localCart = JSON.parse(localCartString);
-          cartData = localCart || [];
+          cartData = localCart;
         }
       } catch (error) {
-        console.error("Error fetching/initializing cart data:", error);
+        console.error('Error fetching/initializing cart data:', error);
       }
 
-      setCart([...cartData]);
+      setCart(cartData);
     };
 
-    getInitialCart();
-  }, [isLoggedIn]);
-
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
+    if (isLoggedIn) {
+      getInitialCart();
+    }
+  }, [isLoggedIn, userId]);
 
   const addToCart = (gameId) => {
     setCart((prevCart) => {
       const isGameInCart = prevCart.some((game) => game.gameId === gameId);
       if (isGameInCart) {
-        console.error("Game already in cart.");
+        console.error('Game already in cart.');
         return prevCart;
       }
 
@@ -73,17 +59,14 @@ export const CartProvider = ({ children }) => {
 
       if (isLoggedIn) {
         axios
-          .post(`${appConfig.baseUrl}/user/${userId}/cart`, {
+          .post(`https://orbitback.onrender.com/user/${userId}/cart`, {
             gameId,
           })
-          .then((response) => {
-            console.log("Game added to cart (backend):", response.data);
-          })
           .catch((error) => {
-            console.error("Error adding game to cart (backend):", error);
+            console.error('Error adding game to cart (backend):', error);
           });
       } else {
-        localStorage.setItem("cart", JSON.stringify(newCart));
+        localStorage.setItem('cart', JSON.stringify(newCart));
       }
 
       return newCart;
@@ -91,73 +74,67 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (gameId) => {
-    console.log(gameId);
     setCart((prevCart) => {
-      const isGameInCart = prevCart.some((game) => game.gameId === gameId);
-      if (!isGameInCart) {
-        console.error("No game in cart to remove.");
+      if (!prevCart.some((game) => game.gameId === gameId)) {
+        console.error('No game in cart to remove.');
         return prevCart;
       }
-      const filteredCart = prevCart.filter((game) => game.gameId !== gameId);
 
-      const newCart = [...filteredCart];
+      const newCart = prevCart.filter((game) => game.gameId !== gameId);
 
       if (isLoggedIn) {
         axios
-          .delete(`${appConfig.baseUrl}/user/${userId}/cart`, {
+          .delete(`https://orbitback.onrender.com/user/${userId}/cart`, {
             data: { gameId },
           })
-          .then((response) => {
-            console.log("Game deleted from cart (backend):", response.data);
-          })
           .catch((error) => {
-            console.error("Error deleting game from cart (backend):", error);
+            console.error('Error deleting game from cart (backend):', error);
           });
       } else {
-        localStorage.setItem("cart", JSON.stringify(newCart));
+        localStorage.setItem('cart', JSON.stringify(newCart));
       }
 
       return newCart;
     });
   };
 
-  const clearCart = (gameId) => {
-    setCart((prevCart) => {
-      const isGameInCart = prevCart.some((game) => game.gameId === gameId);
-      if (isGameInCart) {
-        console.error("Game already in cart.");
-        return prevCart;
-      }
+  const emptyCart = () => {
+    setCart([]);
 
-      const newCart = [...prevCart, { gameId: gameId }];
+    if (isLoggedIn) {
+      axios
+        .put(`https://orbitback.onrender.com/user/${userId}/cart`, {
+          data: { games: [] },
+        })
+        .catch((error) => {
+          console.error('Error clearing cart on the backend:', error);
+        });
+    } else {
+      localStorage.removeItem('cart');
+    }
+  };
 
-      if (isLoggedIn) {
-        axios
-          .post(`${appConfig.baseUrl}/user/${userId}/cart`, {
-            gameId,
-          })
-          .then((response) => {
-            console.log("Game added to cart in the backend:", response.data);
-          })
-          .catch((error) => {
-            console.error("Error adding game to cart (backend):", error);
-          });
-      } else {
-        localStorage.setItem("cart", JSON.stringify(newCart));
-      }
-
-      return newCart;
-    });
+  const validatePayment = async (orderId) => {
+    try {
+      const response = await axios.post('/api/validate-payment', { orderId });
+      return response.data;
+    } catch (error) {
+      console.error('Error during payment validation:', error);
+      throw error;
+    }
   };
 
   const contextValue = {
     cart,
     addToCart,
     removeFromCart,
-    clearCart,
+    emptyCart,
+    validatePayment,
   };
 
   return (
     <CartContext.Provider value={contextValue}>{children}</CartContext.Provider>
   );
 };
+
+export default CartProvider;

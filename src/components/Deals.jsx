@@ -2,9 +2,8 @@ import { Link } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import AddToCartBtn from "./buttons/AddToCartBtn";
-import DealsItem from "./DealsItem.jsx";
-import useFetchRAWG from "../../hooks/useFetchRAWG";
+import AddToCartBtn from "./buttons/AddToCartBtn";import DealsItem from "./DealsItem.jsx";
+
 
 function Deals() {
   const [deals, setDeals] = useState([]);
