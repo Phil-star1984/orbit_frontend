@@ -63,7 +63,7 @@ export default function Newsletter() {
               Subscribe
             </button>
           </form>
-          <p>{message}</p>
+          <p className="text-white">{message}</p>
         </div>
       </div>
     </div>
