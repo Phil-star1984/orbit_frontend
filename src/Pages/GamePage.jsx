@@ -148,6 +148,31 @@ function GamePage() {
           ))}
         </div>
       )}
+
+      {/* /////videos */}
+      <div className="m:text-center w-full h-full">
+        <div className="mx-auto max-w-6xl  px-6 lg:px-8">
+          <div className="justify-center rounded-lg">
+            {gameVideos.results.length === 0 ? (
+              ""
+            ) : (
+              <div>
+                <video
+                  className="w-120 h-60 justify-center rounded-lg mx-auto m:text-center"
+                  controls
+                  autoPlay
+                >
+                  <source
+                    src="https://steamcdn-a.akamaihd.net/steam/apps/256693661/movie_max.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
