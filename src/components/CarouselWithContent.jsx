@@ -18,17 +18,17 @@ export default function CarouselWithContent() {
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              Der absolute Wahnsinn
+              METAL GEAR SOLID 6
             </Typography>
             <Typography
               variant="lead"
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              Metal Gear Solid 6 may be something of a pipe dream, but, given
+              Konami's attachment to the franchise, it's not implausible that
+              the Japanese entertainment giant might revisit one of gaming's
+              most beloved series.
             </Typography>
             <div className="flex justify-center gap-2">
               {/* <ExploreBtn className="bg-white" /> */}
@@ -58,17 +58,17 @@ export default function CarouselWithContent() {
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              METAL GEAR SOLID 6
+              SAINTS ROW: THE THIRD
             </Typography>
             <Typography
               variant="lead"
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              The Saints are kings of Stilwater, but The Syndicate, a legendary
+              criminal fraternity, has turned its eye on the Saints and demands
+              tribute. You take the fight to a new city against The Syndicate in
+              Saints Row: The Third.
             </Typography>
 
             <div className="flex gap-2">
@@ -97,17 +97,17 @@ export default function CarouselWithContent() {
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              Der absolute Wahnsinn
+              PAYDAY 3
             </Typography>
             <Typography
               variant="lead"
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              PAYDAY 3 contains repeated displays of gun violence, including the
+              shooting of civilians and law enforcement. PAYDAY 3 references
+              alcohol and tobacco as well as illegal drugs in a lighthearted
+              way.
             </Typography>
             <div className="flex gap-2">
               <Button size="lg" color="white">
@@ -127,24 +127,23 @@ export default function CarouselWithContent() {
           alt="image 4"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
+        <div className="absolute inset-0 grid h-full w-full items-center bg-black/50">
           <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
             <Typography
               variant="h1"
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              Der absolute Wahnsinn
+              TOMB RAIDER (2013)
             </Typography>
             <Typography
               variant="lead"
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              A cinematic revival of the series in its action third person form,
+              Tomb Rider follows Lara in her least experience period of life –
+              her youth.
             </Typography>
             <div className="flex gap-2">
               <Button size="lg" color="white">
@@ -178,10 +177,11 @@ export default function CarouselWithContent() {
               color="white"
               className="mb-12 opacity-80"
             >
-              It is not so much for its beauty that the forest makes a claim
-              upon men&apos;s hearts, as for that subtle something, that quality
-              of air that emanation from old trees, that so wonderfully changes
-              and renews a weary spirit.
+              The year is 2029, and the golden era of augmentations is over.
+              Mechanically augmented humans have been deemed outcasts and
+              segregated from the rest of society. Crime and acts of terror
+              serve as a thin veil to cover up an overarching conspiracy aimed
+              at controlling the future of mankind.
             </Typography>
             <div className="flex gap-2">
               <Button size="lg" color="white">
@@ -209,7 +209,7 @@ export default function CarouselWithContent() {
               color="white"
               className="mb-4 text-3xl md:text-4xl lg:text-5xl"
             >
-              Der absolute Wahnsinn
+              RAGE 2
             </Typography>
             <Typography
               variant="lead"
