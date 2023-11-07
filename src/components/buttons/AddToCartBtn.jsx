@@ -13,7 +13,7 @@ const AddToCartBtn = ({ gameId }) => {
     </button>
   ) : (
     <button
-      className="md:hidden group-hover:inline-flex items-center ml-2 text-white hover:text-gray-300 hover:stroke-pink stroke-white"
+      className="lg:hidden group-hover:inline-flex items-center ml-2 text-white hover:text-gray-300 hover:stroke-pink stroke-white"
       onClick={() => {
         addToCart(gameId);
       }}
