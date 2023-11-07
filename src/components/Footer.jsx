@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 
+
 function Footer() {
   return (
     <div className="w-full min-h-fit py-28 flex items-center justify-center bg-black">
       <div className="md:w-2/3 w-full px-4 text-white flex flex-col">
-        <div className="w-full text-5xl lg:text-7xl font-bold">
-          <h1 className="w-full text-center">
-            Can we help you? <br></br>Get in touch.
-          </h1>
-        </div>
+        <div className="w-full text-4xl lg:text-6xl font-bold">
+          <h1 className="w-full text-center mb-10">
+            Take your gaming to a new Orbit
+          </h1>      
+    </div>
         <div className="flex space-x-8 items-center justify-center mt-4">
-          <a>
+          <Link>
             <div className="bg-gradient-to-r from-pink to-lila hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-lg w-11 h-11 flex items-center justify-center">
               <svg
                 width="16"
@@ -25,8 +26,8 @@ function Footer() {
                 />
               </svg>
             </div>
-          </a>
-          <a>
+          </Link>
+          <Link>
             <div className="bg-gradient-to-r from-pink to-lila hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-lg w-11 h-11 flex items-center justify-center">
               <svg
                 width="33"
@@ -49,8 +50,8 @@ function Footer() {
                 />
               </svg>
             </div>
-          </a>
-          <a>
+          </Link>
+          <Link>
             <div className="bg-gradient-to-r from-pink to-lila hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-lg w-11 h-11 flex items-center justify-center">
               <svg
                 width="35"
@@ -65,12 +66,12 @@ function Footer() {
                 />
               </svg>
             </div>
-          </a>
-          <a>
+          </Link>
+          <Link>
             <div className="bg-gradient-to-r from-pink to-lila hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 rounded-lg w-11 h-11 flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
                 version="1.1"
                 width="38"
                 /* height="24" */
@@ -82,35 +83,36 @@ function Footer() {
                 />
               </svg>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="mt-8 flex flex-col items-center">
           <p className="w-full md:w-2/3 text-gray-400 text-center">
-            Our goal is to offer you the best user experiences with your games.
-            We would like to know if you are happy with our store.
+            Our goal is to offer you the best gaming experience of the Universe.
+            <br />
+            Let us know if we succeeded:
           </p>
           <div className="w-44 pt-6 md:pt-0 mt-4">
             <Link to="/contact">
               <button className="flex items-center justify-center text-center text-white rounded-lg shadow px-10 py-3 transition-colors duration-200 transform bg-gradient-to-r from-pink to-lila hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-                Contact US
+                Contact us
               </button>
             </Link>
           </div>
         </div>
         <div className="">
           <div className="flex justify-between mt-24 mb-5">
-            <a className="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase">
+            <Link className="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase">
               About
-            </a>
-            <a className="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase">
-              Services
-            </a>
-            <a className="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase">
+            </Link>
+            <Link className="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase">
+              Terms & Conditions
+            </Link>
+            <Link className="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase">
               Why us
-            </a>
-            <a className="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase">
+            </Link>
+            <Link className="hidden md:block cursor-pointer text-gray-600 hover:text-white uppercase">
               Contact
-            </a>
+            </Link>
           </div>
           <hr className="border-gray-600" />
           <p className="w-full text-center my-12 text-gray-600">
