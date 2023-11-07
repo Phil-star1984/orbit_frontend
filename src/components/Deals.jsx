@@ -45,7 +45,7 @@ function Deals() {
         Top deals{" "}
       </h3>
       {/* main div - Grid Container */}
-      <div className="grid grid-cols-1 w-full m-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16 px-4 max-w-screen-xl">
+      <div className="grid grid-cols-1 w-full m-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-16 max-w-screen-2xl px-8 md:px-4">
         {deals.map((deal) => (
           <Link
             key={deal.dealID}

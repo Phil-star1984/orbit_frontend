@@ -6,7 +6,7 @@ import AddToCartBtn from "./buttons/AddToCartBtn.jsx";
 function Categories() {
   const { data, loading } = useFetchRAWG("/genres?&page_size=16");
 
- if (loading) {
+  if (loading) {
     return (
       <div className="w-full flex justify-center my-36">
         <PacmanLoader
@@ -25,7 +25,7 @@ function Categories() {
         Categories
       </h3> */}
       {/* main div - Grid Container */}
-      <div className="grid grid-cols-2 m-2 mb-0 mt-0 sm:grid-cols-3 md:grid-cols-4 gap-2">
+      <div className="grid grid-cols-1 m-2 mb-0 mt-0 sm:grid-cols-2 md:grid-cols-4 gap-2">
         {
           //check why it needs it
 
@@ -36,16 +36,18 @@ function Categories() {
                   <Link to={`/categories/${category.id}`}>
                     <div className="flex justify-center ">
                       <img
-                        className="peer hover:opacity-20 w-full h-40 md:h-60 object-cover"
+                        className="peer opacity-20 md:opacity-100 md:hover:opacity-20 w-full h-40 md:h-60 object-cover"
                         alt={`${category.name}`}
                         src={`${category.image_background}`}
                       />
-                      <div className="absolute flex-col place-self-center place-items-center hidden peer-hover:flex peer-hover:transition ease-out delay-500 text-[#D00EDD] font-bold tracking-wider text-lg sm:text-2xl md:text-4xl break-all">
-                      <p className="text-sm text-gray-300 font-light">Explore</p>
-                      <span>
-                        {category.name}
-                      </span>
-                      <p className="text-sm text-gray-300 font-light">Games</p>
+                      <div className="absolute flex-col place-self-center place-items-center md:hidden peer-hover:flex peer-hover:transition ease-out delay-500 text-[#D00EDD] font-bold tracking-wider text-lg sm:text-2xl md:text-4xl break-all text-center">
+                        <p className="text-sm text-gray-300 font-light">
+                          Explore
+                        </p>
+                        <span>{category.name}</span>
+                        <p className="text-sm text-gray-300 font-light">
+                          Games
+                        </p>
                       </div>
                     </div>
                   </Link>
