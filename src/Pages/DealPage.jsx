@@ -376,25 +376,34 @@ function DealPage() {
         {gameVideos.results.length === 0 ? (
           ""
         ) : (
+          <div>
+            <video className="h-full w-full rounded-lg" controls autoPlay>
+              <source
+                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
           ///
-          <Carousel className="rounded-xl ">
-            <video className="w-120 h-60 rounded-lg" controls autoPlay>
-              <source
-                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
-                type="video/mp4"
-                // src={gameVideos.results[0].data.map((key) => {
-                //   id;
-                // })}
-              />
-            </video>
-            {/* <video className="h-full w-full rounded-lg" controls autoPlay> */}
-            <video className="w-120 h-60 rounded-lg" controls autoPlay>
-              <source
-                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
-                type="video/mp4"
-              />
-            </video>
-          </Carousel>
+          // <Carousel className="rounded-xl ">
+          //   <video className="w-120 h-60 rounded-lg" controls autoPlay>
+          //     <source
+          //       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+          //       type="video/mp4"
+          //       // src={gameVideos.results[0].data.map((key) => {
+          //       //   id;
+          //       // })}
+          //     />
+          //   </video>
+          //   {/* <video className="h-full w-full rounded-lg" controls autoPlay> */}
+          //   <video className="w-120 h-60 rounded-lg" controls autoPlay>
+          //     <source
+          //       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+          //       type="video/mp4"
+          //     />
+          //   </video>
+          // </Carousel>
 
           // <div>
           //   <video className="h-full w-full rounded-lg" controls autoPlay>
