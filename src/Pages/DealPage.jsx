@@ -100,13 +100,13 @@ function DealPage() {
         ))}
       </div> */}
 
-      <div className="bg-white py-12 sm:py-1">
+      <div className="bg-white py-10 sm:py-1">
         <div className="mx-auto max-w-6xl  px-6 lg:px-8">
           {/* description */}
 
-          <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+          <div className="mx-auto mt-16 mb-10 max-w-2xl rounded-3xl ring-1 ring-white sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
             <div className="p-8 sm:p-10 lg:flex-auto">
-              <h3 className="text-2xl font-bold tracking-tight text-gray-900">
+              <h3 className="text-2xl font-bold tracking-tight text-lila">
                 Rating
               </h3>
               <p className="mt-6 text-base leading-7 text-gray-600">
@@ -124,7 +124,7 @@ function DealPage() {
               {/* // */}
               {/* description */}
               <div className="mt-10 flex items-center gap-x-4">
-                <h5 className="flex-none text-sm font-semibold leading-6 text-lila">
+                <h5 className="flex-none text-sl font-semibold leading-6 text-lila">
                   Description
                 </h5>
                 <div className="h-px flex-auto bg-gray-100" />
@@ -163,7 +163,7 @@ function DealPage() {
 
               {/* genres */}
               <div className="mt-10 flex items-center gap-x-4">
-                <h4 className="flex-none text-sm font-semibold leading-6 text-lila">
+                <h4 className="flex-none text-sl font-semibold leading-6 text-lila">
                   Genres
                 </h4>
                 <div className="h-px flex-auto bg-gray-100" />
@@ -184,7 +184,7 @@ function DealPage() {
               </ul>
               {/* //tags */}
               <div className="mt-10 flex items-center gap-x-4">
-                <h4 className="flex-none text-sm font-semibold leading-6 text-lila">
+                <h4 className="flex-none text-sl font-semibold leading-6 text-lila">
                   Tags
                 </h4>
                 <div className="h-px flex-auto bg-gray-100" />
