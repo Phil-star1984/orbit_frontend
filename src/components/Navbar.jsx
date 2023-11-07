@@ -21,14 +21,14 @@ const navigation = [
   { name: "Store", href: "/store", current: true },
   { name: "Categories", href: "/categories/4", current: false },
   { name: "Deals", href: "/deals", current: false },
-  { name: "Events", href: "/events", current: false },
+  { name: "OrbitGPT", href: "/orbitgpt", current: false },
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar({ setResults }) {
+export default function Navbar() {
   const { cart } = useCart();
   const { isLoggedIn, setIsLoggedIn, loading } = useAuth();
   const { userData } = useAuth();
@@ -103,7 +103,7 @@ export default function Navbar({ setResults }) {
                         {item.name}
                       </NavLink>
                     ))}
-                    <SearchBtn setResults={setResults} />
+                    <SearchBtn />
                   </div>
                 </div>
               </div>

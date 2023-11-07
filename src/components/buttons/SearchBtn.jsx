@@ -2,8 +2,9 @@
 import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
-export const SearchBtn = ({ setResults }) => {
+export const SearchBtn = () => {
   const [input, setInput] = useState("");
+  const [results, setResults] = useState("");
   const key = import.meta.env.VITE_KEY;
 
   const fetchData = (value) => {
@@ -21,6 +22,11 @@ export const SearchBtn = ({ setResults }) => {
   const handleChange = (value) => {
     setInput(value);
     fetchData(value);
+  };
+
+  const handleClick = () => {
+    setResults("");
+    setInput("");
   };
 
   return (
@@ -51,6 +57,7 @@ export const SearchBtn = ({ setResults }) => {
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            onClick={handleClick}
           >
             <path
               strokeLinecap="round"
@@ -78,6 +85,19 @@ export const SearchBtn = ({ setResults }) => {
           </svg>
         </div>
       </div>
+
+      {results.length > 0 && (
+        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 grid grid-cols-3 gap-2 p-3 rounded-lg">
+          {results.map((game, index) => (
+            <div className="text-lg" key={index}>
+              <div className="border flex text-white rounded-lg p-3 mt-3 h-20">
+                {game.name}
+                <img className="object-fill h-10" src={game.background_image} />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </>
   );
 };
