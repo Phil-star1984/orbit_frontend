@@ -15,8 +15,8 @@ import ShowResults from "./components/ShowResults.jsx";
 import SignUp from "./components/SignUp.jsx";
 // import GamePage from "./Pages/GamePage.jsx";
 import "react-toastify/dist/ReactToastify.css";
-import ProductPage from "./Pages/ProductPage.jsx";
 import NotFound from "./components/NotFound.jsx";
+import Success from "../src/components/Success.jsx";
 
 function App() {
   const [results, setResults] = useState(null);
@@ -38,6 +38,7 @@ function App() {
         <Route path="/categories/:id" element={<CategoriesPage />} />
         {/* <Route path="/categories/:id/:gameID" element={<GamePage />} /> */}
         <Route path="/deals/:rawTitle" element={<DealPage />} />
+        <Route path='/paymentid512873128' element={<Success />} />
         <Route path="*" element={<NotFound />} />
 
         <Route />
