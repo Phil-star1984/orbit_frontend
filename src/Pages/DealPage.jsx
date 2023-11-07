@@ -75,6 +75,8 @@ function DealPage() {
     );
   }
 
+  console.log(gameVideos.results[0].data["max"]);
+
   return (
     <div className="text-white">
       <div>
@@ -269,7 +271,7 @@ function DealPage() {
         <p className="mt-6 mb-24 text-lg leading-8 text-gray-600">
           {detailsGameData.description_raw}
         </p>
-        <h3 className="text-3xl font-bold tracking-tight text-white-900 sm:text-4xl mt-20">
+        <h3 className="text-3xl mb-10 font-bold tracking-tight text-white-900 sm:text-4xl mt-20">
           {/* Videos&Trailers */}
           Trailer
         </h3>
@@ -289,7 +291,7 @@ function DealPage() {
                   autoPlay
                 >
                   <source
-                    src="https://steamcdn-a.akamaihd.net/steam/apps/256693661/movie_max.mp4"
+                    src={`${gameVideos.results[0].data["max"]}`}
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
