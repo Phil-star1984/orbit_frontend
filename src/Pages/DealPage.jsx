@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import api from "../../api/apiRAWG.jsx";
 import { useLocation } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
@@ -11,6 +11,7 @@ import CarouselForDeals from "../components/CarouselForDeals.jsx";
 import { Carousel } from "@material-tailwind/react";
 import PriceBox from "../components/PriceBox.jsx";
 import { Rating } from "@material-tailwind/react";
+import AddToCartBtn from "../components/buttons/AddToCartBtn.jsx";
 
 function DealPage() {
   const { rawTitle } = useParams();
@@ -99,13 +100,13 @@ function DealPage() {
         ))}
       </div> */}
 
-      <div className="bg-white py-24 sm:py-2">
+      <div className="bg-white py-10 sm:py-1">
         <div className="mx-auto max-w-6xl  px-6 lg:px-8">
           {/* description */}
 
-          <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+          <div className="mx-auto mt-16 mb-10 max-w-2xl rounded-3xl ring-1 ring-white sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
             <div className="p-8 sm:p-10 lg:flex-auto">
-              <h3 className="text-2xl font-bold tracking-tight text-gray-900">
+              <h3 className="text-2xl font-bold tracking-tight text-lila">
                 Rating
               </h3>
               <p className="mt-6 text-base leading-7 text-gray-600">
@@ -123,7 +124,7 @@ function DealPage() {
               {/* // */}
               {/* description */}
               <div className="mt-10 flex items-center gap-x-4">
-                <h5 className="flex-none text-sm font-semibold leading-6 text-indigo-600">
+                <h5 className="flex-none text-sl font-semibold leading-6 text-lila">
                   Description
                 </h5>
                 <div className="h-px flex-auto bg-gray-100" />
@@ -136,21 +137,21 @@ function DealPage() {
                 {/* {detailsGameData.genres.map((genre) => ( */}
                 <li className="flex gap-x-3">
                   <CheckIcon
-                    className="h-6 w-5 flex-none text-indigo-600"
+                    className="h-6 w-5 flex-none text-lila"
                     aria-hidden="true"
                   />
                   Release Date: {detailsGameData.released}
                 </li>
                 <li className="flex gap-x-3">
                   <CheckIcon
-                    className="h-6 w-5 flex-none text-indigo-600"
+                    className="h-6 w-5 flex-none text-lila"
                     aria-hidden="true"
                   />
                   Playtime: {detailsGameData.playtime} h
                 </li>
                 <li className="flex gap-x-3">
                   <CheckIcon
-                    className="h-6 w-5 flex-none text-indigo-600"
+                    className="h-6 w-5 flex-none text-lila"
                     aria-hidden="true"
                   />
                   <ul>Developer / Publisher: </ul>
@@ -162,7 +163,7 @@ function DealPage() {
 
               {/* genres */}
               <div className="mt-10 flex items-center gap-x-4">
-                <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">
+                <h4 className="flex-none text-sl font-semibold leading-6 text-lila">
                   Genres
                 </h4>
                 <div className="h-px flex-auto bg-gray-100" />
@@ -174,7 +175,7 @@ function DealPage() {
                 {detailsGameData.genres.map((genre) => (
                   <li key={genre.id} className="flex gap-x-3">
                     <CheckIcon
-                      className="h-6 w-5 flex-none text-indigo-600"
+                      className="h-6 w-5 flex-none text-lila"
                       aria-hidden="true"
                     />
                     {genre.name}
@@ -183,7 +184,7 @@ function DealPage() {
               </ul>
               {/* //tags */}
               <div className="mt-10 flex items-center gap-x-4">
-                <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">
+                <h4 className="flex-none text-sl font-semibold leading-6 text-lila">
                   Tags
                 </h4>
                 <div className="h-px flex-auto bg-gray-100" />
@@ -195,7 +196,7 @@ function DealPage() {
                 {detailsGameData.tags.map((tag) => (
                   <li key={tag.id} className="flex gap-x-3">
                     <CheckIcon
-                      className="h-6 w-5 flex-none text-indigo-600"
+                      className="h-6 w-5 flex-none text-lila"
                       aria-hidden="true"
                     />
                     {tag.name}
@@ -233,13 +234,13 @@ function DealPage() {
                   </p>
                   <a
                     href="#"
-                    className="mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="mt-10 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
                   >
                     Buy now
                   </a>
                   <a
                     href="#"
-                    className="mt-5 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="mt-5 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
                   >
                     Add to Cart
                   </a>
@@ -275,47 +276,79 @@ function DealPage() {
       ) : (
         <div className="bg-white">
           <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            {/* ///// */}
             <div className="mt-1 mb-20 block w-full rounded-md   text-center text-3xl font-semibold text-black ">
               <h2> Other games from the family:</h2>
             </div>
-            {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-              Other games from the family:
-            </h2> */}
-
-            <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-              {/* {products.map((product) => ( */}
+            <div className="grid grid-cols-2 gap-4 p-3 sm:grid-cols-3 md:grid-cols-4 mx-24 ">
               {relatedGames.results.map((game) => (
-                <div key={game.id} className="group relative">
-                  <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+                <div
+                  key={game.id}
+                  className="max-w-sm bg-black border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700"
+                >
+                  <Link to={"/:gameID"}>
                     <img
+                      className="rounded-t-lg w-full h-40 md:h-60 object-cover"
                       src={`${game.background_image}`}
                       alt={`${game.name}`}
-                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                     />
-                  </div>
-                  <div className="mt-4 flex justify-between">
-                    <div>
-                      <h3 className="text-sm text-gray-700">
-                        {/* <a href={product.href}> */}
-                        <a>
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-0"
-                          />
-                          {game.name}
-                        </a>
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-500">
-                        {/* {product.color} */}
-                      </p>
+                  </Link>
+                  <div className="p-5">
+                    <Link to={"/:gameID"}>
+                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-300">
+                        {game.name}
+                      </h5>
+                    </Link>
+                    <Rating value={Math.round(game.rating)} readonly />
+                    {/* <p className="mb-3 text-2xl font-bold tracking-tight text-gray-900">
+                {calcArbitraryPrice(game.id)} €
+              </p> */}
+                    <AddToCartBtn gameId={game.gameID} />
+
+                    <Link
+                      to={"/:gameID"}
+                      className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-lila rounded-lg hover:bg-pink focus:ring-4 focus:outline-none focus:ring-blue-300 "
+                    >
+                      See more
+                      <svg
+                        className="w-3.5 h-3.5 ml-2"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 10"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M1 5h12m0 0L9 1m4 4L9 9"
+                        />
+                      </svg>
+                    </Link>
+                    <div className="flex flex-col mt-4 text-gray-500">
+                      <div>
+                        <p>Released: {game.released}</p>
+                      </div>
+                      <div>
+                        <p className="mt-1">
+                          {" "}
+                          ESRB:{" "}
+                          {game.esrb_rating === null
+                            ? " n/a"
+                            : game.esrb_rating.name}{" "}
+                        </p>
+                      </div>
                     </div>
-                    <p className="text-sm font-medium text-gray-900">
-                      {/* {product.price} */}
-                    </p>
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* //// */}
+            {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">
+              Other games from the family:
+            </h2> */}
           </div>
         </div>
 
@@ -333,31 +366,44 @@ function DealPage() {
         //     </div>
         //   ))}
         // </div>
+
+        ////
       )}
+
       {/* /////videos */}
       <div className="w-120 h-60 justify-center  rounded-lg">
         <h2>Videos & Trailers</h2>
         {gameVideos.results.length === 0 ? (
           ""
         ) : (
-          <Carousel className="rounded-xl ">
-            <video className="w-120 h-60 rounded-lg" controls autoPlay>
-              <source
-                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
-                type="video/mp4"
-                // src={gameVideos.results[0].data.map((key) => {
-                //   id;
-                // })}
-              />
-            </video>
-            {/* <video className="h-full w-full rounded-lg" controls autoPlay> */}
-            <video className="w-120 h-60 rounded-lg" controls autoPlay>
+          <div>
+            <video className="h-full w-full rounded-lg" controls autoPlay>
               <source
                 src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
                 type="video/mp4"
               />
+              Your browser does not support the video tag.
             </video>
-          </Carousel>
+          </div>
+          ///
+          // <Carousel className="rounded-xl ">
+          //   <video className="w-120 h-60 rounded-lg" controls autoPlay>
+          //     <source
+          //       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+          //       type="video/mp4"
+          //       // src={gameVideos.results[0].data.map((key) => {
+          //       //   id;
+          //       // })}
+          //     />
+          //   </video>
+          //   {/* <video className="h-full w-full rounded-lg" controls autoPlay> */}
+          //   <video className="w-120 h-60 rounded-lg" controls autoPlay>
+          //     <source
+          //       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
+          //       type="video/mp4"
+          //     />
+          //   </video>
+          // </Carousel>
 
           // <div>
           //   <video className="h-full w-full rounded-lg" controls autoPlay>
