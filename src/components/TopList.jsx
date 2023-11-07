@@ -12,7 +12,9 @@ const TopList = ({ listTitle, handleAddToCart, page }) => {
     const getGames = async () => {
       try {
         const response = await axios.get(
-          `https://api.rawg.io/api/games?key=a68824e64475471abcd6b96285019ac7&page_size=10&page=${page}`
+          `https://api.rawg.io/api/games?key=${
+            import.meta.env.VITE_KEY
+          }&page_size=10&page=${page}`
         );
 
         const fetchedGames = response.data.results;
@@ -27,7 +29,7 @@ const TopList = ({ listTitle, handleAddToCart, page }) => {
   }, []);
 
   return (
-    <div className="w-1/2 flex flex-col">
+    <div className="w-full md:full flex flex-col">
       <h2 className="text-4xl font-semibold mb-8 text-pink">{listTitle}</h2>
       <div className="flex flex-col gap-1">
         {games.map((game) => {
