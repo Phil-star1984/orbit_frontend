@@ -269,6 +269,52 @@ function DealPage() {
         <p className="mt-6 mb-24 text-lg leading-8 text-gray-600">
           {detailsGameData.description_raw}
         </p>
+        <h3 className="text-3xl font-bold tracking-tight text-white-900 sm:text-4xl mt-20">
+          {/* Videos&Trailers */}
+          Trailer
+        </h3>
+      </div>
+
+      {/* /////videos */}
+      <div className="m:text-center w-full h-full">
+        <div className="mx-auto max-w-6xl  px-6 lg:px-8">
+          <div className="justify-center rounded-lg">
+            {gameVideos.results.length === 0 ? (
+              ""
+            ) : (
+              <div>
+                <video
+                  className="w-120 h-60 justify-center rounded-lg mx-auto m:text-center"
+                  controls
+                  autoPlay
+                >
+                  <source
+                    src="https://steamcdn-a.akamaihd.net/steam/apps/256693661/movie_max.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              // /
+              // <Carousel className="rounded-xl ">
+              //   <video className="w-120 h-60 rounded-lg" controls autoPlay>
+              //     <source
+              //   src="https://steamcdn-a.akamaihd.net/steam/apps/256693661/movie_max.mp4"
+              //   type="video/mp4"
+              // />
+              //     />
+              //   </video>
+              //   {/* <video className="h-full w-full rounded-lg" controls autoPlay> */}
+              //   <video className="w-120 h-60 rounded-lg" controls autoPlay>
+              //     <source
+              //       src="https://vod.api.video/vod/vi3w2r3c45yMEKpdEThWQD2n/mp4/source.mp4"
+              //       type="video/mp4"
+              //     />
+              //   </video>
+              // </Carousel>
+            )}
+          </div>
+        </div>
       </div>
       {/* /////// */}
       {relatedGames.results.length === 0 ? (
@@ -369,50 +415,6 @@ function DealPage() {
 
         ////
       )}
-
-      {/* /////videos */}
-      <div className="w-120 h-60 justify-center  rounded-lg">
-        <h2>Videos & Trailers</h2>
-        {gameVideos.results.length === 0 ? (
-          ""
-        ) : (
-          <div>
-            <video className="h-full w-full rounded-lg" controls autoPlay>
-              <source
-                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          ///
-          // <Carousel className="rounded-xl ">
-          //   <video className="w-120 h-60 rounded-lg" controls autoPlay>
-          //     <source
-          //       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
-          //       type="video/mp4"
-          //       // src={gameVideos.results[0].data.map((key) => {
-          //       //   id;
-          //       // })}
-          //     />
-          //   </video>
-          //   {/* <video className="h-full w-full rounded-lg" controls autoPlay> */}
-          //   <video className="w-120 h-60 rounded-lg" controls autoPlay>
-          //     <source
-          //       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg"
-          //       type="video/mp4"
-          //     />
-          //   </video>
-          // </Carousel>
-
-          // <div>
-          //   <video className="h-full w-full rounded-lg" controls autoPlay>
-          //     <source src="/demo.mp4" type="video/mp4" />
-          //     Your browser does not support the video tag.
-          //   </video>
-          // </div>
-        )}
-      </div>
     </div>
   );
 }
