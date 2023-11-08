@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../../Context/CartProvider";
 
 const CartGame = ({ id, title, imageSrc, price }) => {
   const { removeFromCart } = useCart();
 
   return (
-    <div className="w-full bg-gray-800 p-4 rounded-lg flex flex-col sm:flex-row h-[21rem] sm:h-[10rem]">
+    <Link
+      to={`/games/${id}`}
+      className="w-full bg-gray-800 p-4 rounded-lg flex flex-col sm:flex-row h-[21rem] sm:h-[10rem] hover:bg-gray-700 cursor-pointer active:bg-gray-800"
+    >
       <div className="w-full sm:w-96 h-full overflow-hidden ">
         <img
           src={imageSrc}
@@ -25,8 +29,8 @@ const CartGame = ({ id, title, imageSrc, price }) => {
             </button> */}
             <button
               className="p-2 hover:text-gray-300 active:text-gray-400"
-              onClick={() => {
-                console.log(id);
+              onClick={(event) => {
+                event.preventDefault();
                 removeFromCart(id);
               }}
             >
@@ -38,7 +42,7 @@ const CartGame = ({ id, title, imageSrc, price }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

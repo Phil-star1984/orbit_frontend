@@ -14,7 +14,8 @@ const AddToCartBtn = ({ gameId }) => {
   ) : (
     <button
       className="lg:hidden group-hover:inline-flex items-center ml-2 text-white hover:text-gray-300 hover:stroke-pink stroke-white"
-      onClick={() => {
+      onClick={(event) => {
+        event.preventDefault();
         addToCart(gameId);
       }}
     >
