@@ -94,6 +94,11 @@ function DealPage() {
       <div>
         <div>
           <CarouselForDeals
+            videoUrl={
+              gameVideos && gameVideos.results.length > 0
+                ? gameVideos.results[0].data["max"]
+                : undefined
+            }
             url1={foundGameData.results[0].short_screenshots[0].image}
             url2={foundGameData.results[0].short_screenshots[1].image}
             url3={foundGameData.results[0].short_screenshots[2].image}
@@ -303,7 +308,7 @@ function DealPage() {
                 <video
                   className="w-120 h-60 justify-center rounded-lg mx-auto md:text-center"
                   controls
-                  autoPlay
+                  muted
                 >
                   <source
                     src={`${gameVideos.results[0].data["max"]}`}
