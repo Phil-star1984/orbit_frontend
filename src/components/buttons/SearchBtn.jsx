@@ -1,11 +1,37 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 // import { useNavigate } from "react-router-dom";
 
 export const SearchBtn = () => {
   const [input, setInput] = useState("");
   const [results, setResults] = useState("");
   const key = import.meta.env.VITE_KEY;
+  const resultsRef = useRef(null);
+
+  useEffect(() => {
+    // Event-Listener hinzufügen, um Klicks auf das Dokument zu überwachen
+    document.addEventListener("click", handleClickOutside);
+
+    // Aufräumarbeiten, um den Event-Listener zu entfernen, wenn die Komponente unmonted wird
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Überprüfen, ob das Eingabefeld leer ist, und die Ergebnisse leeren, wenn es leer ist
+    if (input.trim() === "") {
+      setResults("");
+    }
+  }, [input]);
+
+  const handleClickOutside = (e) => {
+    // Überprüfen, ob das Klicken außerhalb des Suchergebnisbereichs stattgefunden hat
+    if (resultsRef.current && !resultsRef.current.contains(e.target)) {
+      setResults("");
+      setInput("");
+    }
+  };
 
   const fetchData = (value) => {
     fetch(`https://api.rawg.io/api/games?search=${value}&key=${key}`)
@@ -87,12 +113,24 @@ export const SearchBtn = () => {
       </div>
 
       {results.length > 0 && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80 grid grid-cols-3 gap-2 p-3 rounded-lg">
+        <div
+          className="hidden lg:grid grid-cols-3 gap-2 p-3 rounded-lg fixed top-20 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-80"
+          ref={resultsRef}
+        >
           {results.map((game, index) => (
-            <div className="text-lg" key={index}>
-              <div className="border flex text-white rounded-lg p-3 mt-3 h-20">
-                {game.name}
-                <img className="object-fill h-10" src={game.background_image} />
+            <div className="text-sm" key={index}>
+              <div className="border hover:border-pink hover:text-white flex justify-between text-gray-600 rounded-lg p-2">
+                <div>
+                  {game.name.length > 15
+                    ? game.name.slice(0, 20) + " ..."
+                    : game.name}
+                </div>
+                {/* <img className="object-fill h-10" src={game.background_image} /> */}
+                <img
+                  className="rounded-sm h-6 w-6 object-cover ml-1"
+                  src={game.background_image}
+                  alt={game.name}
+                />
               </div>
             </div>
           ))}
