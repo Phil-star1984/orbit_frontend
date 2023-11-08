@@ -29,7 +29,6 @@ function App() {
       {/* {results && <ShowResults results={results} />} */}
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/game" element={<GamePage />} /> */}
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/login" element={<AuthPage />} />
@@ -37,7 +36,7 @@ function App() {
         <Route path="/user" element={<ProfilePage />} />
         <Route path="/allgames" element={<AllGamesPage />} />
         <Route path="/categories/:id" element={<CategoriesPage />} />
-        {/* <Route path="/categories/:id/:gameID" element={<GamePage />} /> */}
+        {/* <Route path="/games/:id" element={<GamePage />} /> */}
         <Route path="/deals/:rawTitle" element={<DealPage />} />
         <Route path="/paymentid512873128" element={<Success />} />
         <Route path="/orbitgpt" element={<Chat />} />
