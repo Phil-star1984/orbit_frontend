@@ -1,10 +1,10 @@
-import calcArbitraryPrice from '../../../utility/calcArbetraryPrice.jsx';
-import CartGame from './CartGame.jsx';
+import calcArbitraryPrice from "../../../utility/calcArbetraryPrice.jsx";
+import CartGame from "./CartGame.jsx";
 calcArbitraryPrice;
 
 const CartGameList = ({ games }) => {
   return (
-    <div className='text-white w-2/3 flex flex-col gap-2'>
+    <div className="text-white w-full flex flex-col gap-2 lg:w-2/3">
       {games.length ? (
         games.map((game) => {
           const arbitraryPrice = calcArbitraryPrice(game.id);
