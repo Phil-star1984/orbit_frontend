@@ -59,7 +59,7 @@ const CartPage = () => {
 
   return (
     <>
-      <div class="min-h-screen max-w-screen-xl mx-auto p-8">
+      <div className="min-h-screen max-w-screen-xl mx-auto p-8">
         <div className="flex flex-col">
           <h1 className="text-4xl text-white pb-4">My Cart</h1>
           <div className="flex gap-8">
