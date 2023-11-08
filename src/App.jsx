@@ -17,6 +17,7 @@ import GamePage from "./Pages/GamePage.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import NotFound from "./components/NotFound.jsx";
 import Success from "../src/components/Success.jsx";
+import Chat from "./components/Chat.jsx";
 
 function App() {
   const [results, setResults] = useState(null);
@@ -39,6 +40,7 @@ function App() {
         {/* <Route path="/games/:id" element={<GamePage />} /> */}
         <Route path="/deals/:rawTitle" element={<DealPage />} />
         <Route path="/paymentid512873128" element={<Success />} />
+        <Route path="/orbitgpt" element={<Chat />} />
         <Route path="*" element={<NotFound />} />
 
         <Route />
