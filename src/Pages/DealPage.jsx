@@ -1,6 +1,5 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 import React from "react";
-import axios from "axios";
 import api from "../../api/apiRAWG.jsx";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -11,7 +10,7 @@ import CarouselForDeals from "../components/CarouselForDeals.jsx";
 import { Carousel } from "@material-tailwind/react";
 import PriceBox from "../components/PriceBox.jsx";
 import { Rating } from "@material-tailwind/react";
-import AddToCartBtn from "../components/buttons/AddToCartBtn.jsx";
+import { useCart } from "../Context/CartProvider";
 
 function DealPage() {
   const { rawTitle } = useParams();
@@ -57,10 +56,10 @@ function DealPage() {
     getData();
   }, [rawTitle]);
 
-  console.log(foundGameData);
-  console.log(detailsGameData);
-  console.log(relatedGames);
-  console.log(gameVideos);
+  // console.log(foundGameData);
+  // console.log(detailsGameData);
+  // console.log(relatedGames);
+  // console.log(gameVideos);
 
   if (loading) {
     return (
@@ -74,8 +73,6 @@ function DealPage() {
       </div>
     );
   }
-
-  // console.log(gameVideos.results[0].data["max"]);
 
   return (
     <div className="text-white">
@@ -111,9 +108,9 @@ function DealPage() {
               <h3 className="text-2xl font-bold tracking-tight text-lila">
                 Rating
               </h3>
-              <p className="mt-6 text-base leading-7 text-gray-600">
+              <div className="mt-6 text-base leading-7 text-gray-600">
                 <Rating value={Math.round(detailsGameData.rating)} readonly />
-              </p>
+              </div>
               {/* /// ESRB rating*/}
 
               {detailsGameData.esrb_rating === null ? (
@@ -156,9 +153,9 @@ function DealPage() {
                     className="h-6 w-5 flex-none text-lila"
                     aria-hidden="true"
                   />
-                  <ul>Developer / Publisher: </ul>
+                  <ul>Publisher: </ul>
                   {detailsGameData.developers.map((developer) => (
-                    <li key={developer.id}>{developer.name}</li>
+                    <span key={developer.id}>{developer.name}</span>
                   ))}
                 </li>
               </ul>
@@ -234,18 +231,12 @@ function DealPage() {
                       </p>
                     </a> */}
                   </p>
-                  <a
-                    href="#"
-                    className="mt-10 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
-                  >
+                  <button className="mt-10 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink">
                     Buy now
-                  </a>
-                  <a
-                    href="#"
-                    className="mt-5 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
-                  >
+                  </button>
+                  <button className="mt-5 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink">
                     Add to Cart
-                  </a>
+                  </button>
                   <p className="mt-6 text-xs leading-5 text-gray-600">
                     Invoices and receipts available for easy company
                     reimbursement
@@ -271,22 +262,22 @@ function DealPage() {
         <p className="mt-6 mb-24 text-lg leading-8 text-gray-600">
           {detailsGameData.description_raw}
         </p>
-        <h3 className="text-3xl mb-10 font-bold tracking-tight text-white-900 sm:text-4xl mt-20">
-          {/* Videos&Trailers */}
-          Trailer
-        </h3>
       </div>
-
+      {/* Videos&Trailers */}
       {/* /////videos */}
-      <div className="m:text-center w-full h-full">
+      <div className="m:text-center w-full h-full bg-black">
         <div className="mx-auto max-w-6xl  px-6 lg:px-8">
           <div className="justify-center rounded-lg">
             {gameVideos.results.length === 0 ? (
               ""
             ) : (
               <div>
+                <h3 className="text-3xl mb-5 font-bold tracking-tight sm:text-center text-white-900 sm:text-4xl pt-5">
+                  Game Videos
+                </h3>
+
                 <video
-                  className="w-120 h-60 justify-center rounded-lg mx-auto m:text-center"
+                  className="w-120 h-60 justify-center rounded-lg mx-auto md:text-center"
                   controls
                   autoPlay
                 >
@@ -326,7 +317,7 @@ function DealPage() {
           <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             {/* ///// */}
             <div className="mt-1 mb-20 block w-full rounded-md   text-center text-3xl font-semibold text-black ">
-              <h2> Other games from the family:</h2>
+              <h2> Other games from the series</h2>
             </div>
             <div className="grid grid-cols-2 gap-4 p-3 sm:grid-cols-3 md:grid-cols-4 mx-24 ">
               {relatedGames.results.map((game) => (
@@ -351,7 +342,6 @@ function DealPage() {
                     {/* <p className="mb-3 text-2xl font-bold tracking-tight text-gray-900">
                 {calcArbitraryPrice(game.id)} €
               </p> */}
-                    <AddToCartBtn gameId={game.gameID} />
 
                     <Link
                       to={"/:gameID"}
