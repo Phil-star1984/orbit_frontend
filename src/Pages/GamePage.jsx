@@ -20,7 +20,7 @@ function GamePage() {
   const [gameVideos, setGameVideos] = useState();
   const [loading, setLoading] = useState(true);
 
-  const { addToCart } = useCart();
+  const { addToCart, cart } = useCart();
 
   const navigate = useNavigate();
   // const [rated, setRated] = React.useState(detailsGameData);
@@ -28,6 +28,8 @@ function GamePage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const isGameInCart = cart.some((game) => game.gameId === parseInt(id));
 
   useEffect(() => {
     const getData = async () => {
@@ -121,8 +123,8 @@ function GamePage() {
         <div className="mx-auto max-w-6xl  px-6 lg:px-8">
           {/* description */}
           <h1 className="text-3xl font-bold tracking-tight text-pink mt-10 ml-10">
-                {foundGameData.name}
-              </h1>
+            {foundGameData.name}
+          </h1>
           <div className="mx-auto mt-16 mb-10 max-w-2xl rounded-3xl ring-1 ring-white sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
             <div className="p-8 sm:p-10 lg:flex-auto">
               <h3 className="text-2xl font-bold tracking-tight text-lila">
@@ -257,12 +259,23 @@ function GamePage() {
                   >
                     Buy now
                   </button>
-                  <button
-                    onClick={handleCart}
-                    className="mt-5 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
-                  >
-                    Add to Cart
-                  </button>
+
+                  {isGameInCart ? (
+                    <button
+                      onClick={handleBuy}
+                      className="mt-5 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
+                    >
+                      View in Cart
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleCart}
+                      className="mt-5 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
+                    >
+                      Add to Cart
+                    </button>
+                  )}
+
                   <p className="mt-6 text-xs leading-5 text-gray-600">
                     Invoices and receipts available for easy company
                     reimbursement
