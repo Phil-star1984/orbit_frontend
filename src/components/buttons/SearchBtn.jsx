@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 export const SearchBtn = () => {
   const [input, setInput] = useState("");
   const [results, setResults] = useState("");
+  const navigate = useNavigate();
   const key = import.meta.env.VITE_KEY;
   const resultsRef = useRef(null);
 
@@ -34,6 +36,12 @@ export const SearchBtn = () => {
   };
 
   const fetchData = (value) => {
+    // Ensure we have a non-empty string
+    if (value.trim() === "") {
+      setResults([]);
+      return;
+    }
+
     fetch(`https://api.rawg.io/api/games?search=${value}&key=${key}`)
       .then((response) => response.json())
       .then((data) => {
@@ -41,7 +49,8 @@ export const SearchBtn = () => {
           return game?.name.toLowerCase().includes(value);
         });
         setResults(results);
-        console.log(results);
+        setLoading(false);
+        /* console.log(results); */
       });
   };
 
@@ -53,6 +62,10 @@ export const SearchBtn = () => {
   const handleClick = () => {
     setResults("");
     setInput("");
+  };
+
+  const handleSearch = (id) => {
+    navigate(`/games/${id}`);
   };
 
   return (
@@ -118,21 +131,23 @@ export const SearchBtn = () => {
           ref={resultsRef}
         >
           {results.map((game, index) => (
-            <div className="text-sm" key={index}>
-              <div className="border hover:border-pink hover:text-white flex justify-between text-gray-600 rounded-lg p-2">
-                <div>
-                  {game.name.length > 15
-                    ? game.name.slice(0, 20) + " ..."
-                    : game.name}
+            <button onClick={() => handleSearch(game.id)}>
+              <div className="text-sm" key={index}>
+                <div className="border hover:border-pink hover:text-white flex justify-between text-gray-600 rounded-lg p-2">
+                  <div>
+                    {game.name.length > 15
+                      ? game.name.slice(0, 20) + " ..."
+                      : game.name}
+                  </div>
+                  {/* <img className="object-fill h-10" src={game.background_image} /> */}
+                  <img
+                    className="rounded-sm h-6 w-6 object-cover ml-1"
+                    src={game.background_image}
+                    alt={game.name}
+                  />
                 </div>
-                {/* <img className="object-fill h-10" src={game.background_image} /> */}
-                <img
-                  className="rounded-sm h-6 w-6 object-cover ml-1"
-                  src={game.background_image}
-                  alt={game.name}
-                />
               </div>
-            </div>
+            </button>
           ))}
         </div>
       )}
