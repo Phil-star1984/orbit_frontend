@@ -113,6 +113,9 @@ function DealPage() {
       <div className="bg-white py-10 sm:py-1">
         <div className="mx-auto max-w-6xl  px-6 lg:px-8">
           {/* description */}
+          <h1 className="text-3xl font-bold tracking-tight text-pink mt-10 ml-10">
+                {detailsGameData.name}
+              </h1>
 
           <div className="mx-auto mt-16 mb-10 max-w-2xl rounded-3xl ring-1 ring-white sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
             <div className="p-8 sm:p-10 lg:flex-auto">
