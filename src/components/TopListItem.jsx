@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import AddToCartBtn from "./buttons/AddToCartBtn";
+import { Link } from "react-router-dom";
 
 const TopListItem = ({ id, title, imageSrc, price, genres }) => {
   const genreNames = genres
@@ -9,7 +10,7 @@ const TopListItem = ({ id, title, imageSrc, price, genres }) => {
     .join(", ");
 
   return (
-    <div className="bg-gray-800 h-28 overflow-hidden shadow-lg flex w-full hover:bg-gray-700 cursor-pointer active:bg-gray-800 group">
+    <Link className="bg-gray-800 h-28 overflow-hidden shadow-lg flex w-full hover:bg-gray-700 cursor-pointer active:bg-gray-800 group">
       {/* Image */}
       <div className="w-1/2 h-full overflow-hidden">
         <img
@@ -35,7 +36,7 @@ const TopListItem = ({ id, title, imageSrc, price, genres }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
