@@ -1,17 +1,15 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 import React from "react";
 import api from "../../api/apiRAWG.jsx";
-import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import CarouselForDeals from "../components/CarouselForDeals.jsx";
-import { Carousel } from "@material-tailwind/react";
-import PriceBox from "../components/PriceBox.jsx";
 import { Rating } from "@material-tailwind/react";
 import { useCart } from "../Context/CartProvider";
 import { useNavigate } from "react-router-dom";
+import calcArbitraryPrice from "../../utility/calcArbetraryPrice.jsx";
 
 function GamePage() {
   const { id } = useParams();
@@ -21,9 +19,9 @@ function GamePage() {
   const [relatedGames, setRelatedGames] = useState();
   const [gameVideos, setGameVideos] = useState();
   const [loading, setLoading] = useState(true);
-  const location = useLocation();
+ 
   const { addToCart } = useCart();
-  const deal = location.state.deal;
+  
   const navigate = useNavigate();
   // const [rated, setRated] = React.useState(detailsGameData);
 
@@ -58,10 +56,10 @@ function GamePage() {
     getData();
   }, []);
 
-  // console.log(foundGameData);
-  //console.log(detailsGameData);
-  // console.log(relatedGames);
-  // console.log(gameVideos);
+   console.log(foundGameData);
+  console.log(gamePics);
+  console.log(relatedGames);
+  console.log(gameVideos);
 
   if (loading) {
     return (
@@ -90,12 +88,17 @@ function GamePage() {
       <div>
         <div>
           <CarouselForDeals
-            url1={foundGameData.results[0].short_screenshots[0].image}
-            url2={foundGameData.results[0].short_screenshots[1].image}
-            url3={foundGameData.results[0].short_screenshots[2].image}
-            url4={foundGameData.results[0].short_screenshots[3].image}
-            url5={foundGameData.results[0].short_screenshots[4].image}
-            url6={foundGameData.results[0].short_screenshots[5].image}
+          videoUrl={
+            gameVideos && gameVideos.results.length > 0
+              ? gameVideos.results[0].data['max']
+              : undefined
+          }
+            url1={gamePics.results[0].image}
+            url2={gamePics.results[1].image}
+            url3={gamePics.results[2].image}
+            url4={gamePics.results[3].image}
+            url5={gamePics.results[4].image}
+            url6={gamePics.results[5].image}
           />
         </div>
       </div>
@@ -120,15 +123,15 @@ function GamePage() {
                 Rating
               </h3>
               <div className="mt-6 text-base leading-7 text-gray-600">
-                <Rating value={Math.round(detailsGameData.rating)} readonly />
+                <Rating value={Math.round(foundGameData.rating)} readonly />
               </div>
               {/* /// ESRB rating*/}
 
-              {detailsGameData.esrb_rating === null ? (
+              {foundGameData.esrb_rating === null ? (
                 " n/a"
               ) : (
                 <a className="mt-10 block w-32 rounded-md bg-yellow-700 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">
-                  ESRB Rating: {detailsGameData.esrb_rating.name}
+                  ESRB Rating: {foundGameData.esrb_rating.name}
                 </a>
               )}
               {/* // */}
@@ -150,14 +153,14 @@ function GamePage() {
                     className="h-6 w-5 flex-none text-lila"
                     aria-hidden="true"
                   />
-                  Release Date: {detailsGameData.released}
+                  Release Date: {foundGameData.released}
                 </li>
                 <li className="flex gap-x-3">
                   <CheckIcon
                     className="h-6 w-5 flex-none text-lila"
                     aria-hidden="true"
                   />
-                  Playtime: {detailsGameData.playtime} h
+                  Playtime: {foundGameData.playtime} h
                 </li>
                 <li className="flex gap-x-3">
                   <CheckIcon
@@ -165,7 +168,7 @@ function GamePage() {
                     aria-hidden="true"
                   />
                   <ul>Publisher: </ul>
-                  {detailsGameData.developers.map((developer) => (
+                  {foundGameData.developers.map((developer) => (
                     <span key={developer.id}>{developer.name}</span>
                   ))}
                 </li>
@@ -182,7 +185,7 @@ function GamePage() {
                 role="list"
                 className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
               >
-                {detailsGameData.genres.map((genre) => (
+                {foundGameData.genres.map((genre) => (
                   <li key={genre.id} className="flex gap-x-3">
                     <CheckIcon
                       className="h-6 w-5 flex-none text-lila"
@@ -203,7 +206,7 @@ function GamePage() {
                 role="list"
                 className="mt-8 grid grid-cols-1 gap-4 text-sm leading-6 text-gray-600 sm:grid-cols-2 sm:gap-6"
               >
-                {detailsGameData.tags.map((tag) => (
+                {foundGameData.tags.map((tag) => (
                   <li key={tag.id} className="flex gap-x-3">
                     <CheckIcon
                       className="h-6 w-5 flex-none text-lila"
@@ -223,7 +226,7 @@ function GamePage() {
 
                   <p className="mt-6 flex items-baseline justify-center gap-x-2">
                     <span className="text-5xl  font-bold tracking-tight text-gray-900">
-                      {deal.salePrice}€
+                      {calcArbitraryPrice(foundGameData.id)}€
                     </span>
 
                     {/* <span className="text-sm font-semibold leading-6 tracking-wide text-gray-600">
@@ -277,7 +280,7 @@ function GamePage() {
           Description
         </h3>
         <p className="mt-6 mb-24 text-lg leading-8 text-gray-600">
-          {detailsGameData.description_raw}
+          {foundGameData.description_raw}
         </p>
       </div>
       {/* Videos&Trailers */}
@@ -296,7 +299,7 @@ function GamePage() {
                 <video
                   className="w-120 h-60 justify-center rounded-lg mx-auto md:text-center"
                   controls
-                  autoPlay
+                 
                 >
                   <source
                     src={`${gameVideos.results[0].data["max"]}`}
