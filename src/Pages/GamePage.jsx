@@ -20,7 +20,7 @@ function GamePage() {
   const [gameVideos, setGameVideos] = useState();
   const [loading, setLoading] = useState(true);
 
-  const { addToCart } = useCart();
+  const { addToCart, cart } = useCart();
 
   const navigate = useNavigate();
   // const [rated, setRated] = React.useState(detailsGameData);
@@ -28,6 +28,8 @@ function GamePage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const isGameInCart = cart.some((game) => game.gameId === parseInt(id));
 
   useEffect(() => {
     const getData = async () => {
@@ -60,10 +62,10 @@ function GamePage() {
     getData();
   }, []);
 
-  console.log(foundGameData);
-  console.log(gamePics);
-  console.log(relatedGames);
-  console.log(gameVideos);
+  // console.log(foundGameData);
+  // console.log(gamePics);
+  // console.log(relatedGames);
+  // console.log(gameVideos);
 
   if (loading) {
     return (
@@ -257,12 +259,23 @@ function GamePage() {
                   >
                     Buy now
                   </button>
-                  <button
-                    onClick={handleCart}
-                    className="mt-5 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
-                  >
-                    Add to Cart
-                  </button>
+
+                  {isGameInCart ? (
+                    <button
+                      onClick={handleBuy}
+                      className="mt-5 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
+                    >
+                      View in Cart
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleCart}
+                      className="mt-5 block w-full rounded-md bg-lila px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pink"
+                    >
+                      Add to Cart
+                    </button>
+                  )}
+
                   <p className="mt-6 text-xs leading-5 text-gray-600">
                     Invoices and receipts available for easy company
                     reimbursement
@@ -305,6 +318,8 @@ function GamePage() {
                 <video
                   className="w-120 h-60 justify-center rounded-lg mx-auto md:text-center"
                   controls
+                  autoPlay
+                  muted
                 >
                   <source
                     src={`${gameVideos.results[0].data["max"]}`}
