@@ -19,11 +19,15 @@ function GamePage() {
   const [relatedGames, setRelatedGames] = useState();
   const [gameVideos, setGameVideos] = useState();
   const [loading, setLoading] = useState(true);
- 
+
   const { addToCart } = useCart();
-  
+
   const navigate = useNavigate();
   // const [rated, setRated] = React.useState(detailsGameData);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const getData = async () => {
@@ -56,7 +60,7 @@ function GamePage() {
     getData();
   }, []);
 
-   console.log(foundGameData);
+  console.log(foundGameData);
   console.log(gamePics);
   console.log(relatedGames);
   console.log(gameVideos);
@@ -88,11 +92,11 @@ function GamePage() {
       <div>
         <div>
           <CarouselForDeals
-          videoUrl={
-            gameVideos && gameVideos.results.length > 0
-              ? gameVideos.results[0].data['max']
-              : undefined
-          }
+            videoUrl={
+              gameVideos && gameVideos.results.length > 0
+                ? gameVideos.results[0].data["max"]
+                : undefined
+            }
             url1={gamePics.results[0].image}
             url2={gamePics.results[1].image}
             url3={gamePics.results[2].image}
@@ -299,7 +303,6 @@ function GamePage() {
                 <video
                   className="w-120 h-60 justify-center rounded-lg mx-auto md:text-center"
                   controls
-                 
                 >
                   <source
                     src={`${gameVideos.results[0].data["max"]}`}

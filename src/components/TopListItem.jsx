@@ -10,7 +10,10 @@ const TopListItem = ({ id, title, imageSrc, price, genres }) => {
     .join(", ");
 
   return (
-    <Link className="bg-gray-800 h-28 overflow-hidden shadow-lg flex w-full hover:bg-gray-700 cursor-pointer active:bg-gray-800 group">
+    <Link
+      to={`/games/${id}`}
+      className="bg-gray-800 h-28 overflow-hidden shadow-lg flex w-full hover:bg-gray-700 cursor-pointer active:bg-gray-800 group"
+    >
       {/* Image */}
       <div className="w-1/2 h-full overflow-hidden">
         <img
