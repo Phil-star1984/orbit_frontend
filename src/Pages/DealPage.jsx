@@ -75,7 +75,7 @@ function DealPage() {
     );
   }
 
-  console.log(gameVideos.results[0].data["max"]);
+  // console.log(gameVideos.results[0].data["max"]);
 
   return (
     <div className="text-white">
