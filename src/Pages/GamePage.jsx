@@ -60,10 +60,10 @@ function GamePage() {
     getData();
   }, []);
 
-  console.log(foundGameData);
-  console.log(gamePics);
-  console.log(relatedGames);
-  console.log(gameVideos);
+  // console.log(foundGameData);
+  // console.log(gamePics);
+  // console.log(relatedGames);
+  // console.log(gameVideos);
 
   if (loading) {
     return (
@@ -305,6 +305,8 @@ function GamePage() {
                 <video
                   className="w-120 h-60 justify-center rounded-lg mx-auto md:text-center"
                   controls
+                  autoPlay
+                  muted
                 >
                   <source
                     src={`${gameVideos.results[0].data["max"]}`}

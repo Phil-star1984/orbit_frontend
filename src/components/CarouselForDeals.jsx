@@ -17,7 +17,7 @@ export default function CarouselForDeals({
           className="w-full h-full object-cover"
           controls
           muted
-          autoplay
+          autoPlay
         />
       </div>
       <div className="relative h-full w-full">
