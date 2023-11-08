@@ -4,18 +4,18 @@ const CartGame = ({ id, title, imageSrc, price }) => {
   const { removeFromCart } = useCart();
 
   return (
-    <div className="h-[10rem] w-full bg-gray-800 p-4 flex rounded-lg">
-      <div className="w-96 h-full overflow-hidden ">
+    <div className="w-full bg-gray-800 p-4 rounded-lg flex flex-col sm:flex-row h-[21rem] sm:h-[10rem]">
+      <div className="w-full sm:w-96 h-full overflow-hidden ">
         <img
           src={imageSrc}
           alt={title}
-          className="w-full h-full aspect-[5/3] object-cover rounded-lg "
+          className="w-full h-full object-cover rounded-lg "
         />
       </div>
       <div className="flex flex-col px-4 py-2 w-full">
         {/* Top Container */}
         <header className="w-full h-1/3">
-          <h3 className="text-xl font-semibold truncate">{title}</h3>
+          <h3 className="text-xl font-semibold overflow-hidden">{title}</h3>
         </header>
         {/* Bottom Container */}
         <div className="flex items-center h-full">
