@@ -1,15 +1,18 @@
 import { React, useState, useEffect } from "react";
 import { Button } from "@material-tailwind/react";
 import { useAuth } from "../Context/AuthProvider";
+import { GridLoader } from "react-spinners";
 
 function Chat() {
   const [message, setMessage] = useState("");
   const [value, setValue] = useState("");
   const [previousChats, setPreviousChats] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { userData } = useAuth();
 
   const getMessages = async () => {
+    setLoading(true);
     const userInput = `Answer in a maximum of two sentences. ${value}`;
     const options = {
       method: "POST",
@@ -28,10 +31,11 @@ function Chat() {
       const data = await response.json();
       /* console.log(data); */
       setMessage(data.choices[0].message);
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
-    console.log(userInput);
+    /* console.log(userInput); */
     setTimeout(() => {
       setValue("");
     }, 100);
@@ -72,6 +76,19 @@ function Chat() {
   );
   /* console.log(uniqueTitles); */
 
+  /*   if (loading) {
+    return (
+      <div className="w-full flex justify-center my-36">
+        <GridLoader
+          color="#D00EDD"
+          loading={loading}
+          size={80}
+          aria-label="Loading Spinner"
+        />
+      </div>
+    );
+  } */
+
   return (
     <div className="py-28 flex flex-col items-center bg-gradient-to-r from-black to-lila">
       <h1 className="text-7xl font-semibold text-center max-w-screen-xl text-transparent bg-clip-text bg-gradient-to-r from-pink to-lila duration-1000 animate-pulse">
@@ -95,6 +112,21 @@ function Chat() {
           ))}
         </ul>
       </div>
+      {loading ? (
+        <div
+          className="w-full flex justify-center my-36"
+          style={{ margin: "30px" }}
+        >
+          <GridLoader
+            color="#D00EDD"
+            loading={loading}
+            size={10}
+            aria-label="Loading Spinner"
+          />
+        </div>
+      ) : (
+        ""
+      )}
       <div className="mt-4 flex w-1/2 max-w-screen-sm min-w-fit">
         <input
           type="text"
