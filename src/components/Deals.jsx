@@ -77,7 +77,7 @@ function Deals() {
                 {deal.title}
               </h3>
               <img
-                className="w-full h-full md:h-auto rounded-lg"
+                className="rounded-lg h-32 w-full object-cover ml-1"
                 alt={`${deal.title}`}
                 src={`${data[index].data.results[0].background_image}`}
               />
