@@ -45,10 +45,13 @@ const CartPaymentBox = ({ totalPrice }) => {
         .render("#paypal-button-container");
     };
 
-    if (totalPrice > 0 && !document.querySelector("#paypal-button-script")) {
+    /* if (totalPrice > 0 && !document.querySelector("#paypal-button-script")) {
       script.id = "paypal-button-script";
       document.body.appendChild(script);
-    }
+    } */
+
+    script.id = "paypal-button-script";
+    document.body.appendChild(script);
   }, [totalPrice]);
 
   return (
