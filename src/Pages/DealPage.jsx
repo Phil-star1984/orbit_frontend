@@ -28,6 +28,10 @@ function DealPage() {
   // const [rated, setRated] = React.useState(detailsGameData);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const getData = async () => {
       try {
         const response = await api.get(`/games?&search=${rawTitle}&key=${key}`);

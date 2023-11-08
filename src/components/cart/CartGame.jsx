@@ -6,7 +6,7 @@ const CartGame = ({ id, title, imageSrc, price }) => {
 
   return (
     <Link
-      to="/"
+      to={`/games/${id}`}
       className="w-full bg-gray-800 p-4 rounded-lg flex flex-col sm:flex-row h-[21rem] sm:h-[10rem] hover:bg-gray-700 cursor-pointer active:bg-gray-800"
     >
       <div className="w-full sm:w-96 h-full overflow-hidden ">
