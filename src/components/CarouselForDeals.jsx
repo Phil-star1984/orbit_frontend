@@ -1,11 +1,19 @@
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 
-export default function CarouselForDeals({url1, url2, url3, url4, url5, url6} ) {
+export default function CarouselForDeals({videoUrl, url1, url2, url3, url4, url5, url6} ) {
 
 
 
   return (
     <Carousel className="xl h-[30rem]">
+       <div className='relative h-full w-full'>
+        <video
+          src={videoUrl}
+          className='w-full h-full object-cover'
+          controls
+          muted
+        />
+      </div>
       <div className="relative h-full w-full">
         <img
           src={`${url1}`}
