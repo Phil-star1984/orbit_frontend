@@ -26,6 +26,10 @@ function GamePage() {
   // const [rated, setRated] = React.useState(detailsGameData);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const getData = async () => {
       try {
         const response = await api.get(`/games/${id}?&key=${key}`);
@@ -116,7 +120,9 @@ function GamePage() {
       <div className="bg-white py-10 sm:py-1">
         <div className="mx-auto max-w-6xl  px-6 lg:px-8">
           {/* description */}
-
+          <h1 className="text-3xl font-bold tracking-tight text-pink mt-10 ml-10">
+                {foundGameData.name}
+              </h1>
           <div className="mx-auto mt-16 mb-10 max-w-2xl rounded-3xl ring-1 ring-white sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
             <div className="p-8 sm:p-10 lg:flex-auto">
               <h3 className="text-2xl font-bold tracking-tight text-lila">
