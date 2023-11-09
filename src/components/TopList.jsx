@@ -5,14 +5,16 @@ import axios from "axios";
 import TopListItem from "./TopListItem";
 import calcArbitraryPrice from "../../utility/calcArbetraryPrice.jsx";
 
+
 const TopList = ({ listTitle, handleAddToCart, page }) => {
   const [games, setGames] = useState([]);
+  const key = import.meta.env.VITE_KEY;
 
   useEffect(() => {
     const getGames = async () => {
       try {
         const response = await axios.get(
-          `https://api.rawg.io/api/games?key=755aba9822904ac58feb741a9e826aab&page_size=10&page=${page}`
+          `https://api.rawg.io/api/games?key=${key}&page_size=10&page=${page}`
         );
 
         const fetchedGames = response.data.results;
