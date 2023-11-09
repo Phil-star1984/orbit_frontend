@@ -318,7 +318,6 @@ function GamePage() {
                 <video
                   className="w-120 h-60 justify-center rounded-lg mx-auto md:text-center"
                   controls
-                  autoPlay
                   muted
                 >
                   <source
